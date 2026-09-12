@@ -1,0 +1,1077 @@
+{
+ "_info": "Contenu exact des posts du forum #mods (serveur Discord BahBeuh), état au 2026-09-12. thread = ID du post = ID de son premier message (pour edit_message). poll = ID du message sondage (get_poll_results / end_poll). Sondages créés le 2026-09-12, 768 h → fin auto ~2026-10-14. Les votes se relisent TOUJOURS en direct, jamais ici.",
+ "forum": "1548117074763587684",
+ "info_post": {
+  "title": "Mods côté joueurs (pas de vote)",
+  "tags": [
+   "Info"
+  ],
+  "thread": "1548124750650417264",
+  "content": "Dans le modpack mais pas au vote : chacun les active ou les coupe chez lui (menu Mods ou options).\n\n**FPS** : Sodium, Sodium Extra, Reese's Sodium Options, Entity Culling, More Culling, ImmediatelyFast, Dynamic FPS, FerriteCore, ModernFix, Bobby\n**Graphismes** : Iris (shaders, je conseille Complementary Reimagined), Continuity, LambDynamicLights, Fresh Animations, Falling Leaves, Particle Rain, Subtle Effects, Wavey Capes\n**Sons** : AmbientSounds, Sound Physics Remastered, Presence Footsteps\n**Interface** : minimap et carte Xaero's, Jade, EMI, AppleSkin, Mod Menu, Zoomify, Traveler's Titles, Enchantment Descriptions, Better Advancements, Advancement Plaques, Pick Up Notifier, Status Effect Bars, BetterF3, Chat Heads, Controlling, Mouse Tweaks\n**Animations** : Not Enough Animations, First-person Model, Do a Barrel Roll\n\nÇa rame ? Coupe les shaders, puis Fresh Animations, puis baisse Sound Physics."
+ },
+ "posts": [
+  {
+   "title": "Terralith + Tectonic",
+   "tags": [
+    "Monde"
+   ],
+   "slugs": [
+    "terralith",
+    "tectonic"
+   ],
+   "thread": "1548121634882330757",
+   "poll": "1548122320336584895",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "OJoV7hlA9ic",
+   "video_title": "Breathtaking View in Minecraft | Terralith+Tectonic World Gen | No Commentary Gameplay — Dwarton",
+   "content": "~100 nouveaux biomes (que des blocs vanilla) + un relief de fou : vraies chaînes de montagnes, falaises, vallées, rivières souterraines.\nCôté serveur seulement, rien à installer. Si ça rame : baisse la distance de rendu.\n<https://modrinth.com/mod/terralith> · <https://modrinth.com/mod/tectonic> · ▶️ [Vidéo](https://youtu.be/OJoV7hlA9ic)\n🖼️ [1](https://cdn.modrinth.com/data/lWDHr9jE/images/e312ff19967d89e3fd79f2d5b78270a44fb9f216.png) · [2](https://cdn.modrinth.com/data/lWDHr9jE/images/0e2d3bd5969fb17a3ec459e7717a860fce16fb37.png) · [3](https://cdn.modrinth.com/data/8oi3bsk5/images/e66c54081b2abbdeb6dfdb0bde26123f8641176c.jpeg)"
+  },
+  {
+   "title": "Lootr",
+   "tags": [
+    "Gameplay"
+   ],
+   "slugs": [
+    "lootr"
+   ],
+   "thread": "1548121647587008572",
+   "poll": "1548122326900539396",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "hxSQWAaD8rk",
+   "video_title": "1.16 Lootr - Bit-By-Bit- Instanced loot! — Mischief of Mice",
+   "content": "Chaque joueur a son propre butin dans les coffres de structures : plus de course pour piller en premier, plus de coffre déjà vidé par un pote. Le coffre devient bleu quand tu l'as déjà ouvert.\nDans le modpack, aucun impact sur les FPS.\n<https://modrinth.com/mod/lootr> · ▶️ [Vidéo](https://youtu.be/hxSQWAaD8rk)\n🖼️ [1](https://cdn.modrinth.com/data/EltpO5cN/images/8f47f895d5a50480c6cdf8371c622c7df05c265b.png) · [2](https://cdn.modrinth.com/data/EltpO5cN/images/2a3ab3733cbbd65be094afe6d750c3895a043e4f.png)"
+  },
+  {
+   "title": "Incendium",
+   "tags": [
+    "Monde"
+   ],
+   "slugs": [
+    "incendium"
+   ],
+   "thread": "1548124805847318548",
+   "poll": "1548127202657443851",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "CUYM1DHmPT8",
+   "video_title": "Incendium Mod Showcase! (1.21 and Other Versions) Minecraft Forge and Fabric — Jayfrey",
+   "content": "Refonte complète du Nether : nouveaux biomes, grosses structures (château, forteresses…), mobs et butin uniques.\nCôté serveur seulement.\n<https://modrinth.com/mod/incendium> · ▶️ [Vidéo](https://youtu.be/CUYM1DHmPT8)\n🖼️ [1](https://user-images.githubusercontent.com/63272345/224804955-2c8a39b1-d015-462b-a28c-dde27f747c90.png)"
+  },
+  {
+   "title": "Nullscape",
+   "tags": [
+    "Monde"
+   ],
+   "slugs": [
+    "nullscape"
+   ],
+   "thread": "1548124819063705620",
+   "poll": "1548127209041166418",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "vCZ62WfZdw4",
+   "video_title": "Exploring the NULLSCAPE! (Cinematic Showcase) — Bandit Helps - Gaming",
+   "content": "L'End refait : îles de toutes les formes, arches, grands vides, terrain bien plus haut. L'île du dragon reste là.\nCôté serveur seulement.\n<https://modrinth.com/mod/nullscape> · ▶️ [Vidéo](https://youtu.be/vCZ62WfZdw4)\n🖼️ [1](https://user-images.githubusercontent.com/63272345/224808975-6d3866c1-a968-4fa1-a1c1-6d9318e42ed9.png)"
+  },
+  {
+   "title": "Les 9 YUNG's (un seul vote)",
+   "tags": [
+    "Structures"
+   ],
+   "slugs": [
+    "yungs-better-dungeons",
+    "yungs-better-mineshafts",
+    "yungs-better-strongholds",
+    "yungs-better-ocean-monuments",
+    "yungs-better-nether-fortresses",
+    "yungs-better-desert-temples",
+    "yungs-better-jungle-temples",
+    "yungs-better-witch-huts",
+    "yungs-better-end-island"
+   ],
+   "thread": "1548124848629227550",
+   "poll": "1548127216812949616",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "D3LW5j7DAdE",
+   "video_title": "YUNG's Better End Island (Official Trailer) — YUNGNICKYOUNG",
+   "content": "Refait toutes les structures vanilla, en restant dans le style du jeu : donjons, mines, strongholds, monuments océaniques, forteresses du Nether, temples, cabanes de sorcière, et l'île du dragon avec un combat revu.\nCôté serveur seulement.\n[Donjons](<https://modrinth.com/mod/yungs-better-dungeons>) · [Mines](<https://modrinth.com/mod/yungs-better-mineshafts>) · [Strongholds](<https://modrinth.com/mod/yungs-better-strongholds>) · [Monuments](<https://modrinth.com/mod/yungs-better-ocean-monuments>) · [Forteresses](<https://modrinth.com/mod/yungs-better-nether-fortresses>) · [Temples du désert](<https://modrinth.com/mod/yungs-better-desert-temples>) · [Temples de la jungle](<https://modrinth.com/mod/yungs-better-jungle-temples>) · [Cabanes de sorcière](<https://modrinth.com/mod/yungs-better-witch-huts>) · [Île de l'End](<https://modrinth.com/mod/yungs-better-end-island>) · ▶️ [Vidéo](https://youtu.be/D3LW5j7DAdE)\n🖼️ [1](https://cdn.modrinth.com/data/o1C1Dkj5/images/430a7b3df92615ef65e3e4d948f47d30c08a301d.png) · [2](https://cdn.modrinth.com/data/kidLKymU/images/dea5e5a5f1422dfa68a90c35e873fe988782552d.png) · [3](https://cdn.modrinth.com/data/2BwBOmBQ/images/c94d0f0141791cf524d74dfe3cbafc738a5e636a.png)"
+  },
+  {
+   "title": "Towns and Towers",
+   "tags": [
+    "Structures"
+   ],
+   "slugs": [
+    "towns-and-towers"
+   ],
+   "thread": "1548124869038833714",
+   "poll": "1548127223670644738",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "EDwOeawAKRs",
+   "video_title": "Explore 50+ New Structures in Towns and Towers Mod (1.18.2–1.21.5) — HenriU Plays Minecraft",
+   "content": "Des villages et des avant-postes pillards différents selon le biome.\nCôté serveur seulement.\n<https://modrinth.com/mod/towns-and-towers> · ▶️ [Vidéo](https://youtu.be/EDwOeawAKRs)\n🖼️ [1](https://cdn.modrinth.com/data/DjLobEOy/images/91fcfc4c2801a77d0c699952f8e5eaf8eabce7bb.png) · [2](https://cdn.modrinth.com/data/DjLobEOy/images/9a341d1d8a31f83181024935142f45b65c320cf3.png) · [3](https://cdn.modrinth.com/data/DjLobEOy/images/9f9e675b10371f37e9c46670291d91e9855cd741.png)"
+  },
+  {
+   "title": "Dungeons and Taverns",
+   "tags": [
+    "Structures"
+   ],
+   "slugs": [
+    "dungeons-and-taverns"
+   ],
+   "thread": "1548124885887483984",
+   "poll": "1548127230905950288",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "wQhgovEzBkQ",
+   "video_title": "discovering treasure in new minecraft structures (dungeons and taverns mod) — wattles",
+   "content": "Structures style vanilla : tavernes où commercer, repaires de monstres, donjons, avec quelques enchantements rares à trouver.\nCôté serveur seulement.\n<https://modrinth.com/mod/dungeons-and-taverns> · ▶️ [Vidéo](https://youtu.be/wQhgovEzBkQ)\n🖼️ [1](https://cdn.modrinth.com/data/tpehi7ww/images/93dc2790ee15a172f5e7a9100790dedde9ea6b35.webp) · [2](https://cdn.modrinth.com/data/tpehi7ww/images/f33b18104a9a692002a71506f567d3c19704f661.png) · [3](https://cdn.modrinth.com/data/tpehi7ww/images/048b4a06f670fb68af5071cc20a957e2ad06dc55.png)"
+  },
+  {
+   "title": "Explorify",
+   "tags": [
+    "Structures"
+   ],
+   "slugs": [
+    "explorify"
+   ],
+   "thread": "1548124907454595203",
+   "poll": "1548127236966842390",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "PiHpXRg9rW8",
+   "video_title": "*NEW* Explorify Dungeons & Structures Mod - Minecraft 1.21.1 (Mod Showcase) — UltraUnit17",
+   "content": "Des dizaines de petites structures en plus : ruines, campements, cryptes, tours de guet… De quoi tomber sur un truc en explorant.\nCôté serveur seulement.\n<https://modrinth.com/mod/explorify> · ▶️ [Vidéo](https://youtu.be/PiHpXRg9rW8)\n🖼️ [1](https://cdn.modrinth.com/data/HSfsxuTo/images/3a5a0c5544eed18441b3283cce81edb81b24fcdf.jpeg) · [2](https://cdn.modrinth.com/data/HSfsxuTo/images/e803f27353f096a399acf8a2c416470e4f08e423.jpeg) · [3](https://cdn.modrinth.com/data/HSfsxuTo/images/9108df9c7ec33b473c983eeea131c9a810b51f9a.jpeg)"
+  },
+  {
+   "title": "MVS – Moog's Voyager Structures",
+   "tags": [
+    "Structures"
+   ],
+   "slugs": [
+    "moogs-voyager-structures"
+   ],
+   "thread": "1548124926173782049",
+   "poll": "1548127243740651571",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "C6Mzy-1a7Ys",
+   "video_title": "Structure Addon/mod, 100+ structures: Moogs Voyager Structures Official Trailer — FinnDog",
+   "content": "Plein de structures variées un peu partout (ruines, maisons, temples, épaves…), style vanilla.\nCôté serveur seulement.\n<https://modrinth.com/mod/moogs-voyager-structures> · ▶️ [Vidéo](https://youtu.be/C6Mzy-1a7Ys)\n🖼️ [1](https://cdn.modrinth.com/data/OQAgZMH1/images/c5629932efc1ea1c7e95c30965a651aba1479918.png) · [2](https://cdn.modrinth.com/data/OQAgZMH1/images/d34c02bc23077e0db0030e3233b3f9fc745648b0.png) · [3](https://cdn.modrinth.com/data/OQAgZMH1/images/3317523c3d3a88b7561dfd191075df5a5bc592af.png)"
+  },
+  {
+   "title": "Overhauled Village",
+   "tags": [
+    "Structures"
+   ],
+   "slugs": [
+    "ct-overhaul-village"
+   ],
+   "thread": "1548124944301293681",
+   "poll": "1548127250728099855",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "I2t83hofRV8",
+   "video_title": "Minecraft: Mod Showcase - ChoiceTheorem's Overhauled Village — PheonixTechG",
+   "content": "Un style de village par biome, toujours avec les villageois vanilla. Fait un peu doublon avec Towns and Towers, on verra en jeu si les deux cohabitent bien.\nCôté serveur seulement.\n<https://modrinth.com/mod/ct-overhaul-village> · ▶️ [Vidéo](https://youtu.be/I2t83hofRV8)\n🖼️ [1](https://cdn.modrinth.com/data/fgmhI8kH/images/15d7bf1aa1b7174fde4a5dac2ed81d4b8adb4b06.png) · [2](https://cdn.modrinth.com/data/fgmhI8kH/images/576fb3e920f242512932434a51cba40b14da2750.png)"
+  },
+  {
+   "title": "When Dungeons Arise",
+   "tags": [
+    "Structures"
+   ],
+   "slugs": [
+    "when-dungeons-arise"
+   ],
+   "thread": "1548124963460878397",
+   "poll": "1548127258894536832",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "wjBHOPOYdWU",
+   "video_title": "*NEW* When Dungeons Arise Mod - Minecraft 1.21.1 (Mod Showcase) — UltraUnit17",
+   "content": "De rares donjons géants (château volant, galion, cathédrale…) remplis de mobs et de butin. Gros défi à plusieurs.\nCôté serveur seulement.\n<https://modrinth.com/mod/when-dungeons-arise> · ▶️ [Vidéo](https://youtu.be/wjBHOPOYdWU)\n🖼️ [1](https://cdn.modrinth.com/data/8DfbfASn/images/135241bb799f37bc0c8c3fcce89e301d8481700c.png) · [2](https://cdn.modrinth.com/data/8DfbfASn/images/4b0f2db6ccbc181fad6ade3e1d4bff043dc7807e.png) · [3](https://cdn.modrinth.com/data/8DfbfASn/images/7f144957798934dd9b538cadf13fd91ce9da660a.png)"
+  },
+  {
+   "title": "Structory + Structory: Towers",
+   "tags": [
+    "Structures"
+   ],
+   "slugs": [
+    "structory",
+    "structory-towers"
+   ],
+   "thread": "1548124986009583696",
+   "poll": "1548127276321865879",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "Oa-sLWAAqcI",
+   "video_title": "Structory Mod Minecraft - Amazing New Structures! - 1.21+ Forge and Fabric — Jayfrey",
+   "content": "Des ruines, petites structures et tours style vanilla qui se fondent dans le décor (mêmes auteurs que Terralith).\nCôté serveur seulement.\n[Structory](<https://modrinth.com/mod/structory>) · [Towers](<https://modrinth.com/mod/structory-towers>) · ▶️ [Vidéo](https://youtu.be/Oa-sLWAAqcI)\n🖼️ [1](https://cdn.modrinth.com/data/aKCwCJlY/images/45b042b8b47a8884b54c5ae7a35b17773cbe44d8.jpeg) · [2](https://cdn.modrinth.com/data/j3FONRYr/images/b4f8eb693c6679fa4dc075028fff5b3b19c5fdb8.png) · [3](https://cdn.modrinth.com/data/aKCwCJlY/images/009e986b0e796b249ce8ad7d894c4271af32d901.jpeg)"
+  },
+  {
+   "title": "Tidal Towns",
+   "tags": [
+    "Structures"
+   ],
+   "slugs": [
+    "tidal-towns"
+   ],
+   "thread": "1548125000706560012",
+   "poll": "1548127282852405370",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "V0Q-sWyYOgc",
+   "video_title": "I added Ocean Villages to Minecraft - Tidal Towns Mod — joshieman",
+   "content": "Des villages construits sur l'océan.\nCôté serveur seulement.\n<https://modrinth.com/mod/tidal-towns> · ▶️ [Vidéo](https://youtu.be/V0Q-sWyYOgc)\n🖼️ [1](https://cdn.modrinth.com/data/EEIwvQVo/images/cfbe0bd9cbc19c76c58395d95f2f8ff09e5635c5.png) · [2](https://cdn.modrinth.com/data/EEIwvQVo/images/02decac6298696a3d7f86f5213cf3c20557db99e.png)"
+  },
+  {
+   "title": "Bosses of Mass Destruction",
+   "tags": [
+    "Boss & aventure"
+   ],
+   "slugs": [
+    "bosses-of-mass-destruction"
+   ],
+   "thread": "1548125012035108877",
+   "poll": "1548127289424875521",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "_vVuDNpX38Q",
+   "video_title": "Bosses of Mass Destruction (Minecraft Mod Showcase) 1.21.1 - 1.18.2 — Mr Sheep TV",
+   "content": "4 boss avec leurs attaques et leur butin : Night Lich (biomes froids), Obsidilith (End), Gauntlet (Nether), Void Blossom (tout en bas du monde).\nDans le modpack.\n<https://modrinth.com/mod/bosses-of-mass-destruction> · ▶️ [Vidéo](https://youtu.be/_vVuDNpX38Q)"
+  },
+  {
+   "title": "The Aether",
+   "tags": [
+    "Boss & aventure"
+   ],
+   "slugs": [
+    "aether"
+   ],
+   "thread": "1548125031920570408",
+   "poll": "1548127295548432445",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "yK7I_mlCfcs",
+   "video_title": "Minecraft | AETHER MOD 1.21+ (New Bosses, Tools, Dimensions and MORE !!) | Mod Showcase — NicholasStuff",
+   "content": "Une dimension dans le ciel : îles flottantes, 3 donjons avec boss, nouveaux mobs et équipement. Le mod culte, refait pour les versions récentes.\nDans le modpack.\n<https://modrinth.com/mod/aether> · ▶️ [Vidéo](https://youtu.be/yK7I_mlCfcs)\n🖼️ [1](https://cdn.modrinth.com/data/YhmgMVyu/images/b90e1551472514086f895aedd9af175b68ad12fc.png) · [2](https://cdn.modrinth.com/data/YhmgMVyu/images/f9f4856e57d6248290bf64c972db46c1741efdb1.png) · [3](https://cdn.modrinth.com/data/YhmgMVyu/images/451b008c8db9f8c3a4aaa3f2963a38121102d77c.png)"
+  },
+  {
+   "title": "Aquamirae",
+   "tags": [
+    "Boss & aventure"
+   ],
+   "slugs": [
+    "aquamirae"
+   ],
+   "thread": "1548125053500260494",
+   "poll": "1548127303564005437",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "l2P5w9AkEiQ",
+   "video_title": "Aquamirae (1.20.1) | (Full Showcase) — Noxus",
+   "content": "Un océan glacé avec un navire fantôme, des mobs marins flippants et des boss.\nDans le modpack.\n<https://modrinth.com/mod/aquamirae> · ▶️ [Vidéo](https://youtu.be/l2P5w9AkEiQ)\n🖼️ [1](https://cdn.modrinth.com/data/k23mNPhZ/images/28676dc18ec5f5acaabcd64c3886a45d30b50607.jpeg) · [2](https://cdn.modrinth.com/data/k23mNPhZ/images/e144fc02877a08a5b604948429d5e418ceab6f64.webp) · [3](https://cdn.modrinth.com/data/k23mNPhZ/images/009e95663317b2feede60b022947d0fa21f9e249.jpeg)"
+  },
+  {
+   "title": "Deeper and Darker",
+   "tags": [
+    "Boss & aventure"
+   ],
+   "slugs": [
+    "deeperdarker"
+   ],
+   "thread": "1548125072722501752",
+   "poll": "1548127310358642689",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "KZQcFSvNb4c",
+   "video_title": "Deeper and Darker (1.20.1) | (Full Showcase) — Noxus",
+   "content": "Prolonge les Anciennes Cités du Warden : derrière leur portail, une nouvelle dimension sombre avec ses mobs et son butin.\nDans le modpack.\n<https://modrinth.com/mod/deeperdarker> · ▶️ [Vidéo](https://youtu.be/KZQcFSvNb4c)\n🖼️ [1](https://cdn.modrinth.com/data/fnAffV0n/images/a58f60e100af07e60de0e5976d28794bbddc472e.png) · [2](https://cdn.modrinth.com/data/fnAffV0n/images/bb5803cc37b02c11c9f9735977ae338f94e84493.png) · [3](https://cdn.modrinth.com/data/fnAffV0n/images/1de71fa25290d1ab1a12c1c43aabed0b15821001.png)"
+  },
+  {
+   "title": "Friends&Foes",
+   "tags": [
+    "Mobs"
+   ],
+   "slugs": [
+    "friends-and-foes"
+   ],
+   "thread": "1548125093433974785",
+   "poll": "1548127317342298203",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "rI20RGb8Lxs",
+   "video_title": "Minecraft Mod Showcase: Friends&Foes UPDATED! — BiglyShronk",
+   "content": "Les mobs des votes Mojang jamais ajoutés : golem de cuivre, crabe, glare, moobloom, rascal, iceologer, wildfire… On peut désactiver ceux qu'on n'aime pas.\nDans le modpack.\n<https://modrinth.com/mod/friends-and-foes> · ▶️ [Vidéo](https://youtu.be/rI20RGb8Lxs)\n🖼️ [1](https://cdn.modrinth.com/data/POQ2i9zu/images/e82a9ac0080130093b637ebcf6d754c684103eb0.webp) · [2](https://cdn.modrinth.com/data/POQ2i9zu/images/ac3ed2d429a4b300c0f7892f88ce7e5b141e95f3.webp) · [3](https://cdn.modrinth.com/data/POQ2i9zu/images/abe4e1b7e600dd637e1155c8e0c97b64ff18ffe1.webp)"
+  },
+  {
+   "title": "Illager Invasion",
+   "tags": [
+    "Mobs"
+   ],
+   "slugs": [
+    "illager-invasion"
+   ],
+   "thread": "1548125106528591952",
+   "poll": "1548127327530000525",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "mXzKedYZCpY",
+   "video_title": "Illager Invasion Mod for Minecraft : New Illagers, Items & Structures! — HenriU Plays Minecraft",
+   "content": "Une dizaine de nouveaux illagers, un fort, une tour, un labyrinthe, et une table pour booster ses enchantements.\nDans le modpack.\n<https://modrinth.com/mod/illager-invasion> · ▶️ [Vidéo](https://youtu.be/mXzKedYZCpY)\n🖼️ [1](https://cdn.modrinth.com/data/jSV9w0J5/images/94f1d8fac334d28fc9667c16c8fd03471d8adfaa.png)"
+  },
+  {
+   "title": "Naturalist",
+   "tags": [
+    "Mobs",
+    "Hésitations"
+   ],
+   "slugs": [
+    "naturalist"
+   ],
+   "thread": "1548125125054824448",
+   "poll": "1548127334815768597",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "KqAo7m6actk",
+   "video_title": "Naturalist Mod Full Showcase (Forge & Fabric)!! — Silent Price",
+   "content": "Des animaux style vanilla : cerfs, ours, serpents, papillons, oiseaux…\nDans le modpack. J'hésite, à vous de voir.\n<https://modrinth.com/mod/naturalist> · ▶️ [Vidéo](https://youtu.be/KqAo7m6actk)\n🖼️ [1](https://cdn.modrinth.com/data/F8BQNPWX/images/cf6ae5da73f8f9f28b6c677705936b4fa67c6dbc.png) · [2](https://cdn.modrinth.com/data/F8BQNPWX/images/1a899f97042f063676187b8eaf16b04c04622559.png) · [3](https://cdn.modrinth.com/data/F8BQNPWX/images/5c215c1b8986549b574c061407b1e412cf27292d.png)"
+  },
+  {
+   "title": "Critters and Companions",
+   "tags": [
+    "Mobs",
+    "Hésitations"
+   ],
+   "slugs": [
+    "critters-and-companions"
+   ],
+   "thread": "1548125150245949480",
+   "poll": "1548127341556015170",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "hvmnx7L8QYg",
+   "video_title": "Critters and Companions trailer — Bonsai Studios",
+   "content": "Des petits animaux : loutres, pandas roux, koïs, libellules…\nDans le modpack. J'hésite, à vous de voir.\n<https://modrinth.com/mod/critters-and-companions> · ▶️ [Vidéo](https://youtu.be/hvmnx7L8QYg)\n🖼️ [1](https://cdn.modrinth.com/data/Yd4wb5wZ/images/d3eae84095b1b9548dcfba71887fb2ae170a9b01.png) · [2](https://cdn.modrinth.com/data/Yd4wb5wZ/images/1629b3c40590a53d4e25195ba644e8d5408f131f.png) · [3](https://cdn.modrinth.com/data/Yd4wb5wZ/images/4b01e852c1d99a785133083d71345234f3295922.png)"
+  },
+  {
+   "title": "Hardcore Revival",
+   "tags": [
+    "Gameplay"
+   ],
+   "slugs": [
+    "hardcore-revival"
+   ],
+   "thread": "1548125158357868605",
+   "poll": "1548127349072076842",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "89Si-1bRV7I",
+   "video_title": "Hardcore Revival?! - Modz — Zeranax",
+   "content": "Au lieu de mourir, tu tombes KO : les autres ont un temps limité pour venir te relever.\nDans le modpack.\n<https://modrinth.com/mod/hardcore-revival> · ▶️ [Vidéo](https://youtu.be/89Si-1bRV7I)\n🖼️ [1](https://cdn.modrinth.com/data/HqKoXaXz/images/acc41a08e6f9794037f4900316dc8582a124f615.png)"
+  },
+  {
+   "title": "Bountiful",
+   "tags": [
+    "Gameplay"
+   ],
+   "slugs": [
+    "bountiful"
+   ],
+   "thread": "1548125179027259532",
+   "poll": "1548127356106055791",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "aUE3llI1x5Q",
+   "video_title": "Minecraft Mod Reviews 2.0 (Revived) #118 - Bountiful — CeenCrazyGaming",
+   "content": "Des tableaux de primes dans les villages : des missions (ramener tel objet, tuer tel mob) contre des récompenses.\nDans le modpack.\n<https://modrinth.com/mod/bountiful> · ▶️ [Vidéo](https://youtu.be/aUE3llI1x5Q)\n🖼️ [1](https://cdn.modrinth.com/data/BpwWFOVM/images/f8a1ba317e326ebac2f450070ee2662c0fb8a841.png) · [2](https://cdn.modrinth.com/data/BpwWFOVM/images/308f4086f9931dac96bcc4a6ad3b5dcfc8d62c8f.png) · [3](https://cdn.modrinth.com/data/BpwWFOVM/images/596a7df97ff452b296f50fb9a4a0f507622de6bc.png)"
+  },
+  {
+   "title": "Enhanced Celestials",
+   "tags": [
+    "Gameplay"
+   ],
+   "slugs": [
+    "enhanced-celestials"
+   ],
+   "thread": "1548125195728851034",
+   "poll": "1548127363387367447",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "3z0yyqONWS4",
+   "video_title": "Enhanced Celestials : Des événements lunaires dans Minecraft ! — Wink'",
+   "content": "Des événements lunaires : lune de sang (beaucoup plus de monstres), lune des moissons, lune bleue…\nDans le modpack.\n<https://modrinth.com/mod/enhanced-celestials> · ▶️ [Vidéo](https://youtu.be/3z0yyqONWS4)\n🖼️ [1](https://media.forgecdn.net/attachments/description/438447/description_6b5139da-cb17-45e1-b909-b05a8e5aa823.png) · [2](https://media.forgecdn.net/attachments/description/438447/description_23b05f3e-4687-40db-9422-ab3b2a1dc2ec.png)"
+  },
+  {
+   "title": "Tide 2",
+   "tags": [
+    "Gameplay"
+   ],
+   "slugs": [
+    "tide"
+   ],
+   "thread": "1548125214213279874",
+   "poll": "1548127370131537921",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "cMALFU6LKMs",
+   "video_title": "Minecraft | TIDE 2 MOD 1.21+ (New Tools, Fishing, Treasure and MORE !!) | Mod Showcase — NicholasStuff",
+   "content": "Refonte de la pêche : des poissons différents selon le biome, la pêche dans la lave, et un carnet pour tout collectionner.\nDans le modpack.\n<https://modrinth.com/mod/tide> · ▶️ [Vidéo](https://youtu.be/cMALFU6LKMs)\n🖼️ [1](https://cdn.modrinth.com/data/die1AF7i/images/8a79fc90ce2ddd3741d042b4c0c1186cede4ff7a.png) · [2](https://cdn.modrinth.com/data/die1AF7i/images/b40611fffc6d400fb8f06c55959db1589eae7c40.png) · [3](https://cdn.modrinth.com/data/die1AF7i/images/e74e830647aa9bcd01b04545f4a463b1b36798ea.png)"
+  },
+  {
+   "title": "Waystones",
+   "tags": [
+    "Gameplay"
+   ],
+   "slugs": [
+    "waystones"
+   ],
+   "thread": "1548125233796485182",
+   "poll": "1548127376658014219",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "mI3aV8OKaWQ",
+   "video_title": "Waystones - Minecraft Mod Showcase — KrzairHD",
+   "content": "Des pierres de téléportation, à trouver dans les villages ou à fabriquer : tu te téléportes de l'une à l'autre.\nDans le modpack.\n<https://modrinth.com/mod/waystones> · ▶️ [Vidéo](https://youtu.be/mI3aV8OKaWQ)\n🖼️ [1](https://cdn.modrinth.com/data/LOpKHB2A/images/6f91f54ef37b6b19c06685231d81f03d28601e6d.png) · [2](https://cdn.modrinth.com/data/LOpKHB2A/images/2658f69c8c7a588698a1afa30c8dd80329096b4d.png) · [3](https://cdn.modrinth.com/data/LOpKHB2A/images/92710408f5a5af74912862a94e7fc30166f191ea.png)"
+  },
+  {
+   "title": "Nature's Compass + Explorer's Compass",
+   "tags": [
+    "Gameplay"
+   ],
+   "slugs": [
+    "natures-compass",
+    "explorers-compass"
+   ],
+   "thread": "1548125256387010650",
+   "poll": "1548127383809298474",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "XWcC7baHp24",
+   "video_title": "NATURE'S And EXPLORER'S COMPASS MOD | Mod Showcase — KeyDevy",
+   "content": "Deux boussoles : une trouve le biome de ton choix, l'autre la structure de ton choix.\nDans le modpack.\n[Nature's](<https://modrinth.com/mod/natures-compass>) · [Explorer's](<https://modrinth.com/mod/explorers-compass>) · ▶️ [Vidéo](https://youtu.be/XWcC7baHp24)\n🖼️ [1](https://cdn.modrinth.com/data/fPetb5Kh/images/3d06c58f2212b8cdd59d4717f642ae2a6272ac0b.jpeg) · [2](https://cdn.modrinth.com/data/RV1qfVQ8/images/dfee69ce5ee069929c0fd4f082e94a3fc4c125a5.png) · [3](https://cdn.modrinth.com/data/fPetb5Kh/images/70122d266aaf4bd17bda6326187c962e910d938f.png)"
+  },
+  {
+   "title": "Universal Graves",
+   "tags": [
+    "Gameplay"
+   ],
+   "slugs": [
+    "universal-graves"
+   ],
+   "thread": "1548125274036641953",
+   "poll": "1548127391258255443",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "2ECHR44Gi9M",
+   "video_title": "Never Lose Your Items Again / Universal Graves Mod for Minecraft — SonjQ",
+   "content": "Quand tu meurs, une tombe garde ton stuff au lieu de le laisser par terre.\nCôté serveur seulement.\n<https://modrinth.com/mod/universal-graves> · ▶️ [Vidéo](https://youtu.be/2ECHR44Gi9M)\n🖼️ [1](https://cdn.modrinth.com/data/yn9u3ypm/images/a13a64acc9ba5b5166993728a193fa9e1afeda95.png) · [2](https://cdn.modrinth.com/data/yn9u3ypm/images/062065210aa74f8709d0ef54df008b408efbb36e.png) · [3](https://cdn.modrinth.com/data/yn9u3ypm/images/23fca6f488cd72281e2185086eb57819b3ce2073.png)"
+  },
+  {
+   "title": "FallingTree",
+   "tags": [
+    "Gameplay"
+   ],
+   "slugs": [
+    "fallingtree"
+   ],
+   "thread": "1548125286045065216",
+   "poll": "1548127398770253835",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "kW0xOhRkTVU",
+   "video_title": "INSTANT Tree Cutting! | FallingTree Mod | Minecraft 1.21.5+ Java Mod Showcase — Drackiseries - Minecraft YouTuber",
+   "content": "Tu coupes la base d'un arbre, il tombe en entier.\nCôté serveur seulement.\n<https://modrinth.com/mod/fallingtree> · ▶️ [Vidéo](https://youtu.be/kW0xOhRkTVU)\n🖼️ [1](https://github.com/Rakambda/FallingTree/raw/minecraft/1.20.1/assets/demo.gif) · [2](https://github.com/Rakambda/FallingTree/raw/minecraft/1.20.1/assets/demo2.gif)"
+  },
+  {
+   "title": "Enchants Plus",
+   "tags": [
+    "Gameplay"
+   ],
+   "slugs": [
+    "enchants-plus"
+   ],
+   "thread": "1548125303971516417",
+   "poll": "1548127409742545037",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": null,
+   "video_title": null,
+   "content": "18 nouveaux enchantements et 4 malédictions, dans l'esprit vanilla.\nDans le modpack.\n<https://modrinth.com/mod/enchants-plus>\n🖼️ [1](https://cdn.modrinth.com/data/N72bKhby/images/061f84b9ede9bcfa1b9ee80b9d5a6bce4aa6ad04.png) · [2](https://cdn.modrinth.com/data/N72bKhby/images/62bda948a73824d660b1d86173f4737650a30ab3.png) · [3](https://cdn.modrinth.com/data/N72bKhby/images/ab95c2c1c82f2783a81a0095c2801ccee0643185.png)"
+  },
+  {
+   "title": "Farmer's Delight",
+   "tags": [
+    "Gameplay"
+   ],
+   "slugs": [
+    "farmers-delight-refabricated"
+   ],
+   "thread": "1548125324158705775",
+   "poll": "1548127416671543339",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "PV5g-kx_CPE",
+   "video_title": "Farmer's Delight 1.21 (Full Mod Showcase) — Eccentric Emerald",
+   "content": "De la cuisine : nouvelles cultures, marmite, planche à découper, et des dizaines de plats qui nourrissent mieux.\nDans le modpack.\n<https://modrinth.com/mod/farmers-delight-refabricated> · ▶️ [Vidéo](https://youtu.be/PV5g-kx_CPE)\n🖼️ [1](https://cdn.modrinth.com/data/7vxePowz/images/1c57e4c64a97a8eb13bc05a916cc607e2ff65658.png) · [2](https://cdn.modrinth.com/data/7vxePowz/images/31865e0e2f25a45332b924de79746c30ae080cf7.png) · [3](https://cdn.modrinth.com/data/7vxePowz/images/4ded9bbee99a84febfd2c1b1ccd5bfb6358a4342.png)"
+  },
+  {
+   "title": "Traveler's Backpack",
+   "tags": [
+    "Gameplay"
+   ],
+   "slugs": [
+    "travelersbackpack"
+   ],
+   "thread": "1548125344077320194",
+   "poll": "1548127422908604419",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "KqDNfqOIfW4",
+   "video_title": "Minecraft: TRAVELER'S BACKPACK MOD | Minecraft Mods Showcase 1.21+ — KeyDevy",
+   "content": "Des sacs à dos à porter sur le dos, avec réservoirs pour les liquides. Compatibles avec les tombes.\nDans le modpack.\n<https://modrinth.com/mod/travelersbackpack> · ▶️ [Vidéo](https://youtu.be/KqDNfqOIfW4)\n🖼️ [1](https://cdn.modrinth.com/data/rlloIFEV/images/c291bd542dbe6a6f50da3b1addf6182122249099.png) · [2](https://cdn.modrinth.com/data/rlloIFEV/images/93e392f1168dce6b577059a5a869950833d5ca6e.png) · [3](https://cdn.modrinth.com/data/rlloIFEV/images/dfdd65a9129c9bc87a9fc5635488b57e325ac2cb.png)"
+  },
+  {
+   "title": "Petits conforts (un seul vote)",
+   "tags": [
+    "Gameplay"
+   ],
+   "slugs": [
+    "easy-anvils",
+    "easy-magic",
+    "grind-enchantments",
+    "trade-cycling",
+    "better-than-mending",
+    "rightclickharvest"
+   ],
+   "thread": "1548125367909482618",
+   "poll": "1548127431423168664",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": null,
+   "video_title": null,
+   "content": "6 petits mods pratiques :\n• Enclume : plus de « Trop cher ! »\n• La table d'enchantement garde les objets, relance possible\n• La meule transfère les enchantements sur un livre\n• Relancer les offres d'un villageois\n• Shift + clic droit : réparer un objet Mending avec son XP\n• Clic droit sur une culture = récolte + replante\nDans le modpack.\n[Easy Anvils](<https://modrinth.com/mod/easy-anvils>) · [Easy Magic](<https://modrinth.com/mod/easy-magic>) · [Grind Enchantments](<https://modrinth.com/mod/grind-enchantments>) · [Trade Cycling](<https://modrinth.com/mod/trade-cycling>) · [Better Than Mending](<https://modrinth.com/mod/better-than-mending>) · [RightClickHarvest](<https://modrinth.com/mod/rightclickharvest>)\n🖼️ [1](https://github.com/JamCoreModding/right-click-harvest/blob/main/demo.gif?raw=true) · [2](https://media.giphy.com/media/AX8FajusxpjFW9wEyP/giphy.gif) · [3](https://i.imgur.com/pI3epUQ.gif)"
+  },
+  {
+   "title": "Exposure",
+   "tags": [
+    "Fun & déco"
+   ],
+   "slugs": [
+    "exposure"
+   ],
+   "thread": "1548125385147813948",
+   "poll": "1548127441346887772",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "HI9Bnjc9HYs",
+   "video_title": "This Mod Adds Photography in Minecraft! — umped",
+   "content": "Des appareils photo : tu prends des photos en jeu, tu développes la pellicule, tu imprimes, et tu les mets en cadre ou en album.\nDans le modpack.\n<https://modrinth.com/mod/exposure> · ▶️ [Vidéo](https://youtu.be/HI9Bnjc9HYs)\n🖼️ [1](https://cdn.modrinth.com/data/hB899VmG/images/594d8df997789610cdc039aeca67586880eae52f.png) · [2](https://cdn.modrinth.com/data/hB899VmG/images/a2cb33759f59ad80b4084962f805016f46e9317e.png) · [3](https://cdn.modrinth.com/data/hB899VmG/images/0246c38c23b0d357c70278a2101b96d2ad0d30d4.png)"
+  },
+  {
+   "title": "Immersive Melodies",
+   "tags": [
+    "Fun & déco"
+   ],
+   "slugs": [
+    "immersive-melodies"
+   ],
+   "thread": "1548125402503848011",
+   "poll": "1548127447890001991",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "YW1wXcHp_nA",
+   "video_title": "Immersive Melodies — KeptenLuke",
+   "content": "Des instruments pour jouer des mélodies, même à plusieurs.\nDans le modpack.\n<https://modrinth.com/mod/immersive-melodies> · ▶️ [Vidéo](https://youtu.be/YW1wXcHp_nA)\n🖼️ [1](https://cdn.modrinth.com/data/TaSmHw8V/images/5aba0c77c1c3c37f9c02c3543719e1e9355c2a87.jpeg) · [2](https://cdn.modrinth.com/data/TaSmHw8V/images/429303fdd5ebf930741364b3919f231adf67c25d.jpeg) · [3](https://cdn.modrinth.com/data/TaSmHw8V/images/c4969decf867509035fb31c763b08b155a8a05b9.jpeg)"
+  },
+  {
+   "title": "Immersive Paintings",
+   "tags": [
+    "Fun & déco"
+   ],
+   "slugs": [
+    "immersive-paintings"
+   ],
+   "thread": "1548125419398758420",
+   "poll": "1548127454713872476",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "u2txR6YwEig",
+   "video_title": "immersive Paintings Mod Review - Import any image into your game! — The Babo Block",
+   "content": "Mettre tes propres images en tableaux dans le jeu.\nDans le modpack.\n<https://modrinth.com/mod/immersive-paintings> · ▶️ [Vidéo](https://youtu.be/u2txR6YwEig)\n🖼️ [1](https://cdn.modrinth.com/data/6txNkua3/images/5fa818ccf0f90304174bd104c47339dc595b1e5e.jpeg) · [2](https://cdn.modrinth.com/data/6txNkua3/images/6924b9a22e8cfa25d5679cc55305c5e31cddca72.jpeg) · [3](https://cdn.modrinth.com/data/6txNkua3/images/525af431eaa9127323108161f49f5d46da8f5524.jpeg)"
+  },
+  {
+   "title": "Emotecraft",
+   "tags": [
+    "Fun & déco"
+   ],
+   "slugs": [
+    "emotecraft"
+   ],
+   "thread": "1548125429661966396",
+   "poll": "1548127462116950027",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "E6Ft5zsWNJI",
+   "video_title": "Emotecraft Mod Minecraft Java (1.16.5, 1.17.1, 1.18.2, 1.19.2) — Alfa Ranger",
+   "content": "Des emotes (danses, gestes) que les autres voient.\nDans le modpack.\n<https://modrinth.com/mod/emotecraft> · ▶️ [Vidéo](https://youtu.be/E6Ft5zsWNJI)\n🖼️ [1](https://i.imgur.com/tWD40Fg.png)"
+  },
+  {
+   "title": "Supplementaries + Amendments",
+   "tags": [
+    "Fun & déco"
+   ],
+   "slugs": [
+    "supplementaries",
+    "amendments"
+   ],
+   "thread": "1548125449836564590",
+   "poll": "1548127469838663772",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "avG7OTcsJA0",
+   "video_title": "Supplementaries: Odyssey Update TRAILER — Supplementaries",
+   "content": "Plein de blocs déco et pratiques style vanilla (bocaux, panneaux, girouettes, sacs…), et Amendments améliore des blocs vanilla.\nDans le modpack.\n[Supplementaries](<https://modrinth.com/mod/supplementaries>) · [Amendments](<https://modrinth.com/mod/amendments>) · ▶️ [Vidéo](https://youtu.be/avG7OTcsJA0)\n🖼️ [1](https://cdn.modrinth.com/data/fFEIiSDQ/images/437043e1e7472a5335855e0c09961031dc487600.png) · [2](https://cdn.modrinth.com/data/6iTJugQR/images/2a580b71fb9fe392db56649311ff52cfab87eb57.png) · [3](https://cdn.modrinth.com/data/fFEIiSDQ/images/d63e441061219cf915ede06c1527d3c8fddcb0f2.png)"
+  },
+  {
+   "title": "Handcrafted",
+   "tags": [
+    "Fun & déco"
+   ],
+   "slugs": [
+    "handcrafted"
+   ],
+   "thread": "1548125468702679120",
+   "poll": "1548127477577289803",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "_vsw-xZEmvM",
+   "video_title": "Handcrafted (Minecraft Mod Showcase) | A Great Quality Decoration Mod — SirColor",
+   "content": "Des meubles style vanilla : chaises, tables, lits, étagères…\nDans le modpack.\n<https://modrinth.com/mod/handcrafted> · ▶️ [Vidéo](https://youtu.be/_vsw-xZEmvM)\n🖼️ [1](https://cdn.modrinth.com/data/pJmCFF0p/images/e0e54f71028553fbbec0d50543766d7b91c36c75.png) · [2](https://cdn.modrinth.com/data/pJmCFF0p/images/68f1437fc9e5203c1768b6473b337269fec767c4.png) · [3](https://cdn.modrinth.com/data/pJmCFF0p/images/5c27ab93854934bf4b1925ec5463d12a18d4ff1f.png)"
+  },
+  {
+   "title": "Macaw's Doors/Windows/Bridges + Dramatic Doors",
+   "tags": [
+    "Fun & déco"
+   ],
+   "slugs": [
+    "macaws-doors",
+    "macaws-windows",
+    "macaws-bridges",
+    "dramatic-doors"
+   ],
+   "thread": "1548125493851594752",
+   "poll": "1548127484342444063",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "ZS7r7pqZzYg",
+   "video_title": "Forge/Fabric Macaw's Minecraft Garage Door Mod [1.18.2/1.16.5 ] — Sketch Macaw",
+   "content": "Des dizaines de portes, fenêtres (rideaux, vitraux) et ponts style vanilla, plus des portes hautes de 3 blocs.\nDans le modpack.\n[Doors](<https://modrinth.com/mod/macaws-doors>) · [Windows](<https://modrinth.com/mod/macaws-windows>) · [Bridges](<https://modrinth.com/mod/macaws-bridges>) · [Dramatic Doors](<https://modrinth.com/mod/dramatic-doors>) · ▶️ [Vidéo](https://youtu.be/ZS7r7pqZzYg)\n🖼️ [1](https://cdn.modrinth.com/data/kNxa8z3e/images/aa69563528cde0cc276a927705bf40de40c87da4.png) · [2](https://cdn.modrinth.com/data/C7I0BCni/images/24b7ccb59d689da505d2500561b3e0136b7068e9.png) · [3](https://cdn.modrinth.com/data/GURcjz8O/images/536f7d4be5cfd15a0e6596ce75ef8b29f85d4750.png)"
+  },
+  {
+   "title": "Ribbits",
+   "tags": [
+    "Fun & déco"
+   ],
+   "slugs": [
+    "ribbits"
+   ],
+   "thread": "1548125511283249172",
+   "poll": "1548127491095269488",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "uLqABobMAHM",
+   "video_title": "Ribbits (Minecraft Mod Showcase) | New Frog Village & New Blocks/Items | Forge & Fabric 1.20.1 — SirColor",
+   "content": "Des villages de grenouilles dans les marais.\nDans le modpack.\n<https://modrinth.com/mod/ribbits> · ▶️ [Vidéo](https://youtu.be/uLqABobMAHM)\n🖼️ [1](https://cdn.modrinth.com/data/8YcE8y4T/images/4477c4033541329156272e3659b2812ca198c0af.png) · [2](https://cdn.modrinth.com/data/8YcE8y4T/images/0ac7c82c64f9a677985442fa0670140969a74973.png) · [3](https://cdn.modrinth.com/data/8YcE8y4T/images/2bf02dfe60e5bce1f5d05cee38a2235ecff79f23.webp)"
+  },
+  {
+   "title": "Better Archeology",
+   "tags": [
+    "Fun & déco"
+   ],
+   "slugs": [
+    "better-archeology"
+   ],
+   "thread": "1548125531432812564",
+   "poll": "1548127498066337813",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "2IiWwGYwBPU",
+   "video_title": "BetterArcheology | Minecraft 1.20 Mod Showcase | Structures, Adventure, Decoration, Enchantments — ruven",
+   "content": "Plus d'archéologie : de nouveaux sites de fouille, des fossiles et des objets à déterrer.\nDans le modpack.\n<https://modrinth.com/mod/better-archeology> · ▶️ [Vidéo](https://youtu.be/2IiWwGYwBPU)\n🖼️ [1](https://cdn.modrinth.com/data/zCh7omyG/images/e0514b465adbebcca66359e1e8f4129b124cf02e.png) · [2](https://cdn.modrinth.com/data/zCh7omyG/images/3424bf63dd0584b1d5cdab1d91c4af899c649afc.png) · [3](https://cdn.modrinth.com/data/zCh7omyG/images/28d8eb45e7cc0c7a38476b816039b011e72f44fc.png)"
+  },
+  {
+   "title": "Macaw's Roofs",
+   "tags": [
+    "Hésitations"
+   ],
+   "slugs": [
+    "macaws-roofs"
+   ],
+   "thread": "1548125548583190558",
+   "poll": "1548127504449933325",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "QkOnZcAbpoo",
+   "video_title": "Macaw's Minecraft Roofs Mod 2.1.0 Update (1.18.2/ 1.17.1 / 1.16.5) Forge — Sketch Macaw",
+   "content": "Des toits en pente dans toutes les essences de bois.\nDans le modpack.\n<https://modrinth.com/mod/macaws-roofs> · ▶️ [Vidéo](https://youtu.be/QkOnZcAbpoo)\n🖼️ [1](https://cdn.modrinth.com/data/B8jaH3P1/images/ccb718b8a2e815a29bc4673e84ef5c8b8081e14f.jpeg) · [2](https://cdn.modrinth.com/data/B8jaH3P1/images/7774dfaa318f1f530c43a37e1fba1573b646d824.png) · [3](https://cdn.modrinth.com/data/B8jaH3P1/images/12db13d5a19640fad386950442bb3e45b2fdb17b.jpeg)"
+  },
+  {
+   "title": "Crafting Tweaks",
+   "tags": [
+    "Hésitations"
+   ],
+   "slugs": [
+    "crafting-tweaks"
+   ],
+   "thread": "1548125573581373500",
+   "poll": "1548127521449713726",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "2riw_5_ME1g",
+   "video_title": "Enhance Your Crafting in Minecraft with Crafting Tweaks Mod — Gamever_io",
+   "content": "Des boutons sur la table de craft : répartir, vider, tourner la grille en un clic.\nDans le modpack.\n<https://modrinth.com/mod/crafting-tweaks> · ▶️ [Vidéo](https://youtu.be/2riw_5_ME1g)\n🖼️ [1](https://cdn.modrinth.com/data/DMu0oBKf/images/16bd9474a870c4c5f33eae769061da37207def2f.gif) · [2](https://cdn.modrinth.com/data/DMu0oBKf/images/1b9a2e0aa5faf54379f8c330d84006025bc2464d.gif) · [3](https://cdn.modrinth.com/data/DMu0oBKf/images/99ad1c17f71cab598889af008a9dd098f5b69192.gif)"
+  },
+  {
+   "title": "Visual Workbench",
+   "tags": [
+    "Hésitations"
+   ],
+   "slugs": [
+    "visual-workbench"
+   ],
+   "thread": "1548125581315412059",
+   "poll": "1548127527959007303",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "U2RgvUbjsLQ",
+   "video_title": "Visual Workbench - 3D Rendering - Quick Minecraft Mod Showcase — Zeddy Minecraft",
+   "content": "Les objets posés sur l'établi se voient dessus, et il les garde quand tu fermes.\nDans le modpack.\n<https://modrinth.com/mod/visual-workbench> · ▶️ [Vidéo](https://youtu.be/U2RgvUbjsLQ)\n🖼️ [1](https://cdn.modrinth.com/data/kfqD1JRw/images/c7ad6f1b6ff825595f8bf2450e55329aaadcb338.png)"
+  },
+  {
+   "title": "BlazeandCave's Advancements",
+   "tags": [
+    "Hésitations"
+   ],
+   "slugs": [
+    "blazeandcaves-advancements-pack"
+   ],
+   "thread": "1548125601020518400",
+   "poll": "1548127542035222533",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "LHb6u69dZtg",
+   "video_title": "I Got All 1,155 Achievements in Minecraft — Wunba",
+   "content": "Plus de 1 000 progrès en 16 onglets : de quoi avoir des objectifs pendant des mois.\nCôté serveur seulement.\n<https://modrinth.com/mod/blazeandcaves-advancements-pack> · ▶️ [Vidéo](https://youtu.be/LHb6u69dZtg)\n🖼️ [1](https://cdn.modrinth.com/data/VoVJ47kN/images/8af706eed26e004437d84ab5e87536edd070a7e3.png) · [2](https://cdn.modrinth.com/data/VoVJ47kN/images/65ab3c3059b391e30bd684cf79ab185847611cc2.png) · [3](https://cdn.modrinth.com/data/VoVJ47kN/images/36da9b99d6101a7a603075bcde06b81fa6bb1810.png)"
+  },
+  {
+   "title": "Storage Drawers",
+   "tags": [
+    "Hésitations"
+   ],
+   "slugs": [
+    "storagedrawers"
+   ],
+   "thread": "1548125622050750604",
+   "poll": "1548127548615954477",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "FxkZyBex6vU",
+   "video_title": "Minecraft: Storage Drawers | Mod Showcase 1.21.10 — JayProspy",
+   "content": "Des tiroirs qui stockent beaucoup d'un même objet, avec un contrôleur qui trie tout seul.\nDans le modpack.\n<https://modrinth.com/mod/storagedrawers> · ▶️ [Vidéo](https://youtu.be/FxkZyBex6vU)\n🖼️ [1](https://cdn.modrinth.com/data/guitPqEi/images/bbf17f22bcd8e890dc16d73f2245ee445c9fad10.png) · [2](https://cdn.modrinth.com/data/guitPqEi/images/318448650ae71f5c3ab5ed0403a7a37fb8ef9b5b.png) · [3](https://cdn.modrinth.com/data/guitPqEi/images/45e251c07f60226cc2eb36c41b564b5bb5db7a28.png)"
+  },
+  {
+   "title": "Reinforced Chests",
+   "tags": [
+    "Hésitations"
+   ],
+   "slugs": [
+    "reinforced-chests"
+   ],
+   "thread": "1548125634855833620",
+   "poll": "1548127555037429801",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "_-eN9E8BHH8",
+   "video_title": "Minecraft: REINFORCED CHESTS MOD | Minecraft Mods Showcase 1.21.1+ — KeyDevy",
+   "content": "Des coffres en cuivre, fer, or, diamant, netherite, de plus en plus grands.\nDans le modpack.\n<https://modrinth.com/mod/reinforced-chests> · ▶️ [Vidéo](https://youtu.be/_-eN9E8BHH8)\n🖼️ [1](https://i.imgur.com/Ol1Tcf8.png) · [2](https://raw.githubusercontent.com/Aton-Kish/reinforced-chests/1.19/images/recipes/iron_chest.png) · [3](https://raw.githubusercontent.com/Aton-Kish/reinforced-chests/1.19/images/recipes/gold_chest.png)"
+  },
+  {
+   "title": "Tom's Simple Storage",
+   "tags": [
+    "Hésitations"
+   ],
+   "slugs": [
+    "toms-storage"
+   ],
+   "thread": "1548125653105123388",
+   "poll": "1548127562457157765",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "UoIi5q8kyo8",
+   "video_title": "Tom's Simple Storage 2 Mod Spotlight for Minecraft 1.21.1+ (NeoForge/Fabric) — tom5454",
+   "content": "Un terminal pour chercher un objet dans tous les coffres reliés.\nDans le modpack.\n<https://modrinth.com/mod/toms-storage> · ▶️ [Vidéo](https://youtu.be/UoIi5q8kyo8)\n🖼️ [1](https://cdn.modrinth.com/data/gOPAFzp0/images/3f9eaa8b5f8decb0d119381f933403e219236efc.png)"
+  },
+  {
+   "title": "Snow! Real Magic!",
+   "tags": [
+    "Hésitations"
+   ],
+   "slugs": [
+    "snow-real-magic"
+   ],
+   "thread": "1548125662055768158",
+   "poll": "1548127570250174537",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": "TEy0a-Yu-Ak",
+   "video_title": "Realistic Snow Effects in Minecraft: Snow! Real Magic! Cinematic Mod Showcase [up to 1.21.1] — Zeddy Minecraft",
+   "content": "La neige s'accumule et recouvre les escaliers, dalles, clôtures… Plus joli en hiver.\nDans le modpack.\n<https://modrinth.com/mod/snow-real-magic> · ▶️ [Vidéo](https://youtu.be/TEy0a-Yu-Ak)"
+  },
+  {
+   "title": "Anti Enderman Grief",
+   "tags": [
+    "Hésitations"
+   ],
+   "slugs": [
+    "anti-enderman-grief"
+   ],
+   "thread": "1548125673426649088",
+   "poll": "1548127576701149237",
+   "poll_question": "On le garde ?",
+   "poll_options": [
+    "✅ Oui",
+    "❌ Non",
+    "🤷 Sans avis"
+   ],
+   "video": null,
+   "video_title": null,
+   "content": "Les endermen ne prennent plus de blocs.\nCôté serveur seulement.\n<https://modrinth.com/mod/anti-enderman-grief>\n🖼️ [1](https://i.imgur.com/u3V5mdF.png)"
+  },
+  {
+   "title": "Sous-sol : Galosphere ou Spelunkery ?",
+   "tags": [
+    "Hésitations"
+   ],
+   "slugs": [
+    "galosphere",
+    "spelunkery"
+   ],
+   "thread": "1548126010447368273",
+   "poll": "1548127604295475232",
+   "poll_question": "Lequel on prend ?",
+   "poll_options": [
+    "💎 Galosphere",
+    "⛏️ Spelunkery",
+    "❌ Aucun"
+   ],
+   "video": "NjB7JeHLdsg",
+   "video_title": "Galosphere [Minecraft Mod Showcase | 1.20.1 & 1.21.1] — PIX ROXY",
+   "content": "Deux mods qui changent le sous-sol, on en prend un seul (ou aucun) :\n• Galosphere : 3 biomes souterrains et des mobs\n• Spelunkery : refonte du minage (grottes variées, nouveaux outils, progression)\nTerralith refait déjà les grottes, donc à tester.\nDans le modpack.\n[Galosphere](<https://modrinth.com/mod/galosphere>) · [Spelunkery](<https://modrinth.com/mod/spelunkery>) · ▶️ [Vidéo](https://youtu.be/NjB7JeHLdsg)\n🖼️ [1](https://cdn.modrinth.com/data/Kn7xyQ1v/images/5fe3291433fa8a082d214ce957402f698c8441e2.png) · [2](https://cdn.modrinth.com/data/krskFMfA/images/aa7c05b500df89c51c6bf8e233cf66147f37073f.png) · [3](https://cdn.modrinth.com/data/Kn7xyQ1v/images/282bd77ed05f366c2fdca2ba03029ddd68bd6098.png)"
+  }
+ ]
+}

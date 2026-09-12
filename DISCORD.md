@@ -42,8 +42,9 @@ Les étapes ci-dessous ne sont à refaire qu'en cas de nouveau token.
 - **Vote** : sondage Discord de 768 h (le maximum) dans chaque post, clos par nistroy quand le serveur est prêt
   (`end_poll`) — remplace « 1 semaine ». Une **vidéo YouTube** dans chaque post quand il y en a une.
 - **Étape 5 faite le 2026-09-12** : 52 posts de vote + post ℹ️ « Mods côté joueurs » publiés dans `mods`, chacun
-  avec son sondage 768 h (fin automatique vers le 2026-10-14). **ID des fils et des sondages : `discord-votes.json`**
-  (dans ce dossier) — c'est la source pour l'étape 6.
+  avec son sondage 768 h (fin automatique vers le 2026-10-14). **ID des fils et des sondages + texte exact de chaque post :
+  `discord/posts.json`** — c'est la source pour l'étape 6. **Inventaire du serveur (rôles, salons, droits, ID) :
+  `discord/ETAT.md`** — à lire avant d'appeler le MCP.
 - Format des posts (validé par nistroy) : 2-3 lignes, `<lien Modrinth>` (chevrons = pas d'aperçu),
   `▶️ [Vidéo](https://youtu.be/…)` et `🖼️ [1](url) · [2](url)` — **l'emoji hors des crochets** (dedans, Discord
   n'affiche pas le lien masqué) et jamais de texte vide `[​](url)` (Discord ignore alors l'aperçu).
@@ -206,3 +207,49 @@ Construit à partir de `MODS.md` et de l'API Modrinth (`curl https://api.modrint
 4. Générer le contenu des posts depuis `MODS.md` + Modrinth ; montrer **1 ou 2 posts d'exemple** → **validation**.
 5. Publier tous les posts de vote + le post d'information « mods côté joueurs ».
 6. À la fin du vote : résultats → `MODS.md` → `#résultats`.
+
+---
+
+## 5. Pièges et leçons (session du 2026-09-12)
+
+**Avant d'appeler le MCP** : lire `discord/ETAT.md` (ID de tout) et `discord/posts.json` (texte exact des posts).
+Mettre ces deux fichiers à jour après chaque changement sur Discord. Les fichiers générés dans le dossier
+temporaire (scratchpad) d'une conversation sont **perdus** ensuite → toujours enregistrer le résultat dans `discord/`.
+
+### MCP Discord
+- **Sondage dans un post tout juste créé** → `Channel not found` (cache). Contournement : `create_category`
+  « tmp-cache » → `send_poll` → `delete_channel` de la catégorie. `modify_channel` ne rafraîchit **pas** le cache.
+- **ID d'un post de forum = ID de son premier message** → `edit_message(channel=<fil>, messageId=<fil>)`.
+- `create_forum_tag` : **une à la fois** (la liste est relue puis réécrite).
+- Toujours passer des **ID**, jamais des noms (recherche approximative à 70 %) ; vérifier `channelName` dans la réponse.
+- Un salon créé dans une catégorie **hérite de ses droits** à la création (vérifié). Dans un forum,
+  « créer un post » = `SendMessages`, « répondre dans un post » = `SendMessagesInThreads`.
+- Créations en parallèle : l'ordre a été respecté (ID croissants), mais vérifier avec `list_channels` ;
+  le forum s'est placé en tête de sa catégorie → `reorder_channels`.
+- **Mode auto de Claude Code** : refuse de donner des droits (`modify_role_permissions` Administrateur,
+  `assign_role`). Ne pas contourner : demander à nistroy de le faire à la main.
+- Pas d'attribution automatique de rôle à l'arrivée (le bot ne réagit pas aux événements) ; l'Onboarding Discord
+  exigerait un serveur « Communauté ».
+
+### Mise en forme Discord
+- Lien sans aperçu : `<https://…>` ou `[texte](<https://…>)`.
+- **Emoji hors des crochets** : `▶️ [Vidéo](url)` fonctionne, `[▶️ Vidéo](url)` s'affiche en texte brut.
+- Lien masqué à texte vide `[​](url)` : Discord **n'affiche plus l'aperçu** → utiliser des libellés courts `🖼️ [1](url) · [2](url)`.
+- Message ≤ 2 000 caractères (les posts font au plus ~1 200).
+
+### Contenu des posts (Modrinth / YouTube)
+- API Modrinth en masse : `curl -sG https://api.modrinth.com/v2/projects --data-urlencode 'ids=["slug1",…]'`.
+- Images : champ `gallery[].raw_url` (pleine taille), pas `url` (vignette 350 px). 15 mods sans galerie → images
+  tirées du champ `body` ; écarter les bannières (Stardust Labs partage 2 bannières sur Incendium/Nullscape,
+  `announcement.png` d'Enhanced Celestials).
+- **Vidéos : toujours vérifier le titre** via oEmbed (`curl "https://www.youtube.com/oembed?url=https://youtu.be/<id>&format=json"`).
+  Une vidéo trouvée dans la page Modrinth de Towns and Towers était une vidéo **injurieuse sans rapport** (publiée,
+  signalée par nistroy, corrigée) ; 2 autres étaient supprimées. Recherche de remplacement : WebSearch limité à `youtube.com`.
+
+### Façon de travailler avec nistroy
+- Textes **courts, familiers, à la 1re personne** (voir mémoire `discord-tone-friends`).
+- nistroy regarde le rendu sur son téléphone : **après tout changement de format, faire vérifier 1 post avant
+  de publier en masse**. (Le format du lien vidéo a changé après la validation → 50 posts à corriger à la main.)
+- Donner un point d'étape court pendant les longues séries d'appels.
+- Tant que seuls nistroy et le bot sont sur le serveur, les tests sont invisibles pour les amis — ce ne sera plus
+  vrai une fois qu'ils l'auront rejoint : tester alors dans un salon privé ou supprimer aussitôt.
