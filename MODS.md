@@ -443,10 +443,13 @@ Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Mo
 
 ## 7. Pour les amis
 
-Une seule fois (libellés de l'app à confirmer au 1er test réel ; chemin Windows avec espaces non testé) :
+Une seule fois (libellés : capture de l'app par nistroy 2026-09-12 + `settings-modal/index.vue` ; chemin Windows avec
+espaces non testé). Hook impossible à pré-remplir via `.mrpack` (format : fichiers + versions seulement). Piège :
+« Launch hooks » = réglage global de l'app (Default instance options), pas celui de l'instance.
 1. Installer l'**app Modrinth** (modrinth.com/app).
 2. « + » → **Importer** → `bahbeuh-auto.mrpack` fourni (Minecraft + Fabric + outil de mise à jour, pas de mods).
-3. Paramètres de l'instance → Launch hooks → **Pre-launch**, coller (variables fournies par l'app, `hooks.rs`) :
+3. Instance → ⚙ (à côté de Play) → onglet **Sync overrides** → activer **Custom game launch hooks** → **Pre-launch**,
+   coller (variables fournies par l'app, `hooks.rs`) :
    `"$INST_JAVA" -jar "$INST_DIR/packwiz-installer-bootstrap.jar" https://raw.githubusercontent.com/Nistroy/minecraft-server/main/pack/pack.toml`
 4. Paramètres de l'instance → **allouer 6 Go de RAM** (4 Go minimum sans shaders).
 

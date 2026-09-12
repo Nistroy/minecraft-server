@@ -72,8 +72,8 @@ Un mod en plus ? → <#1548116811688444005>
 → à remplacer par un renvoi vers #modpack (sur demande de nistroy).
 
 **#modpack** — message `1548420154990534769` (2026-09-12), pièce jointe `bahbeuh-auto.mrpack` (590 o) : import unique,
-mods via hook packwiz (`MODS.md` §7). Libellés de l'app relevés dans ses locales `en-US` / `fr-FR` (dépôt `modrinth/code`,
-2026-09-12) ; onglet hooks = interrupteur « Custom game launch hooks » (`hooks-settings.vue`). Chemin Windows avec espaces non testé.
+mods via hook packwiz (`MODS.md` §7). Étape 3 corrigée 2026-09-12 (`edit_message`) : ⚙ → Sync overrides (capture de
+nistroy) ; « Launch hooks » était le réglage global de l'app. Chemin Windows avec espaces non testé.
 Obsolètes, à supprimer à la main (suppression refusée au mode auto, §5 `DISCORD.md`) : v1 `1548326166581092444` et
 v2 `1548340069570715728` (anciens `.mrpack` de test à importer à la main).
 ```
@@ -83,7 +83,7 @@ Minecraft 1.21.1 Fabric · les mods du serveur + ceux côté joueur (Sodium, Iri
 **Une seule fois :**
 1. Installe l'app Modrinth : <https://modrinth.com/app>
 2. « + » → Importer → le fichier `bahbeuh-auto.mrpack` ci-dessous (pas de mods dedans, c'est normal : ils arrivent au lancement)
-3. Paramètres de l'instance → onglet Launch hooks (« Lancer le crochet » en français) → active « Custom game launch hooks » → dans Pre-launch / Pré-lancement, colle :
+3. Sur l'instance, clique ⚙ (à côté de Play) → onglet **Sync overrides** → active **Custom game launch hooks** → dans **Pre-launch**, colle :
 (bloc de code) "$INST_JAVA" -jar "$INST_DIR/packwiz-installer-bootstrap.jar" https://raw.githubusercontent.com/Nistroy/minecraft-server/main/pack/pack.toml
 4. Paramètres de l'instance → 6 Go de RAM (4 Go sans shaders)
 5. Lance : une fenêtre télécharge les mods (un peu long la 1re fois), puis le jeu démarre
