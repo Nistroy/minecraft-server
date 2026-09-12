@@ -6,7 +6,8 @@ small safe changes. Full-scale standards; dormant rules activate on triggers (§
 ## Map
 - `mc` — drives server via tmux session `mc` (start/stop/status, whitelist, console cmds).
 - `backup.sh` — world → `backups/`, keeps 10.
-- `server/` — Fabric 1.21.1, Java 21 forced in `server/start.sh`. World/jars/logs gitignored.
+- `server/` — Fabric 1.21.1, Java 21 forced in `server/start.sh`. World/logs/`mods/*.jar` gitignored;
+  `fabric-server-launch.jar` tracked.
 - `playit/` — playit.gg tunnel agent, Docker linux/arm64.
 - `discord-mcp.sh` — Discord MCP launcher. Token `~/.config/discord-mcp/token`, never in repo.
 - Docs (FR): `README.md` ops · `MODS.md` modpack truth (✅/⏳/rejected, compat, install §6) ·
@@ -65,7 +66,7 @@ Until then sync: `./mc` cmds → `README.md`; mods → `MODS.md`; Discord → `d
 
 ## Testing & verification
 Now: no test suite.
-- Script change: `bash -n` (+ `shellcheck` if installed); state manual check done.
+- Script change: `bash -n` (+ `shellcheck` if installed — absent 2026-09-12); state manual check done.
 - Server/mod/config change: proof = clean start (`Done (` in log), no mod load error / missing dep
   in `server/logs/latest.log`. Start/restart → §Guardrails.
 
@@ -98,11 +99,17 @@ Ask before:
 - deleting/overwriting world or backups, restoring backup, recreating world;
 - downloading mods / jars into `server/mods/` (list decided by friends' poll, `MODS.md`);
 - stop/restart server (check players: `./mc status`);
-- any Discord post/edit/delete, roles/perms change — draft, show, publish after go-ahead;
+- Discord MCP write call not requested by user (user directs MCP use; request = go-ahead);
+- console cmds changing world, gamerules or player state (`fill`, `setblock`, `kill`, `gamerule`,
+  `difficulty`, `clear`); read-only (`list`, `whitelist list`) OK;
 - whitelist, op, bans, `server.properties` security options, playit tunnel;
 - git push, force-push, merge, history rewrite.
 
-Before any mod / MC-Fabric version / worldgen change: fresh backup (`./mc backup`, server stopped or after `save-all`).
+Before any mod / MC-Fabric version / worldgen change: fresh backup, then take it out of rotation
+(`backup.sh` keeps last 10 `world_*.tar.gz`): `mv backups/world_<stamp>.tar.gz backups/pre-<change>_<stamp>.tar.gz`.
+- Server stopped: `./mc backup`.
+- Server running: `./mc cmd "save-off"` → `./mc cmd "save-all flush"` → `./mc backup` → `./mc cmd "save-on"`
+  (`save-all` alone: world still written during `tar` → inconsistent archive).
 Never `/ban-ip` — all players share the tunnel IP.
 
 ## Code quality & security
@@ -110,6 +117,8 @@ Never `/ban-ip` — all players share the tunnel IP.
 - No hidden coupling, duplication, hacks. Explicit > clever. Idiomatic for the language.
 - Validate input sent to MC console or shell (player names, cmds); quote vars.
 - Secrets never in repo, logs, commits, Discord.
+- Never read/print `playit/secret.txt`, `playit/claim-code.txt`, `~/.config/discord-mcp/token` (content
+  lands in context); existence check only (`test -s`).
 
 ## Subagents
 - Only if clear gain: parallel independent research (many mods on Modrinth), noisy log triage. Not for small local tasks.
@@ -119,7 +128,7 @@ Never `/ban-ip` — all players share the tunnel IP.
 ## Responding
 - Answer/result first (1-3 lines), then only what user must do or decide. Separate: done · to decide · backlog.
 - No echoing the request, no step narration, no filler, no repetition. 1-line why for major decisions.
-- Non-trivial task → restate goal + constraints in 1-2 lines. Missing context → ≤5 precise questions first.
+- Non-trivial task → restate goal + constraints in 1-2 lines. Missing context → ≤3 precise questions first.
 
 ## Evolution
 File grows with the project. Shared with Antigravity via symlink `.agents/rules/global-instructions.md`.
