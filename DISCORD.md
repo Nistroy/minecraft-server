@@ -41,7 +41,7 @@ Les étapes ci-dessous ne sont à refaire qu'en cas de nouveau token.
 - **Ton** (demande de nistroy) : textes courts, familiers, à la 1re personne — pas de règles ni de blabla « communauté ».
 - **Vote** : sondage Discord de 768 h (le maximum) dans chaque post, clos par nistroy quand le serveur est prêt
   (`end_poll`) — remplace « 1 semaine ». Une **vidéo YouTube** dans chaque post quand il y en a une.
-- **Étape 5 faite le 2026-09-12** : 52 posts de vote + post ℹ️ « Mods côté joueurs » publiés dans `mods`, chacun
+- **Étape 5 faite le 2026-09-12** : 51 posts de vote (« Sous-sol » supprimé ensuite) + post ℹ️ « Mods côté joueurs » publiés dans `mods`, chacun
   avec son sondage 768 h (fin automatique vers le 2026-10-14). **ID des fils et des sondages + texte exact de chaque post :
   `discord/posts.json`** — c'est la source pour l'étape 6. **Inventaire du serveur (rôles, salons, droits, ID) :
   `discord/ETAT.md`** — à lire avant d'appeler le MCP.
@@ -149,7 +149,7 @@ Les mods ❌ (section 4 « Écartés ») ne sont **pas** soumis au vote.
 | 🐾 Mobs | Friends&Foes · Illager Invasion · Naturalist 🗳️ · Critters and Companions 🗳️ |
 | 🎮 Gameplay | Lootr · Hardcore Revival · Bountiful · Enhanced Celestials · Tide 2 · Waystones · Nature's + Explorer's Compass · Universal Graves · FallingTree · Enchants Plus · Farmer's Delight · Traveler's Backpack · « Petits conforts » (Easy Anvils, Easy Magic, Grind Enchantments, Trade Cycling, Better Than Mending, RightClickHarvest) |
 | 🎨 Fun & déco | Exposure · Immersive Melodies · Immersive Paintings · Emotecraft · Supplementaries + Amendments · Handcrafted · Macaw's Doors/Windows/Bridges + Dramatic Doors · Ribbits · Better Archeology |
-| 🤔 Hésitations | Macaw's Roofs · Crafting Tweaks · Visual Workbench · BlazeandCave's Advancements · Storage Drawers · Reinforced Chests · Tom's Simple Storage · Snow! Real Magic! · Anti Enderman Grief · « Sous-sol » (Galosphere / Spelunkery / aucun — un seul choix) |
+| 🤔 Hésitations | Macaw's Roofs · Crafting Tweaks · Visual Workbench · BlazeandCave's Advancements · Storage Drawers · Reinforced Chests · Tom's Simple Storage · Snow! Real Magic! · Anti Enderman Grief |
 
 ### Contenu de chaque post
 Construit à partir de `MODS.md` et de l'API Modrinth (`curl https://api.modrinth.com/v2/project/<slug>`) :
@@ -166,7 +166,6 @@ Construit à partir de `MODS.md` et de l'API Modrinth (`curl https://api.modrint
 - **Vote** : sondage Discord « On le garde ? » → ✅ Oui · ❌ Non · 🤷 Sans avis, posté dans le fil du post
   avec `send_poll` (`channel` = ID du fil renvoyé par `create_forum_post`, `duration` = 168 h pour 1 semaine ;
   max 10 réponses, 768 h). À défaut : réactions ✅ / ❌ / 🤷 sur le premier message (`add_reaction`)
-- Pour « Sous-sol » : sondage à choix unique Galosphere / Spelunkery / Aucun
 
 ### Limites du MCP (vérifiées dans son code v2.1.1 et testées le 2026-09-12)
 - `send_poll`, `get_poll_results` et `end_poll` cherchent le salon **uniquement dans le cache** du MCP

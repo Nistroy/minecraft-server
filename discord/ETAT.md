@@ -71,7 +71,7 @@ Un mod en plus ? → <#1548116811688444005>
 #annonces, #résultats, #modpack, #screenshots, #idées, #bugs-et-crashs : vides.
 
 ## Forum `mods`
-52 posts de vote + 1 post ℹ️ « Mods côté joueurs (pas de vote) » (`1548124750650417264`).
-Chaque post de vote a un sondage « On le garde ? » (✅ Oui · ❌ Non · 🤷 Sans avis), sauf « Sous-sol » :
-« Lequel on prend ? » (💎 Galosphere · ⛏️ Spelunkery · ❌ Aucun). Tous créés le 2026-09-12, 768 h → fin auto ~2026-10-14.
+51 posts de vote + 1 post ℹ️ « Mods côté joueurs (pas de vote) » (`1548124750650417264`).
+Chaque post de vote a un sondage « On le garde ? » (✅ Oui · ❌ Non · 🤷 Sans avis). Tous créés le 2026-09-12, 768 h → fin auto ~2026-10-14.
+Post « Sous-sol : Galosphere ou Spelunkery ? » supprimé par nistroy le 2026-09-12 (les 2 écartés, `MODS.md` §4).
 Détail (titre, étiquettes, slugs, ID du fil et du sondage, vidéo vérifiée, texte exact) : `discord/posts.json`.
