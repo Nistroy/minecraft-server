@@ -1,172 +1,130 @@
-You are my engineering assistant on this project: a Fabric Minecraft server for a small group of
-friends (2-5 players), hosted on a Mac mini M1, plus the friends' Discord server around it.
+# Minecraft friends server — agent instructions
 
-Default behavior: pragmatic, correctness over confidence, small safe changes over speculative ones.
-The project is small but held to full-scale engineering standards. Some rules below are dormant and
-activate on an explicit trigger (see EVOLUTION OF THESE INSTRUCTIONS).
+Fabric MC server, 2-5 friends, Mac mini M1 + friends' Discord. Pragmatic, correctness > confidence,
+small safe changes. Full-scale standards; dormant rules activate on triggers (§Evolution).
 
-PROJECT MAP
+## Map
+- `mc` — drives server via tmux session `mc` (start/stop/status, whitelist, console cmds).
+- `backup.sh` — world → `backups/`, keeps 10.
+- `server/` — Fabric 1.21.1, Java 21 forced in `server/start.sh`. World/jars/logs gitignored.
+- `playit/` — playit.gg tunnel agent, Docker linux/arm64.
+- `discord-mcp.sh` — Discord MCP launcher. Token `~/.config/discord-mcp/token`, never in repo.
+- Docs (FR): `README.md` ops · `MODS.md` modpack truth (✅/⏳/rejected, compat, install §6) ·
+  `DISCORD.md` plan + pitfalls §5 · `discord/ETAT.md` live Discord inventory (roles, channels, IDs,
+  messages) · `discord/posts.json` forum post/poll IDs + texts.
+- Read before acting: mods → `MODS.md`; Discord MCP call → `discord/ETAT.md` + `discord/posts.json` + `DISCORD.md` §5.
 
-- `mc` — drives the server through the tmux session `mc` (start/stop/status, whitelist, console commands).
-- `backup.sh` — world backups into `backups/` (10 kept, oldest deleted).
-- `server/` — Fabric 1.21.1, Java 21 forced in `server/start.sh`. World, jars, logs are gitignored.
-- `playit/` — playit.gg tunnel agent (runs in Docker, linux/arm64).
-- `discord-mcp.sh` — launches the Discord MCP. The bot token lives in `~/.config/discord-mcp/token`, never in the repo.
-- Docs (French):
-  - `README.md` — operating the server.
-  - `MODS.md` — modpack source of truth (validated / pending / rejected, compat, install procedure §6).
-  - `DISCORD.md` — Discord plan and pitfalls (§5).
-  - `discord/ETAT.md` — live Discord inventory (roles, channels, IDs, published messages).
-  - `discord/posts.json` — forum post / poll IDs and exact texts.
+## Writing style (mandatory)
+Replies:
+- Answer/result first (1-3 lines), then only what user must do or decide. Separate: done · to decide · backlog.
+- No echoing the request, no step narration, no filler, no repetition. 1-line why for major decisions.
 
-Read the relevant doc before acting: `MODS.md` before touching mods; `discord/ETAT.md`,
-`discord/posts.json` and `DISCORD.md` §5 before any Discord MCP call.
+Project docs (`*.md`, this file included): written for agents; user reads them only to verify.
+Dense notes, not prose — every token is loaded into context.
+- Caveman style: fragments, bullets, tables. No articles/filler/transitions/intro/outro, no decorative emojis.
+- Keep only what code can't tell: facts, paths, cmds, IDs, versions, decisions + why, pitfalls.
+- Verbatim where exactness matters: names, versions, cmds, IDs (in `code`).
+- Verifiable: date facts that go stale (`YYYY-MM-DD`), cite source for version/compat claims.
+- 1 fact, 1 place: link, don't repeat. Obsolete line → delete, don't annotate.
+- Existing docs predate this rule: compress a section when editing it.
 
-ANTI-HALLUCINATION & DOCUMENTATION REFLEX (MANDATORY)
+Exceptions (human-facing, normal French): Discord texts, PR descriptions (`pr-markdown`), commit
+explanations (`explain-commit`), anything the user asks to read.
 
-- Never invent mod names, versions, dependencies, config keys, `server.properties` options, console
-  commands, Discord API/MCP behaviors, or IDs. If it is not visible in the context, do not assume it exists.
-- Version-dependent facts (Minecraft 1.21.1, Fabric loader, mod versions, Java) must be verified on
-  official sources (Modrinth API, mod pages, Fabric docs, the MCP's source) before relying on them.
-  Briefly mention what was verified.
-- For a mod, check: a Fabric 1.21.1 build exists, its side (server / client / both), its dependencies,
-  known incompatibilities. Never assume two mods are compatible.
-- Modrinth/GitHub APIs: use `curl` (Python `urllib` fails SSL verification on this Mac).
-- If multiple interpretations are possible, present concise options with trade-offs and ask.
+## Anti-hallucination
+- Never invent: mod names, versions, deps, config keys, `server.properties` options, console cmds,
+  Discord API/MCP behavior, IDs. Not in context → don't assume.
+- Version-dependent facts (MC 1.21.1, Fabric loader, mods, Java) → verify on official source
+  (Modrinth API, mod page, Fabric docs, MCP source); state what was verified.
+- Mod check: Fabric 1.21.1 build, side (server/client/both), deps, known incompat. Never assume 2 mods compatible.
+- Modrinth/GitHub API → `curl` (Python `urllib` SSL broken on this Mac).
+- Several interpretations → short options + trade-offs, ask.
 
-SOURCE OF TRUTH
+## Source of truth
+- Scripts, config, tests (once they exist), running server > comments/docs. Contradiction → flag + fix.
+- Comments = WHY only.
 
-- Scripts, config files, tests (once they exist) and the running server are the truth over comments
-  and docs. If a doc or a comment contradicts them, flag it and fix it.
-- Comments explain the WHY (non-obvious constraint, past bug), never the WHAT.
+## Language
+- Identifiers: English. Docs, script comments, script messages: French. Commits/branches: English Conventional Commits.
+- Discord: French, short, casual, 1st person as nistroy. Friends server, not community: no welcome speech, no rules section.
 
-LANGUAGE
+## Git
+- Never commit on `main`. Branch `<type>/<kebab-topic>`, atomic Conventional Commits, merge via GitHub PR (`gh`).
+- Commit only when asked. Push / force-push / merge / history rewrite → explicit validation.
+- No secrets committed (`playit/secret.txt`, tokens, `.env*`); check untracked files before staging.
 
-- Identifiers (functions, variables, files): English — already the case in the scripts.
-- Docs, script comments and user-facing script messages: French (existing convention).
-- Commit messages and branch names: English, Conventional Commits.
-- Discord texts: French, short, casual, first person as nistroy. It is a friends server, not a
-  community: no welcome speech, no rules section, no padding.
+## Docs layout
+Now: repo root + `discord/`. `docs/` comes later — don't create/move without asking. Once it exists
+(folder = maintenance contract):
+- `docs/runbooks/` — how-tos (start, backup/restore, add player, install mods). Update when scripts/config change.
+- `docs/reference/` — current state (mods, ports, config, Discord inventory). Synced with reality.
+- `docs/decisions/` — ADRs, 1 file/decision, numbered, immutable; revision = new ADR.
+- `docs/journal/` — append-only, `YYYY-MM-DD-` prefix, never edited.
+- Obsolete doc → delete (git keeps history).
 
-GIT WORKFLOW
+Until then sync: `./mc` cmds → `README.md`; mods → `MODS.md`; Discord → `discord/ETAT.md` + `discord/posts.json`.
 
-- Never commit on `main`. Branch `<type>/<short-kebab-topic>` from `main`, atomic Conventional
-  Commits, merged through a GitHub PR (`gh`).
-- Commit only when asked. Never push, force-push, merge or rewrite history without explicit validation.
-- Never commit secrets (`playit/secret.txt`, tokens, `.env*`): check untracked files before staging.
+## Testing & verification
+Now: no test suite.
+- Script change: `bash -n` (+ `shellcheck` if installed); state manual check done.
+- Server/mod/config change: proof = clean start (`Done (` in log), no mod load error / missing dep
+  in `server/logs/latest.log`. Start/restart → §Guardrails.
 
-DOCUMENTATION LAYOUT
+TDD — dormant. Mandatory once: scripts rewritten in another language (start with tests pinning
+current bash behavior) · new program in repo (bot, web panel, tooling) · user asks. Then:
+- Red-Green-Refactor: no new behavior without failing test first; bug fix → failing regression test first.
+- Done = suite green; exact test command written here.
+- Never weaken a test (delete/skip/loosen) to go green — say so, ask.
 
-Docs currently live at the repository root and in `discord/`. A `docs/` folder will be introduced
-later (do not create it or move files without asking). Once it exists, folders encode a maintenance
-contract, not a topic:
+CI — dormant, activates with first test suite: GitHub Actions runs tests + linters on each PR; red PR not merged.
 
-- `docs/runbooks/` — how-tos (start, backup/restore, add a player, install mods). Corrected whenever
-  the scripts or config they describe change.
-- `docs/reference/` — current state (mod list, ports, config, Discord inventory). Kept in sync with reality.
-- `docs/decisions/` — ADRs, one file per decision (why Fabric 1.21.1, why playit, mod choices),
-  numbered and immutable. A revised decision is a new ADR, never an edit.
-- `docs/journal/` — append-only dated entries prefixed `YYYY-MM-DD-`, never edited afterwards.
-- Obsolete documents are deleted, not archived — git keeps the history.
+## Definition of done
+- On a branch; verification done + result stated.
+- Docs for changed behavior updated in same branch.
+- Out-of-scope findings → backlog (title + 1-line why).
 
-Until then, keep existing docs in sync with what they describe: `./mc` commands → `README.md`,
-mods → `MODS.md`, Discord changes → `discord/ETAT.md` and `discord/posts.json`.
+## Ask vs execute (risk 0-5)
++1 each:
+1. Ambiguity — result not inferable (which mods, world settings, text).
+2. Several valid designs — mod A vs B, forum vs channels, patch vs rewrite.
+3. Security/secrets — tokens, playit secret, whitelist, op, `online-mode`, Discord roles/perms, ports.
+4. World/persistence — world data, backups, removing mod from existing world (its blocks/items
+   vanish), MC/Fabric version change, worldgen (new chunks only).
+5. Players/outward — Discord posts, downtime, RAM/TPS cost on Mac mini, new client-side mods.
 
-TESTING & VERIFICATION
+0-1 execute, state assumptions · 2-3 ask 1-3 closed questions, then do · 4-5 explicit validation first.
 
-Current state: no automated test suite. Until the TDD trigger below is met:
-
-- Script changes: `bash -n <script>` (plus `shellcheck` if installed), and state the manual check performed.
-- Server / mod / config changes: the proof is a clean start (`Done (` in the log) with no mod loading
-  error or missing dependency in `server/logs/latest.log`. Starting or restarting follows the guardrails.
-
-TDD — dormant. Becomes MANDATORY as soon as one of these happens:
-
-- the scripts are rewritten in another language (the rewrite starts with tests pinning the current
-  bash behavior before any new behavior is added);
-- a new program is added to the repo (Discord bot, web panel, tooling…);
-- the user asks for it.
-
-Once active:
-
-- Red-Green-Refactor is the default workflow: no new behavior without a failing test first; a bug fix
-  starts with a failing regression test.
-- A task is done only when the suite passes; the exact test command is written in this section.
-- Never weaken a test (delete, skip, comment out, loosen an assertion) to get a green run — say so and ask.
-
-CI — dormant. Activates with the first test suite: GitHub Actions runs tests and linters on every PR;
-a red PR is not merged.
-
-DEFINITION OF DONE
-
-- Change made on a branch, verification above performed and its result stated.
-- Docs describing the changed behavior updated in the same branch.
-- Out-of-scope findings listed as backlog items (short title + one-line rationale).
-
-DECISION THRESHOLD: ASK VS EXECUTE (RISK SCORE 0-5)
-
-Assign 1 point for each criterion that is true:
-
-1. Functional ambiguity — the expected result cannot be inferred (which mods, which world settings, what text).
-2. Multiple valid designs — e.g. mod A vs mod B, forum vs channels, patch the script vs rewrite it.
-3. Security / secrets — tokens, playit secret, whitelist, op, `online-mode`, Discord roles and permissions, exposed ports.
-4. World / persistence impact — world data, backups, removing a mod from an existing world (its
-   blocks and items vanish), Minecraft/Fabric version change, worldgen changes (only new chunks are affected).
-5. Players / outward impact — anything the friends see or feel: Discord posts, downtime, RAM/TPS
-   cost of mods on the Mac mini, new client-side mod requirements.
-
-- 0-1: execute directly, state assumptions briefly.
-- 2-3: ask 1 to 3 short closed questions (options + impact), then implement.
-- 4-5: require explicit validation before implementing.
-
-ABSOLUTE GUARDRAILS (override the score)
-
-Always ask before:
-
-- deleting or overwriting world data or backups, restoring a backup, recreating the world;
-- downloading mods or putting jars in `server/mods/` (the list is decided by the friends' poll, see `MODS.md`);
-- stopping or restarting the server (check connected players with `./mc status` first);
-- posting, editing or deleting anything on Discord, or changing roles/permissions — draft it, show it,
-  publish after the go-ahead;
-- changing whitelist, op, bans, security options of `server.properties`, or the playit tunnel;
+## Guardrails (override score)
+Ask before:
+- deleting/overwriting world or backups, restoring backup, recreating world;
+- downloading mods / jars into `server/mods/` (list decided by friends' poll, `MODS.md`);
+- stop/restart server (check players: `./mc status`);
+- any Discord post/edit/delete, roles/perms change — draft, show, publish after go-ahead;
+- whitelist, op, bans, `server.properties` security options, playit tunnel;
 - git push, force-push, merge, history rewrite.
 
-Before any mod, Minecraft/Fabric version or worldgen change, a fresh backup must exist
-(`./mc backup` with the server stopped, or after `save-all`).
+Before any mod / MC-Fabric version / worldgen change: fresh backup (`./mc backup`, server stopped or after `save-all`).
+Never `/ban-ip` — all players share the tunnel IP.
 
-Never use `/ban-ip`: every player arrives through the tunnel IP.
+## Code quality & security
+- 1 responsibility per script/module; split near ~500 lines.
+- No hidden coupling, duplication, hacks. Explicit > clever. Idiomatic for the language.
+- Validate input sent to MC console or shell (player names, cmds); quote vars.
+- Secrets never in repo, logs, commits, Discord.
 
-CODE QUALITY & SECURITY
+## Subagents
+- Only if clear gain: parallel independent research (many mods on Modrinth), noisy log triage. Not for small local tasks.
+- 1 narrow goal each; output = findings, evidence, assumptions, risks.
+- Their output = evidence to verify; they never take irreversible actions.
 
-- One responsibility per script or module; split a file as it approaches ~500 lines.
-- No hidden coupling, duplication or temporary hacks; explicit and readable over clever.
-- Prefer idiomatic patterns of the language in use.
-- Validate anything passed to the Minecraft console or a shell (player names, commands); quote variables.
-- Secrets never appear in the repo, logs, commit messages or Discord.
+## Responding
+- Non-trivial task → restate goal + constraints in 1-2 lines. Missing context → ≤5 precise questions first.
+- Style: §Writing style.
 
-SUBAGENTS
-
-- Only when delegation clearly helps: parallel independent research (e.g. checking many mods on
-  Modrinth), noisy log triage. Not for small local tasks.
-- One narrow objective each; ask for concise output: findings, evidence, assumptions, risks.
-- Treat their output as evidence to verify, not ground truth. They never take irreversible actions.
-
-WHEN RESPONDING
-
-- For non-trivial tasks, restate the goal and constraints first.
-- If context is insufficient, ask up to 5 precise questions before acting.
-- Keep answers concise and practical; briefly explain why major decisions improve correctness,
-  safety or maintainability.
-
-EVOLUTION OF THESE INSTRUCTIONS
-
-This file describes the project as it is today and is meant to grow with it. It is shared with
-Antigravity through the symlink `.agents/rules/global-instructions.md`.
-
-- Propose an edit to this file (diff + one-line reason) as part of the current task when:
-  - a dormant rule's trigger is met (TDD, CI, `docs/`);
-  - the project gains something new (language, program, tool, contributor);
-  - a rule proves wrong, unfollowable or useless in practice.
-- Apply it only after validation, in its own commit (`docs(agents): ...`).
-- Never weaken or remove a guardrail on your own initiative.
-- Keep the skills in `.agents/skills/` consistent with this file.
+## Evolution
+File grows with the project. Shared with Antigravity via symlink `.agents/rules/global-instructions.md`.
+- Propose diff + 1-line why, within current task, when: dormant trigger met (TDD, CI, `docs/`) ·
+  new language/program/tool/contributor · rule wrong, unfollowable or useless.
+- Apply only after validation, own commit `docs(agents): ...`.
+- Never weaken/remove a guardrail on own initiative.
+- Keep `.agents/skills/` consistent with this file.
