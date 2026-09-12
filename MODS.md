@@ -285,6 +285,9 @@ Points à régler / tester à l'installation :
 ### Compatibilité des mods graphiques / sonores (côté joueurs)
 - Sodium, Iris, Sodium Extra, Reese's Sodium Options, Continuity, LambDynamicLights, EMF/ETF : tous prévus pour
   Sodium ; Sodium Extra et Reese's déclarent l'intégration Iris. **Contrainte : Iris exige une version précise de Sodium.**
+  Paire vérifiée 2026-09-12 (`fabric.mod.json`) : Iris `1.8.14-beta.1+mc1.21.1` (dépend `sodium 0.8.x`) + Sodium `0.8.13`
+  (casse Iris `<1.8.13`). Iris release `1.8.8` veut Sodium `0.6.x` → exclu : Sodium Extra, Reese's (dépendent Sodium ≥ `0.8.12`),
+  More Culling (casse ≤ `0.6.13`), Supplementaries (casse < `0.8.12-beta.1`).
 - LambDynamicLights n'est incompatible qu'avec d'autres mods de lumière dynamique (Sodium Dynamic Lights, RyoamicLights) — aucun ici.
 - Shaders + LambDynamicLights : Complementary a sa propre lumière en main → effet en double, en désactiver un des deux.
 - Sound Physics Remastered + AmbientSounds : compatibles (SPR traite aussi les sons d'ambiance).
