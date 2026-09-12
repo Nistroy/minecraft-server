@@ -68,22 +68,29 @@ Pas au vote : les mods de perf, les bibliothèques, et les mods côté joueur (S
 Un mod en plus ? → <#1548116811688444005>
 ```
 
-**#modpack** — message `1548340069570715728` (2026-09-12), pièce jointe `bahbeuh-test-2026-09-12b.mrpack`
-(= `client-pack/`, 22 902 o, + pack `bahbeuh-fixes`). **Pack de test avant la fin du vote** (serveur de test en LAN) →
-à supprimer et remplacer par le pack final après le vote.
-Ancien message v1 `1548326166581092444` (`bahbeuh-test-2026-09-12.mrpack`) encore présent : suppression refusée par le
-mode auto (§5 `DISCORD.md`) → à supprimer à la main.
+**#rejoindre** `1548120922957807696` : son étape 2 (import `.mrpack`) est obsolète depuis le pack packwiz (2026-09-12)
+→ à remplacer par un renvoi vers #modpack (sur demande de nistroy).
+
+**#modpack** — message `1548420154990534769` (2026-09-12), pièce jointe `bahbeuh-auto.mrpack` (590 o) : import unique,
+mods via hook packwiz (`MODS.md` §7). Libellés de l'app relevés dans ses locales `en-US` / `fr-FR` (dépôt `modrinth/code`,
+2026-09-12) ; onglet hooks = interrupteur « Custom game launch hooks » (`hooks-settings.vue`). Chemin Windows avec espaces non testé.
+Obsolètes, à supprimer à la main (suppression refusée au mode auto, §5 `DISCORD.md`) : v1 `1548326166581092444` et
+v2 `1548340069570715728` (anciens `.mrpack` de test à importer à la main).
 ```
-**Pack de test** (v2 : corrige un crash quand un truc tombe dans la lave) : je vérifie que tout marche en jeu avant la fin du vote.
-Minecraft 1.21.1 Fabric · tous les mods du vote + ceux côté joueur (Sodium, Iris, minimap…)
+**Modpack BahBeuh** : il se met à jour tout seul maintenant, plus besoin de réimporter à chaque changement.
+Minecraft 1.21.1 Fabric · les mods du serveur + ceux côté joueur (Sodium, Iris, minimap…)
 
+**Une seule fois :**
 1. Installe l'app Modrinth : <https://modrinth.com/app>
-2. « + » → Importer → le fichier `.mrpack` ci-dessous
-   L'app prévient que 2 fichiers ne sont pas sur Modrinth (`enchants-plus-lang.zip`, `bahbeuh-fixes.zip`) : c'est mes packs maison (traduction des enchantements, correctif du crash) → « Install anyways »
-3. Paramètres de l'instance → 6 Go de RAM (4 Go sans shaders)
-4. Lance le jeu, puis Multijoueur → Ajouter un serveur
+2. « + » → Importer → le fichier `bahbeuh-auto.mrpack` ci-dessous (pas de mods dedans, c'est normal : ils arrivent au lancement)
+3. Paramètres de l'instance → onglet Launch hooks (« Lancer le crochet » en français) → active « Custom game launch hooks » → dans Pre-launch / Pré-lancement, colle :
+(bloc de code) "$INST_JAVA" -jar "$INST_DIR/packwiz-installer-bootstrap.jar" https://raw.githubusercontent.com/Nistroy/minecraft-server/main/pack/pack.toml
+4. Paramètres de l'instance → 6 Go de RAM (4 Go sans shaders)
+5. Lance : une fenêtre télécharge les mods (un peu long la 1re fois), puis le jeu démarre
+6. Multijoueur → Ajouter un serveur → `schmidt-shut.tun.ply.gg`
 
-Serveur de test : `192.168.1.198:25566` (réseau local seulement, ce n'est pas l'adresse du vrai serveur)
+Après, à chaque lancement il récupère juste ce qui a changé. Si la fenêtre affiche une erreur → « Continue without updating » et tu joues quand même.
+Pas encore dans la whitelist ? Envoie-moi ton pseudo Minecraft exact.
 Shaders (optionnel) : onglet Shaders de l'app → Complementary Reimagined
 Un souci → <#1548117428674756689> avec le fichier `logs/latest.log` de l'instance
 ```

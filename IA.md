@@ -1,7 +1,7 @@
 # IA.md — assistant IA en jeu (plan, pas commencé)
 
 Design validé par nistroy 2026-09-12. Pas commencé. Démarrer seulement quand :
-- pack auto-maj packwiz en place (il livre le mod client) ;
+- pack auto-maj packwiz en place (il livre le mod client) : fait 2026-09-12 (`pack/`, PR #6), test réel en cours ;
 - liste mods finale (vote en cours, `MODS.md`) — fiches dépendent de la liste.
 
 ## But
@@ -25,6 +25,7 @@ Design validé par nistroy 2026-09-12. Pas commencé. Démarrer seulement quand 
 | Distribution mod client | pack packwiz auto-maj | aucune action des potes |
 | Langages | cerveau Python, mods Java | validé nistroy |
 | Mod IA autonome | mods IA (client + serveur) : aucun contenu ni dépendance d'autres mods (Fabric API seule). Connaissances hors du mod, sur le Mac mini, servies par le cerveau | modpack change → seules les données du cerveau changent, mod intact ; rien des autres mods redistribué |
+| Dépôt | `Nistroy/minecraft-ia` : dépôt GitHub séparé, public, code générique (mods + cerveau, n'importe quel modpack). Ce dépôt-ci garde seulement notre config + le mod IA référencé dans `pack/` par l'URL de sa release | réutilisable par d'autres ; tests, CI, releases à part ; dépôt serveur simple (validé nistroy 2026-09-12) |
 
 ## Architecture
 touche → écran client → payload → mod serveur (async, jamais bloquer le tick) → HTTP `127.0.0.1` → cerveau → outils + LLM → réponse → payload → écran.
@@ -50,6 +51,8 @@ touche → écran client → payload → mod serveur (async, jamais bloquer le t
 - Trop strict → "je sais pas" partout → personne l'utilise : calibrer via jeu de questions test.
 
 ## Étapes (ordre ; chacune utile seule)
+0. **Créer `Nistroy/minecraft-ia`** (public, licence à choisir), y déplacer ce plan, puis supprimer `IA.md` et ses liens
+   dans `CLAUDE.md` d'ici (1 fait, 1 place).
 1. **Fiches mods + extraction jars.** Sources : API Modrinth (`curl`), contenu des jars, wiki du mod. Agents parallèles OK
    (CLAUDE.md §Subagents), sorties vérifiées. Fini = 1 fiche/mod sourcée + `index.md` + DB items/recettes.
 2. **Cerveau + jeu de questions test** (vraies questions des potes + pièges attendant "je sais pas"). Mesure : % justes,
@@ -74,6 +77,7 @@ touche → écran client → payload → mod serveur (async, jamais bloquer le t
 - Dépôts publics OK (validé nistroy) si clé + conversations hors dépôt.
 
 ## Ouvert
-- Dépôts : proposition `minecraft-ia` (code, flux PR) + `minecraft-ia-kb` (connaissances, IA commit direct). À confirmer.
+- Connaissances de notre modpack (fiches, notes) : spécifiques à notre serveur → proposition dépôt à part
+  `minecraft-ia-kb` (IA commit direct), sinon dossier de `minecraft-ia`. À trancher à l'étape 0.
 - Touche d'ouverture de l'écran.
 - Quota par joueur.
