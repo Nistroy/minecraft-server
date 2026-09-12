@@ -14,10 +14,10 @@ if [ ! -x "$JAVA" ]; then
     exit 1
 fi
 
-# 4 Go : confortable pour 2-5 joueurs en Fabric legerement moddé.
-# Passe a 6G si tu ajoutes un gros modpack. Ne depasse jamais 8G sur cette machine
+# 6 Go : modpack complet (~260 mods, Terralith/Tectonic + ~20 mods de structures), mesure a ~4,2 Go
+# en pre-generation (MODS.md, Consommation). Ne depasse jamais 8G sur cette machine
 # (16 Go au total, macOS et le reste ont besoin de respirer).
-MEM="4G"
+MEM="6G"
 
 # Flags G1GC d'Aikar : reduisent nettement les micro-freezes lies au garbage collector.
 exec "$JAVA" \
