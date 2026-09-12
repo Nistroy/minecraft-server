@@ -14,13 +14,12 @@ small safe changes. Full-scale standards; dormant rules activate on triggers (§
   messages) · `discord/posts.json` forum post/poll IDs + texts.
 - Read before acting: mods → `MODS.md`; Discord MCP call → `discord/ETAT.md` + `discord/posts.json` + `DISCORD.md` §5.
 
-## Writing style (mandatory)
-Replies:
-- Answer/result first (1-3 lines), then only what user must do or decide. Separate: done · to decide · backlog.
-- No echoing the request, no step narration, no filler, no repetition. 1-line why for major decisions.
+## Markdown docs style (`*.md` only, mandatory)
+Scope: project `.md` files, this one included. NOT code, script comments, script messages, commits,
+Discord — those follow §Language and §Code quality.
 
-Project docs (`*.md`, this file included): written for agents; user reads them only to verify.
-Dense notes, not prose — every token is loaded into context.
+`.md` docs are written for agents; user reads them only to verify. Dense notes, not prose — every
+token is loaded into context.
 - Caveman style: fragments, bullets, tables. No articles/filler/transitions/intro/outro, no decorative emojis.
 - Keep only what code can't tell: facts, paths, cmds, IDs, versions, decisions + why, pitfalls.
 - Verbatim where exactness matters: names, versions, cmds, IDs (in `code`).
@@ -28,8 +27,8 @@ Dense notes, not prose — every token is loaded into context.
 - 1 fact, 1 place: link, don't repeat. Obsolete line → delete, don't annotate.
 - Existing docs predate this rule: compress a section when editing it.
 
-Exceptions (human-facing, normal French): Discord texts, PR descriptions (`pr-markdown`), commit
-explanations (`explain-commit`), anything the user asks to read.
+Exceptions (human-facing `.md`, normal French): PR descriptions (`pr-markdown`), commit explanations
+(`explain-commit`), anything the user asks to read.
 
 ## Anti-hallucination
 - Never invent: mod names, versions, deps, config keys, `server.properties` options, console cmds,
@@ -118,8 +117,9 @@ Never `/ban-ip` — all players share the tunnel IP.
 - Their output = evidence to verify; they never take irreversible actions.
 
 ## Responding
+- Answer/result first (1-3 lines), then only what user must do or decide. Separate: done · to decide · backlog.
+- No echoing the request, no step narration, no filler, no repetition. 1-line why for major decisions.
 - Non-trivial task → restate goal + constraints in 1-2 lines. Missing context → ≤5 precise questions first.
-- Style: §Writing style.
 
 ## Evolution
 File grows with the project. Shared with Antigravity via symlink `.agents/rules/global-instructions.md`.
