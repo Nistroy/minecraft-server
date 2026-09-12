@@ -336,6 +336,9 @@ Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Mo
 6. Configs : point 1 de la section 5 (Illusionner) ; Textile Backup → sauvegarde auto toutes les heures
    quand des joueurs sont connectés, rotation limitée (ex. 10), dossier `~/minecraft-server/backups/` ; puis redémarrer.
    Règle de jeu validée : `./mc cmd "gamerule playersSleepingPercentage 1"` (un seul joueur qui dort suffit).
+   Scoreboards validés (2026-09-12), stockés dans le monde → à faire après sa recréation, pas avant :
+   `./mc cmd 'scoreboard objectives add morts deathCount "Morts"'` + `./mc cmd "scoreboard objectives setdisplay list morts"` (morts dans Tab) ;
+   `./mc cmd 'scoreboard objectives add vie health "PV"'` + `./mc cmd "scoreboard objectives setdisplay below_name vie"` (PV sous le pseudo).
 7. Tests console : `/locate biome` (Terralith), `/locate structure` (YUNG's, CTOV, Towns and Towers, BoMD) ;
    pour l'End : `execute in minecraft:the_end run locate structure …`.
 8. Pré-génération en arrière-plan : `chunky radius 2500` puis `chunky start` (peut prendre plusieurs heures).
