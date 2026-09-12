@@ -76,13 +76,13 @@ par l'IP du tunnel, tu bannirais tout le monde d'un coup, toi compris.
 
 ## Ajouter des mods
 
-1. Télécharger le mod **version Fabric 1.21.1** (Modrinth ou CurseForge).
-2. Le déposer dans `server/mods/`.
-3. Les joueurs doivent installer **exactement les mêmes mods** côté client
-   (sauf les mods marqués « server-side only »).
-4. Redémarrer le serveur.
+Modpack installé le 2026-09-12 : liste = `MODS.md` (§2-3), versions = `versions-testees.tsv`.
+1. Mod décidé dans `MODS.md`, version **Fabric 1.21.1**, testé d'abord (`TEST-MODS.md`).
+2. `./mc stop` + `./backup.sh`, déposer le jar dans `server/mods/`, `./mc start`.
+3. Mod joué des deux côtés (S+C) : reconstruire le pack joueurs `client-pack/bahbeuh-<date>.mrpack` et le repasser aux amis
+   (import dans l'app Modrinth : `MODS.md` §7).
 
-Si tu ajoutes un gros modpack, passe `MEM="4G"` à `MEM="6G"` dans `start.sh`.
+RAM : `MEM="6G"` dans `start.sh` (modpack complet), jamais plus de 8G.
 
 ## Sauvegardes
 
@@ -91,6 +91,8 @@ Si tu ajoutes un gros modpack, passe `MEM="4G"` à `MEM="6G"` dans `start.sh`.
 ```
 
 À lancer serveur arrêté, ou après avoir tapé `save-all` dans la console.
+En plus, Textile Backup sauvegarde toutes les heures quand des joueurs sont connectés, et à l'arrêt, dans `backups/`
+(10 gardées, `server/config/textile_backup.json5`).
 
 ## Notes techniques
 

@@ -1,7 +1,7 @@
 # Modpack du serveur — liste de référence
 
 > **Source de vérité** pour les mods du serveur. Toute installation doit suivre ce fichier.
-> Statut : ✅ = validé par nistroy · ⏳ = proposé, **ne pas installer** tant que ce n'est pas passé en ✅ ·
+> Statut : ✅ = validé par nistroy · ⏳ = au vote (§3 ; certains déjà installés) ·
 > 🗳️ = nistroy hésite → tranché par le sondage.
 > **Validation finale : un sondage entre amis** décidera si chaque mod est accepté ou non sur le serveur.
 > Les ✅ sont les choix de nistroy, soumis à ce sondage avant installation.
@@ -114,7 +114,6 @@ Légende « Côté » :
 | Amendments | `amendments` | Améliorations de blocs vanilla, par l'auteur de Supplementaries |
 | Handcrafted | `handcrafted` | Meubles style vanilla |
 | Ribbits | `ribbits` | Villages de grenouilles dans les marais |
-| Better Archeology | `better-archeology` | Plus d'archéologie |
 | Enchants Plus | `enchants-plus` | 18 enchantements + 4 malédictions « comme vanilla ». Serveur suffit : le mod n'a **aucun fichier de langue** (noms en anglais via `fallback`, pas de descriptions) → pack de ressources maison, voir §6 étape 9 |
 | Easy Magic | `easy-magic` | La table d'enchantement garde les objets, relance possible |
 | Hardcore Revival | `hardcore-revival` | Au lieu de mourir, KO : les amis ont un temps limité pour te relever |
@@ -186,25 +185,22 @@ dépendances Modrinth → à ajouter à la main (échec de démarrage sans, test
 
 ---
 
-## 3. Suggestions en attente ⏳ (NE PAS INSTALLER)
+## 3. Suggestions au vote ⏳
 
 Toutes vérifiées disponibles en Fabric 1.21.1, **aucune incompatibilité déclarée** avec la liste (vérifié le 2026-09-11).
-
-**Encore à décider**
+**Installé** = sur le serveur depuis le 2026-09-12, avant la fin du vote (décision nistroy) ; rejet au vote → retirer +
+régénérer le monde (§6). Sinon : ne pas installer.
 
 | Mod | Slug | Côté | Ce qu'il apporte | Statut |
 |---|---|---|---|---|
-| Naturalist | `naturalist` | S+C | Animaux style vanilla (cerfs, ours, serpents, papillons, oiseaux…) | 🗳️ sondage |
-| Macaw's Roofs | `macaws-roofs` | S+C | Toits | 🗳️ « à voir » |
-| Crafting Tweaks | `crafting-tweaks` | S+C (optionnels) | Répartir/vider/tourner la grille de craft en un clic | 🗳️ « à voir » |
-| Visual Workbench | `visual-workbench` | S+C | Objets visibles sur l'établi, qui les garde | 🗳️ (coût FPS négligeable) |
-| Critters and Companions | `critters-and-companions` | S+C | Petits animaux (loutres, pandas roux, koïs, libellules…) | 🗳️ « sais pas trop » |
-| BlazeandCave's Advancements | `blazeandcaves-advancements-pack` | S (**datapack** → `world/datapacks/`) | +1 000 progrès, 16 onglets | 🗳️ « à voir » |
-| Storage Drawers | `storagedrawers` | S+C | Tiroirs grand volume ; contrôleur = tri automatique ; entonnoirs OK (API de transfert Fabric vérifiée dans le jar) | 🗳️ intéressé |
-| Reinforced Chests | `reinforced-chests` | S+C | Coffres cuivre → netherite, plus grands | 🗳️ « à voir » |
-| Tom's Simple Storage | `toms-storage` | S+C | Terminal pour chercher dans tous les coffres reliés | 🗳️ « à voir » |
-| Snow! Real Magic! | `snow-real-magic` | S+C | Neige qui s'accumule, recouvre escaliers/dalles/clôtures (lib Kiwi) | 🗳️ « à voir » |
-| Anti Enderman Grief | `anti-enderman-grief` | S | Les endermen ne prennent plus de blocs | 🗳️ « oui à voir » |
+| Naturalist | `naturalist` | S+C | Animaux style vanilla (cerfs, ours, serpents, papillons, oiseaux…) | Installé |
+| Crafting Tweaks | `crafting-tweaks` | S+C (optionnels) | Répartir/vider/tourner la grille de craft en un clic | Installé |
+| Visual Workbench | `visual-workbench` | S+C | Objets visibles sur l'établi, qui les garde | Installé |
+| Critters and Companions | `critters-and-companions` | S+C | Petits animaux (loutres, pandas roux, koïs, libellules…) | Installé |
+| BlazeandCave's Advancements | `blazeandcaves-advancements-pack` | S (**datapack** → `world/datapacks/`) | +1 000 progrès, 16 onglets | Installé (`BlazeandCave's Advancements Pack 1.17.2.zip`) |
+| Storage Drawers | `storagedrawers` | S+C | Tiroirs grand volume ; contrôleur = tri automatique ; entonnoirs OK (API de transfert Fabric vérifiée dans le jar) | Pas installé : « plus tard, a l'air bien » (nistroy 2026-09-12) ; pas de génération de monde → ajout possible à tout moment |
+| Better Archeology | `better-archeology` | S+C | Plus d'archéologie (structures, blocs suspects, 3 enchantements) | Retiré du pack de base (test en jeu 2026-09-12) ; peut revenir : objets partout, structures seulement dans les chunks jamais générés |
+| Snow! Real Magic! | `snow-real-magic` | S+C | Neige qui s'accumule, recouvre escaliers/dalles/clôtures (lib Kiwi) | Installé |
 
 Rappel enchantements : Dungeons and Taverns (✅) ajoute déjà des enchantements uniques et Illager Invasion (✅)
 sa table d'imprégnation. **Un seul pack d'enchantements** (Enchants Plus ✅) : les packs ne gèrent pas les exclusivités entre eux.
@@ -243,6 +239,10 @@ Mods proposés et **refusés** — ne pas installer sans nouvelle demande.
 | Macaw's Lights and Lamps / Trapdoors / Fences and Walls, Beautify, Another Furniture, Cooking for Blockheads | Pas fan des mods de déco supplémentaires |
 | Reactive Music | AmbientSounds suffit pour l'ambiance sonore |
 | Visuality | Pas fan (et doublon avec Subtle Effects) |
+| Reinforced Chests | Coffres vanilla suffisent (test en jeu 2026-09-12) |
+| Tom's Simple Storage | Pas réussi à le faire marcher, pas indispensable (test en jeu 2026-09-12) |
+| Macaw's Roofs | Pas voulu (nistroy, 2026-09-12) |
+| Anti Enderman Grief | Pas voulu (nistroy, 2026-09-12) |
 | Galosphere | Avec Terralith, ses 3 biomes souterrains ne génèrent pas (`locate biome` échoue, témoins vanilla OK ; Terralith `dimension/overworld.json` = liste explicite `minecraft`/`terralith`) → ses mobs, blocs et sanctuaire disparaissent, restent ruines + palladium. Sous-sol déjà couvert : Terralith (11 biomes `cave/`) + Tectonic (grottes, rivières souterraines). Test 2026-09-12 |
 | Spelunkery | `0.4.4` + Moonlight `3.6.4` : 63 `Failure adding generated resources … NoSuchElementException` (loot + worldgen des minerais), aussi seul → bug du mod. Écrase en plus des loots d'autres mods (Pyrolysis d'Enchants Plus sur 4 minerais deepslate, Wither d'Incendium). Test 2026-09-12 |
 | *(indisponibles en Fabric 1.21.1)* | Twilight Forest, Blue Skies, Etched, Sophisticated Backpacks, Moog's End/Nether Structures, Twigs, More Villagers, Croptopia, Iron Chests, Double Shulker Shells |
@@ -263,25 +263,51 @@ Points à régler / tester à l'installation :
    Autres clés F&F laissées par défaut : `enableIllusionerSpawn`, `enableIllusionerInRaids`, `replaceVanillaIllusioner`,
    `generateIllusionerShackStructure`, `generateIllusionerTrainingGroundsStructure` (structures F&F `illusioner_shack`,
    `illusioner_training_grounds`, en plus de `illagerinvasion:illusioner_tower`). Effet de `enableIllusioner` sur ces structures : non vérifié.
-2. **Villages** : Overhauled Village et Towns and Towers ajoutent tous les deux des villages.
-   → Vérifier en jeu qu'ils cohabitent sans doublons gênants ; sinon en garder un.
-3. **Densité de structures** : ~20 mods de structures → vérifier que Sparse Structures espace suffisamment.
-4. **End** : vérifier que l'île YUNG's et l'Obsidilith apparaissent bien avec Nullscape.
-5. **Fresh Animations × Illusionner** : FA anime l'Illusionner vanilla, qu'Illager Invasion redessine.
-   → Vérifier en jeu (symptôme de conflit : yeux vides, pas d'animation) ; sans gravité, côté client.
-6. Test serveur du lot complet fait 2026-09-12 (`TEST-MODS.md`, runs A/B) : démarrage OK après ajout Kambrik + C2ME Java 21,
-   aucun `Mixin apply failed`, structures/boss/dimensions trouvés par `locate`. Résultats : points 1, 7-8, Galosphere/Spelunkery écartés (§4), mesures (Consommation).
-   Lot final (110 jars, sans Galosphere/Spelunkery) : démarrage OK (258 mods), 19 `locate` OK (5 dimensions), pré-gén sans
-   nouvelle erreur (test 2026-09-12, port 25566, vanilla en marche).
-   Test client 2026-09-12 (`bahbeuh-test-2026-09-12.mrpack`, Windows, RTX 4060 portable) : lancement OK (256 mods),
-   ~150 FPS sans shaders, ~100 Complementary Reimagined, ~80 avec mobs ; 1 crash Subtle Effects → pack `bahbeuh-fixes` (§6.9).
-   Pas testé : points 2-5.
-   À refaire à l'installation réelle.
+2. **Villages** CTOV + Towns and Towers : cohabitent, pas de doublon gênant (test en jeu 2026-09-12).
+3. **Densité** : Sparse Structures espace assez (test en jeu 2026-09-12, survol du spawn).
+4. **End** : île YUNG's + Obsidilith OK avec Nullscape (test en jeu 2026-09-12). Progrès « The End... Again? » obtenu au
+   1er dragon : cause probable = YUNG's fait apparaître le dragon par sa propre séquence de respawn (`DragonRespawnStage`,
+   `EndDragonFightMixin` dans le jar) ; aucun ticket GitHub. Sans gravité.
+5. **Fresh Animations × Illusionner** (Illager Invasion le redessine) : OK (test en jeu 2026-09-12).
+6. Tests 2026-09-12 :
+   - Serveur (`TEST-MODS.md`, runs A/B) : démarrage OK après Kambrik + C2ME Java 21, aucun `Mixin apply failed`.
+     → points 1, 7-8, Galosphere/Spelunkery (§4), mesures (Consommation). Lot final (110 jars) : 258 mods, 19 `locate` OK
+     (5 dimensions), pré-gén sans nouvelle erreur.
+   - Client (`bahbeuh-test-2026-09-12.mrpack`, Windows, RTX 4060 portable) : 256 mods, ~150 FPS sans shaders, ~100
+     Complementary Reimagined, ~80 avec mobs ; 1 crash Subtle Effects → `bahbeuh-fixes` (§6.9).
+   - En jeu (`12b`, `test-server/` `world-C`, checklist 52 points : biomes, 5 dimensions, structures de chaque mod, boss,
+     raid, mobs, pêche Tide, rangement, emotes, lunes, explosions) : 47 OK, 0 crash client/serveur, TPS ~20 ;
+     `Can't keep up` seulement en tp vers des chunks neufs. Points ouverts : point 9.
+   - Installation `server/` 2026-09-12 : 103 jars du lot testé (sha512 = `versions-testees.tsv`), sans Reinforced Chests,
+     Tom's Storage, Macaw's Roofs, Anti Enderman Grief (§4), Better Archeology, Storage Drawers (§3) ; Subtle Effects (C) retiré.
+     Démarrage OK (249 mods), aucune ERROR nouvelle vs test, datapack BlazeandCave's chargé, configs §6 étape 6 faites.
+     Pack joueurs `client-pack/bahbeuh-2026-09-12.mrpack` = `12d` moins ces mods (110 fichiers).
 7. **`/locate` gèle le serveur** (thread principal) : jusqu'à ~25 s pour une structure rare (`structory_towers:engineer_tower`, 36 km).
-   Plusieurs envoyés d'un coup en console = même tick → watchdog 60 s → crash (test 2026-09-12).
-   → Un seul à la fois, pas pendant que des amis jouent. YUNG's remplace la mine vanilla : `locate structure #bettermineshafts:better_mineshafts`.
+   Plusieurs envoyés d'un coup = même tick → watchdog 60 s → crash. Le retard s'additionne aussi entre `locate` lents
+   envoyés un par un (23 s + 17 s + 24 s… → crash, test en jeu 2026-09-12).
+   → Un seul à la fois, ~20 s de pause après un `locate` lent, pas pendant que des amis jouent.
+   YUNG's remplace la mine vanilla : `locate structure #bettermineshafts:better_mineshafts`.
 8. **Bountiful** : pools de compat Farmer's Delight / Supplementaries (`chef_*`, `carpenter_*`) rattachés à aucun décret
    → ces primes n'apparaissent pas (`config/bountiful/errors.log`). Sans gravité.
+9. **Test en jeu 2026-09-12, points ouverts** :
+   - Continuity : verre non connecté → pack intégré désactivé par défaut ; OK une fois activé à la main → activé dans le
+     `.mrpack` dès `12d` (§6.9).
+   - Touche `B` par défaut pour 4 actions (relevé des jars) : roue Emotecraft, nouveau waypoint Xaero (a pris le dessus),
+     inventaire Traveler's Backpack, terminal Tom's Storage (écarté) → `.mrpack` dès `12d` : waypoint `N`, sac `H` (§6.9).
+     Autres touches partagées, non signalées en jeu, laissées telles quelles : `C` Zoomify + Trade Cycling (écran villageois)
+     + barre d'outils vanilla ; `Z` carte Xaero + outil du sac ; `O` Iris + emote debug ; `I` accessoires Aether + Do a Barrel
+     Roll ; `F6` First-person Model + Zoomify.
+   - Subtle Effects : TNT dans la lave = particules vanilla seules. Normal : `ExplosionMixin` lit `splash_type`, retiré de
+     la lave par `bahbeuh-fixes` ; revient avec le retrait du pack.
+   - Traveler's Backpack : « à voir » (nistroy) → sondage.
+   - Non testés : brossage Better Archeology (camp d'archéologue sans bloc suspect ; il y en a dans `underwater_*`, `mott`,
+     `desert_obelisk`), Lootr (butin par joueur, il faut 2 joueurs).
+   - Sans gravité : navire pirate Aquamirae pris dans la glace ; légère baisse de FPS au Mechanical Nest (When Dungeons Arise).
+   - Log serveur sans effet visible : 24 `Couldn't find template pool reference: dungeons_arise:mechanical_nest/mechanical_nest_decoration` ;
+     CTOV `kaisyn:village/beach_lighthouse/villager_lighthouse_master` (phare de plage) et `Empty or non-existent pool: minecraft:`
+     (grand village de plaine) ; ERROR `Block-attached entity at invalid position` et `Failed to parse vibration listener for
+     Sculk Sensor` en génération, source non identifiée.
+   - AmbientSounds = mod, pas pack de ressources : visible dans Mod Menu, pas dans Packs.
 
 ---
 
@@ -345,13 +371,14 @@ Mesuré 2026-09-12 (`test-server/`, `MEM="6G"`, 0 joueur, lot complet, C2ME `0.3
 | RAM pendant / après | 4,1 / 3,1 Go sur 6 | 3,8 / 3,5 Go sur 6 | 4,2 / 3,4 Go sur 6 |
 | Monde après pré-gén | 115 Mo | 90 Mo | 103 Mo |
 
-→ `chunky radius 2500` (§6 étape 8, ~97 600 chunks Overworld) ≈ 30-40 min à ce rythme (extrapolation).
+→ Install réelle 2026-09-12 : `chunky radius 2500` Overworld = 99 225 chunks en 29 min 23 (~56 chunks/s) ; après :
+TPS 20, tick méd./95 %/max 0,7 / 3,4 / 379 ms (1 min), RAM 3,9 / 6 Go, monde 1,5 Go.
 
 ---
 
 ## 6. Procédure d'installation (pour l'agent)
 
-Test préalable sur instance jetable : `TEST-MODS.md`. Ses versions testées (`test-server/versions-testees.tsv`) priment sur l'étape 2.
+Test préalable sur instance jetable : `TEST-MODS.md`. Ses versions testées (`versions-testees.tsv`, racine) priment sur l'étape 2. Procédure faite le 2026-09-12 (§5 point 6).
 Contexte technique : voir `README.md` (tout se pilote avec `./mc`, Java 21 forcé dans `start.sh`).
 Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Modrinth.
 
@@ -390,6 +417,11 @@ Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Mo
    ressources (`SplashTypeReloadListener.prepare` crée la texture dynamique en parallèle de `DynamicSpriteSetsManager.reload`
    appelé par `FabricParticleEngineMixin`) → aléatoire selon le lancement, F3+T ne garantit rien. Tickets GitHub #242/#237
    ouverts, `1.14.3` = dernière version 1.21.1 (vérifié 2026-09-12). Retirer le pack quand une version corrige.
+   **Pack intégré Continuity `continuity:default`** (« Default Connected Textures » : verre, grès, bibliothèques) : aussi dans
+   `resourcePacks` de `options.txt`, sinon verre non connecté. Continuity l'enregistre en `ResourcePackActivationType.NORMAL`
+   (désactivé par défaut) ; ID = `Identifier.toString()` (`ModNioResourcePack.create` de Fabric API, vérifié 2026-09-12). Dès `12d`.
+   **Touches** (`options.txt`, dès `12d`) : `key_gui.xaero_new_waypoint:key.keyboard.n`, `key_key.travelersbackpack.inventory:key.keyboard.h`
+   → `B` reste à la roue Emotecraft. `G`, `H`, `J`, `N` : aucune touche par défaut dans les jars du pack (relevé 2026-09-12).
 10. Mettre à jour la section « Ajouter des mods » du `README.md` (comment les amis importent le `.mrpack`).
 11. Rendre compte : ce qui est installé, les versions, les problèmes rencontrés.
 
@@ -399,5 +431,8 @@ Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Mo
 2. « + » → **Importer** → choisir le fichier `.mrpack` fourni.
 3. Paramètres de l'instance → **allouer 6 Go de RAM** (4 Go minimum sans shaders).
 4. Lancer, se connecter à `schmidt-shut.tun.ply.gg`.
-5. Shaders (optionnel) : Options → Vidéo → Shader Packs → Complementary Reimagined.
-6. FPS trop bas ? Dans l'ordre : couper les shaders → retirer Fresh Animations → baisser Sound Physics → baisser la distance de rendu.
+5. Au 1er lancement : Options → Packs de ressources → actifs, de haut en bas : bahbeuh-fixes, enchants-plus-lang,
+   Fresh Animations, Default Connected Textures. Normalement déjà réglé par le pack ; sinon les activer dans cet ordre.
+6. Shaders (optionnel) : Options → Vidéo → Shader Packs → Complementary Reimagined.
+7. FPS trop bas ? Dans l'ordre : couper les shaders → retirer Fresh Animations → baisser Sound Physics → baisser la distance de rendu.
+8. Touches : roue des emotes **B**, nouveau waypoint **N**, ouvrir le sac à dos **H**.

@@ -9,7 +9,7 @@ de test, sans erreur, **avant** la fin du sondage. Liste, côtés, compat : `MOD
   tous les ⏳ (§3). Jamais les mods C.
 - Galosphere / Spelunkery : testés 2026-09-12 (runs A/B), écartés tous les deux (`MODS.md` §4) → 1 seul run désormais.
 - Vanilla arrêté pendant le test (validé : 0 joueur, monde recréé ensuite), relancé à la fin.
-- Go-ahead téléchargement : `test-server/mods/` seulement. `server/mods/` reste bloqué jusqu'au vote.
+- Go-ahead téléchargement : `test-server/mods/` seulement. `server/mods/` installé le 2026-09-12 avant la fin du vote (`MODS.md` §3).
 - Hors périmètre : test en jeu côté client (demande le `.mrpack`, `MODS.md` §6 étape 9).
 
 ## Relevé Modrinth 2026-09-12
@@ -40,7 +40,8 @@ de test, sans erreur, **avant** la fin du sondage. Liste, côtés, compat : `MOD
 1. Résoudre comme `MODS.md` §6 étape 2 : `curl`, dernière `release` (sinon dernière version), fichier `primary`,
    `sha512` vérifié après téléchargement, dépendances `required` récursives, signaler toute `incompatible` dans le lot.
 2. Jars → `test-server/mods/`. Pas le datapack (étape 3.3).
-3. `test-server/versions-testees.tsv` : `slug  version  fichier  sha512` par jar. L'install après le vote reprendra ces versions.
+3. `versions-testees.tsv` (racine du dépôt ; était dans `test-server/`) : `slug  version  fichier  sha512` par jar.
+   Install du 2026-09-12 = ces versions.
 
 ### 3. Runs
 | Run | `level-name` | Mods |
@@ -70,5 +71,6 @@ Par run, dans l'ordre :
 1. `stop` sur `test-mc`, puis `./mc start`, `./mc status`.
 2. Résultats → `MODS.md` §5 (conflits, noms d'options vérifiés, Kambrik). Mod cassé → le signaler à nistroy,
    ne pas le passer en « écarté » sans lui.
-3. Garder `test-server/` (les jars testés servent à l'install après le vote) ; ne pas le supprimer sans demander.
+3. `test-server/` supprimé 2026-09-12 après l'install (jars copiés dans `server/mods/`, versions dans `versions-testees.tsv`).
+   Prochain test : le recréer (§1).
 4. Compte rendu à nistroy : runs, versions, erreurs, TPS/RAM, durée de génération.
