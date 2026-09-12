@@ -176,9 +176,10 @@ Légende « Côté » :
 ### 2.4 Bibliothèques
 
 À résoudre automatiquement (dépendances `required` de la version Fabric 1.21.1 de chaque mod, récursivement).
-Relevé du 2026-09-11 : fabric-api, fabric-language-kotlin, yungs-api, cloth-config, geckolib,
-cardinal-components-api, puzzles-lib, forge-config-api-port, owo-lib, balm, moonlight, lithostitched,
-cristel-lib, moogs-structure-lib, polymer, architectury-api, jamlib, resourceful-lib, fragmentum, yacl.
+Relevé du 2026-09-12 (API Modrinth, dernière release) : fabric-api, fabric-language-kotlin, yungs-api, cloth-config,
+geckolib, cardinal-components-api, puzzles-lib, forge-config-api-port, owo-lib, balm, moonlight, lithostitched,
+cristel-lib, moogs-structure-lib, polymer, architectury-api, jamlib, resourceful-lib, fragmentum, corgilib,
+data-anchor, resourceful-config, fzzy-config, cicada ; pour les ⏳ seulement : yacl, kiwi.
 
 ---
 
