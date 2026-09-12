@@ -320,6 +320,7 @@ ScalableLux, FerriteCore/ModernFix (RAM). RAM à allouer aux joueurs : **6 Go** 
 
 ## 6. Procédure d'installation (pour l'agent)
 
+Test préalable sur instance jetable : `TEST-MODS.md`. Ses versions testées (`test-server/versions-testees.tsv`) priment sur l'étape 2.
 Contexte technique : voir `README.md` (tout se pilote avec `./mc`, Java 21 forcé dans `start.sh`).
 Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Modrinth.
 
