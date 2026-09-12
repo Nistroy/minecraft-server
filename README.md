@@ -79,8 +79,8 @@ par l'IP du tunnel, tu bannirais tout le monde d'un coup, toi compris.
 Modpack installé le 2026-09-12 : liste = `MODS.md` (§2-3), versions = `versions-testees.tsv`.
 1. Mod décidé dans `MODS.md`, version **Fabric 1.21.1**, testé d'abord (`TEST-MODS.md`).
 2. `./mc stop` + `./backup.sh`, déposer le jar dans `server/mods/`, `./mc start`.
-3. Mod joué des deux côtés (S+C) : reconstruire le pack joueurs `client-pack/bahbeuh-<date>.mrpack` et le repasser aux amis
-   (import dans l'app Modrinth : `MODS.md` §7).
+3. Mod joué des deux côtés (S+C) : l'ajouter aussi au pack joueurs `pack/` (`MODS.md` §6.9). Une fois sur `main`,
+   les amis le reçoivent tout seuls au lancement suivant (`MODS.md` §7).
 
 RAM : `MEM="6G"` dans `start.sh` (modpack complet), jamais plus de 8G.
 
