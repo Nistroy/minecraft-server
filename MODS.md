@@ -448,15 +448,16 @@ espaces non testé). Hook impossible à pré-remplir via `.mrpack` (format : fic
 « Launch hooks » = réglage global de l'app (Default instance options), pas celui de l'instance.
 1. Installer l'**app Modrinth** (modrinth.com/app).
 2. « + » → **Importer** → `bahbeuh-auto.mrpack` fourni (Minecraft + Fabric + outil de mise à jour, pas de mods).
-3. Instance → ⚙ (à côté de Play) → onglet **Sync overrides** → activer **Custom game launch hooks** → **Pre-launch**,
-   coller (variables fournies par l'app, `hooks.rs`) :
+3. Instance → ⚙ (à côté de Play) → onglet **Sync overrides** (RAM et hook au même endroit, vu par nistroy 2026-09-12) :
+   - **Custom memory allocation** → 6 Go (4 Go minimum sans shaders). RAM client jamais mesurée : relever `Mem` (F3)
+     en jeu avant de changer ;
+   - **Custom game launch hooks** → **Pre-launch**, coller (variables fournies par l'app, `hooks.rs`) :
    `"$INST_JAVA" -jar "$INST_DIR/packwiz-installer-bootstrap.jar" https://raw.githubusercontent.com/Nistroy/minecraft-server/main/pack/pack.toml`
-4. Paramètres de l'instance → **allouer 6 Go de RAM** (4 Go minimum sans shaders).
 
 Chaque lancement : fenêtre packwiz télécharge seulement ce qui a changé, puis le jeu démarre. Pack injoignable →
 « Continue without updating » (sinon l'app annule le lancement : hook en échec).
-5. Lancer, se connecter à `schmidt-shut.tun.ply.gg`.
-6. Au 1er lancement : Options → Packs de ressources → actifs, de haut en bas : bahbeuh-fixes, enchants-plus-lang,
+4. Lancer, se connecter à `schmidt-shut.tun.ply.gg`.
+5. Au 1er lancement : Options → Packs de ressources → actifs, de haut en bas : bahbeuh-fixes, enchants-plus-lang,
    Fresh Animations, Default Connected Textures. Normalement déjà réglé par le pack ; sinon les activer dans cet ordre.
 6. Shaders (optionnel) : Options → Vidéo → Shader Packs → Complementary Reimagined.
 7. FPS trop bas ? Dans l'ordre : couper les shaders → retirer Fresh Animations → baisser Sound Physics → baisser la distance de rendu.
