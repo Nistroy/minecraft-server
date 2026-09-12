@@ -9,6 +9,8 @@ small safe changes. Full-scale standards; dormant rules activate on triggers (§
 - `server/` — Fabric 1.21.1, Java 21 forced in `server/start.sh`. World/logs/`mods/*.jar` gitignored;
   `fabric-server-launch.jar` tracked.
 - `playit/` — playit.gg tunnel agent, Docker linux/arm64.
+- `pack/` — player pack, packwiz (source of truth, served from `main` via raw.githubusercontent → friends auto-update;
+  `MODS.md` §6.9). CLI `~/go/bin/packwiz`.
 - `discord-mcp.sh` — Discord MCP launcher. Token `~/.config/discord-mcp/token`, never in repo.
 - Docs (FR): `README.md` ops · `MODS.md` modpack truth (✅/⏳/rejected, compat, install §6) ·
   `DISCORD.md` plan + pitfalls §5 · `discord/ETAT.md` live Discord inventory (roles, channels, IDs,

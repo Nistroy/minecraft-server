@@ -1,0 +1,13 @@
+name = "BahBeuh"
+author = "nistroy"
+version = "2026-09-12"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "7372cf159cc493b3d4fee11c296fadf0f1ccdb7a45b73dff337399da4eb46fd5"
+
+[versions]
+fabric = "0.19.5"
+minecraft = "1.21.1"

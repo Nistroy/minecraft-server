@@ -1,0 +1,13 @@
+name = "Snow! Real Magic! ⛄"
+filename = "SnowRealMagic-1.21.1-Fabric-12.2.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/iJNje1E8/versions/uI1d1ZPZ/SnowRealMagic-1.21.1-Fabric-12.2.2.jar"
+hash-format = "sha512"
+hash = "330cc2d02465261c5bb66dd87f6214563355817c69512b957d3b30f0f487172b924e0053506371eecd5c1d8a55e45d16c344363594f8afbfd398ee4c39fa3eee"
+
+[update]
+[update.modrinth]
+mod-id = "iJNje1E8"
+version = "uI1d1ZPZ"

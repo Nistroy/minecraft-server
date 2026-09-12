@@ -400,12 +400,28 @@ Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Mo
 7. Tests console : `/locate biome` (Terralith), `/locate structure` (YUNG's, CTOV, Towns and Towers, BoMD) ;
    pour l'End : `execute in minecraft:the_end run locate structure …`.
 8. Pré-génération en arrière-plan : `chunky radius 2500` puis `chunky start` (peut prendre plusieurs heures).
-9. Pack client : construire un `.mrpack` (format Modrinth : `modrinth.index.json` + URLs + hashes) avec
-   S+C + C + leurs bibliothèques, champ `env` correct pour chaque fichier → `~/minecraft-server/client-pack/`.
-   Fresh Animations va dans `resourcepacks/` et doit être activé par défaut (override `options.txt`, `resourcePacks`).
+9. Pack joueurs = packwiz dans `pack/` (source de vérité, S+C + C + leurs bibliothèques ; mods S hors pack).
+   Amis mis à jour à chaque lancement (§7) depuis `https://raw.githubusercontent.com/Nistroy/minecraft-server/main/pack/pack.toml`
+   → changement visible des amis seulement après merge sur `main` (dépôt public, requis pour ce lien).
+   - Outil : `~/go/bin/packwiz` (`go install github.com/packwiz/packwiz@latest`, pas de formule brew). Commandes depuis `pack/`.
+   - Ajouter : `packwiz modrinth add <slug>` ; version testée imposée : `--project-id <id> --version-id <id>`.
+     Retirer : `packwiz remove <slug>`. `side` dans `mods/<slug>.pw.toml` : `client` (C) ou `both` (S+C).
+   - Après toute modif : `packwiz refresh` + monter `version` dans `pack.toml`.
+   - `options.txt` : `preserve = true` dans `index.toml` → écrit au 1er install seulement, réglages des amis gardés ;
+     nouvelles touches jamais poussées → les définir dans le mod. `refresh` garde `preserve` (vérifié 2026-09-12).
+   - Test avant merge : `packwiz serve` + dans un dossier vide `java -jar packwiz-installer-bootstrap.jar -g
+     http://localhost:8080/pack.toml` (jar = release GitHub `packwiz-installer-bootstrap` `v0.0.3`) → comparer les `sha512`,
+     `check_deps.py` sur `mods/`. Fait 2026-09-12 : 110/110 fichiers Modrinth, 7/7 packs maison, `options.txt` ; maj test :
+     mod retiré supprimé, 0 retéléchargement, `options.txt` modifié gardé ; pack injoignable → exit 1 en `-g`
+     (fenêtre normale : bouton « Continue without updating », `GUIHandler.kt`).
+   - Import unique des amis : `bahbeuh-auto.mrpack` (`~/minecraft-tools/client-pack/build_bootstrap_mrpack.py`). À refaire si
+     version MC/Fabric change : packwiz-installer ne met à jour le loader que des instances MultiMC (option `--multimc-folder`).
+   - Migration 2026-09-12 depuis `bahbeuh-2026-09-12.mrpack` : mêmes 110 fichiers, mêmes versions.
+   Fresh Animations va dans `resourcepacks/` et doit être activé par défaut (`options.txt`, `resourcePacks`).
    **Iris et Sodium : prendre des versions compatibles entre elles** (respecter la version de Sodium exigée par Iris).
    Emotecraft et Do a Barrel Roll : les mettre aussi sur le serveur (optionnel côté serveur mais meilleure synchro).
-   **Pack de ressources maison « enchants-plus-lang »** (activé par défaut dans le `.mrpack`) : `assets/enchantsplus/lang/`
+   Packs maison = dossiers `pack/resourcepacks/<nom>/` (ID `file/<nom>` dans `options.txt`, sans `.zip`).
+   **Pack de ressources maison « enchants-plus-lang »** (activé par défaut) : `assets/enchantsplus/lang/`
    `en_us.json` + `fr_fr.json` avec, pour les 22 enchantements, le nom (`enchantment.enchantsplus.<id>`) et la description
    (`enchantment.enchantsplus.<id>.desc`), rédigés d'après la page Modrinth d'Enchants Plus ; + `assets/farmersdelight/lang/`
    avec `enchantment.farmersdelight.backstabbing.desc`. IDs : breaking_curse, breeze_burst, clumsiness_curse, crabs_touch,
@@ -422,16 +438,22 @@ Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Mo
    (désactivé par défaut) ; ID = `Identifier.toString()` (`ModNioResourcePack.create` de Fabric API, vérifié 2026-09-12). Dès `12d`.
    **Touches** (`options.txt`, dès `12d`) : `key_gui.xaero_new_waypoint:key.keyboard.n`, `key_key.travelersbackpack.inventory:key.keyboard.h`
    → `B` reste à la roue Emotecraft. `G`, `H`, `J`, `N` : aucune touche par défaut dans les jars du pack (relevé 2026-09-12).
-10. Mettre à jour la section « Ajouter des mods » du `README.md` (comment les amis importent le `.mrpack`).
+10. Mettre à jour la section « Ajouter des mods » du `README.md`.
 11. Rendre compte : ce qui est installé, les versions, les problèmes rencontrés.
 
 ## 7. Pour les amis
 
+Une seule fois (libellés de l'app à confirmer au 1er test réel ; chemin Windows avec espaces non testé) :
 1. Installer l'**app Modrinth** (modrinth.com/app).
-2. « + » → **Importer** → choisir le fichier `.mrpack` fourni.
-3. Paramètres de l'instance → **allouer 6 Go de RAM** (4 Go minimum sans shaders).
-4. Lancer, se connecter à `schmidt-shut.tun.ply.gg`.
-5. Au 1er lancement : Options → Packs de ressources → actifs, de haut en bas : bahbeuh-fixes, enchants-plus-lang,
+2. « + » → **Importer** → `bahbeuh-auto.mrpack` fourni (Minecraft + Fabric + outil de mise à jour, pas de mods).
+3. Paramètres de l'instance → Launch hooks → **Pre-launch**, coller (variables fournies par l'app, `hooks.rs`) :
+   `"$INST_JAVA" -jar "$INST_DIR/packwiz-installer-bootstrap.jar" https://raw.githubusercontent.com/Nistroy/minecraft-server/main/pack/pack.toml`
+4. Paramètres de l'instance → **allouer 6 Go de RAM** (4 Go minimum sans shaders).
+
+Chaque lancement : fenêtre packwiz télécharge seulement ce qui a changé, puis le jeu démarre. Pack injoignable →
+« Continue without updating » (sinon l'app annule le lancement : hook en échec).
+5. Lancer, se connecter à `schmidt-shut.tun.ply.gg`.
+6. Au 1er lancement : Options → Packs de ressources → actifs, de haut en bas : bahbeuh-fixes, enchants-plus-lang,
    Fresh Animations, Default Connected Textures. Normalement déjà réglé par le pack ; sinon les activer dans cet ordre.
 6. Shaders (optionnel) : Options → Vidéo → Shader Packs → Complementary Reimagined.
 7. FPS trop bas ? Dans l'ordre : couper les shaders → retirer Fresh Animations → baisser Sound Physics → baisser la distance de rendu.

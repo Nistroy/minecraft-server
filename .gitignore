@@ -36,6 +36,9 @@ server/mods/*.jar
 # Instance de test jetable des mods (voir TEST-MODS.md)
 test-server/
 
+# .mrpack construits pour les amis (distribués via Discord ; source du pack = pack/)
+client-pack/*.mrpack
+
 # ==========================================
 # Sauvegardes
 # ==========================================

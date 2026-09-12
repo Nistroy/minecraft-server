@@ -1,0 +1,13 @@
+name = "Enchants Plus"
+filename = "Enchants+ 1.21 - 1.21.1 fabric-forge.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/N72bKhby/versions/UHYUY8WM/Enchants%2B%201.21%20-%201.21.1%20fabric-forge.jar"
+hash-format = "sha512"
+hash = "41a60887c165bb438058de8f86e10e841ab168b9228dfbe3de90b72a9331c101f818d00df2f300f8e8bd679c468afd4704eec41d0236fb723fd6a87520e7b1b5"
+
+[update]
+[update.modrinth]
+mod-id = "N72bKhby"
+version = "UHYUY8WM"
