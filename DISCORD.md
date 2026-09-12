@@ -220,6 +220,9 @@ temporaire (scratchpad) d'une conversation sont **perdus** ensuite → toujours 
   « tmp-cache » → `send_poll` → `delete_channel` de la catégorie. `modify_channel` ne rafraîchit **pas** le cache.
 - **ID d'un post de forum = ID de son premier message** → `edit_message(channel=<fil>, messageId=<fil>)`.
 - `create_forum_tag` : **une à la fois** (la liste est relue puis réécrite).
+- `send_message_with_file` : `fileUrl` passé tel quel à `AttachmentBuilder` de discord.js (code v2.1.1) → un **chemin local**
+  du Mac mini marche (testé 2026-09-12 avec le `.mrpack`). Dépôt GitHub privé → pas d'URL brute utilisable par le bot.
+  `send_dm` : texte seul, pas de pièce jointe.
 - Toujours passer des **ID**, jamais des noms (recherche approximative à 70 %) ; vérifier `channelName` dans la réponse.
 - Un salon créé dans une catégorie **hérite de ses droits** à la création (vérifié). Dans un forum,
   « créer un post » = `SendMessages`, « répondre dans un post » = `SendMessagesInThreads`.

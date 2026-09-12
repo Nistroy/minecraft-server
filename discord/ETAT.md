@@ -68,7 +68,24 @@ Pas au vote : les mods de perf, les bibliothèques, et les mods côté joueur (S
 Un mod en plus ? → <#1548116811688444005>
 ```
 
-#annonces, #résultats, #modpack, #screenshots, #idées, #bugs-et-crashs : vides.
+**#modpack** — message `1548326166581092444` (2026-09-12), pièce jointe `bahbeuh-test-2026-09-12.mrpack`
+(= `client-pack/`, 22 284 o). **Pack de test avant la fin du vote** (serveur de test en LAN) → à supprimer et remplacer
+par le pack final après le vote.
+```
+**Pack de test** : je vérifie que tout marche en jeu avant la fin du vote.
+Minecraft 1.21.1 Fabric · tous les mods du vote + ceux côté joueur (Sodium, Iris, minimap…)
+
+1. Installe l'app Modrinth : <https://modrinth.com/app>
+2. « + » → Importer → le fichier `.mrpack` ci-dessous
+3. Paramètres de l'instance → 6 Go de RAM (4 Go sans shaders)
+4. Lance le jeu, puis Multijoueur → Ajouter un serveur
+
+Serveur de test : `192.168.1.198:25566` (réseau local seulement, ce n'est pas l'adresse du vrai serveur)
+Shaders (optionnel) : onglet Shaders de l'app → Complementary Reimagined
+Un souci → <#1548117428674756689> avec le fichier `logs/latest.log` de l'instance
+```
+
+#annonces, #résultats, #screenshots, #idées, #bugs-et-crashs : vides.
 
 ## Forum `mods`
 51 posts de vote + 1 post ℹ️ « Mods côté joueurs (pas de vote) » (`1548124750650417264`).
