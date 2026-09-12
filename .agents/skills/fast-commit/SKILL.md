@@ -15,7 +15,7 @@ Ce skill permet d'analyser, découper et créer un ou plusieurs commits de mani�
 ## ⚡ Principes Directeurs
 
 1. **Vitesse & Autonomie** : Minimiser les échanges conversationnels. Ne poser de questions qu'en cas d'ambiguïté réelle.
-2. **🚫 Pas d'Exécution** : Ne JAMAIS lancer de tests, de linter, ni les scripts du projet (`./mc`, `backup.sh`, `server/start.sh`) avant/après le commit. Suivre les consignes et commiter, sans phase de validation.
+2. **🚫 Pas d'Exécution** : Ne JAMAIS lancer de tests ni les scripts du projet (`./mc`, `backup.sh`, `server/start.sh`) avant/après le commit. Seule exception : `bash -n` sur les scripts modifiés (statique, instantané) ; en cas d'échec, s'arrêter et remonter l'erreur sans rien modifier.
 3. **🚫 Interdiction Absolue de Modifier les Fichiers** : Ne JAMAIS modifier, corriger, formater ou toucher aux fichiers du projet. Si un hook pre-commit ou une commande git échoue, **s'arrêter immédiatement**, ne rien modifier et remonter l'erreur brute à l'utilisateur.
 4. **Commits Atomiques** : Si des fichiers concernent des sujets différents (ex: script `mc` + config serveur + docs), découper en plusieurs commits distincts.
 5. **Norme Conventional Commits** : Messages en anglais, clairs et normés (`feat:`, `fix:`, `refactor:`, `docs:`, `chore:`, `style:`, `test:`, `perf:`).

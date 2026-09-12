@@ -42,7 +42,7 @@ Ce skill guide l'analyse approfondie et pédagogique de commits Git (un seul com
 Pour chaque commit analysé :
 
 1. **Évaluer l'utilité d'un Artifact** :
-   - **Commits de Documentation / Trivial (`docs:`, `chore:`, typos, formatting)** : Expliquer brièvement dans le corps de la réponse textuelle (ex: *"Commit `351f03b` (`refactor`) : Regroupement des fichiers Discord dans `discord/`."*). **Aucun artifact n'est généré pour ce type de commit.**
+   - **Commits de Documentation / Trivial (`docs:`, `chore:`, typos, formatting)** : Expliquer brièvement dans le corps de la réponse textuelle (ex: *"Commit `0b39597` (`docs`) : Clarification du style des docs Markdown dans `CLAUDE.md`."*). **Aucun artifact n'est généré pour ce type de commit.**
    - **Commits de Code / Feature / Fix / Refactor (`feat:`, `fix:`, `refactor:`, `perf:`)** : Créer un **Artifact Markdown dédié** au format `commit_explanation_<slug_du_message>.md`.
 
 2. **Format de l'Artifact (uniquement pour les commits substantiels)** :
