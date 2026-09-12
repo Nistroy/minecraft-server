@@ -1,0 +1,2 @@
+#En acceptant, vous validez le CLUF de Minecraft : https://aka.ms/MinecraftEULA
+eula=true

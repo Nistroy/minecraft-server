@@ -1,0 +1,52 @@
+# ==========================================
+# Minecraft Server & Fabric
+# ==========================================
+# Monde de jeu (fichiers binaires fréquents, géré par backup.sh)
+server/world/
+
+# Cache, versions et bibliothèques téléchargées automatiquement par Fabric
+server/libraries/
+server/versions/
+server/.fabric/
+
+# Logs et rapports de crash
+server/logs/
+server/*.log
+server/crash-reports/
+
+# Cache utilisateur généré à chaud
+server/usercache.json
+
+# Mods binaires (évite de saturer Git avec des dizaines de Mo de JARs)
+server/mods/*.jar
+!server/mods/.gitkeep
+
+# ==========================================
+# Sauvegardes
+# ==========================================
+backups/*
+!backups/.gitkeep
+*.tar.gz
+
+# ==========================================
+# Tunnel Playit & Données sensibles / Secrets
+# ==========================================
+# Clés et codes d'association Playit
+playit/secret.txt
+playit/claim-code.txt
+
+# Binaire Linux utilisé pour générer le claim code
+playit/playit-cli
+
+# Fichiers sensibles génériques
+*.key
+*.token
+.env*
+
+# ==========================================
+# Système & Éditeurs
+# ==========================================
+.DS_Store
+.claude/
+.idea/
+.vscode/

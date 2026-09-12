@@ -1,0 +1,106 @@
+# Serveur Minecraft — Mac mini M1
+
+Serveur **Fabric 1.21.1**, Java 21, pour jouer entre amis (2-5 joueurs).
+
+## Adresse à donner à tes amis
+
+```
+schmidt-shut.tun.ply.gg
+```
+
+Sans port : un enregistrement DNS SRV redirige automatiquement vers le port 63508.
+Si un joueur a un client qui ignore les SRV, lui donner `schmidt-shut.tun.ply.gg:63508`.
+
+Testé de bout en bout : ~30 ms de latence vers le tunnel (datacenter européen).
+
+## Arborescence
+
+```
+~/minecraft-server/
+├── server/              Le serveur et ses données
+│   ├── start.sh         ← lance le serveur
+│   ├── server.properties
+│   ├── mods/            ← déposer les mods ici (serveur ET joueurs doivent avoir les mêmes)
+│   ├── world/           Le monde
+│   └── whitelist.json   Les joueurs autorisés
+├── backups/             Sauvegardes du monde (10 max, rotation auto)
+├── backup.sh            ← lance une sauvegarde
+└── playit/              Agent du tunnel playit.gg
+```
+
+## Tout se pilote avec `./mc`
+
+Le serveur tourne dans une session `tmux`, ce qui permet de lui envoyer des
+commandes **à chaud**. Rien de ce qui suit ne nécessite de redémarrage.
+
+```bash
+cd ~/minecraft-server
+
+./mc start              # démarre
+./mc stop               # arrête proprement (sauvegarde le monde)
+./mc restart
+./mc status             # en marche ? RAM, CPU, joueurs connectés
+./mc console            # console live — Ctrl+B puis D pour sortir SANS arrêter
+./mc log                # suit le journal
+
+./mc add <pseudo>       # autorise un joueur — IMMÉDIAT, sans redémarrage
+./mc remove <pseudo>
+./mc list               # joueurs autorisés + connectés
+./mc op <pseudo>        # droits admin
+./mc cmd "<commande>"   # n'importe quelle commande Minecraft
+
+./mc backup
+./mc info               # adresse du serveur + état du tunnel
+```
+
+Le pseudo est le **pseudo Minecraft/Microsoft exact**, pas un surnom.
+
+### Pourquoi garder la whitelist
+
+Une adresse `.ply.gg` n'est pas un secret : ces plages sont scannées en
+permanence, et il suffit qu'un ami la recopie quelque part pour qu'elle circule.
+Sans whitelist, n'importe qui peut entrer et saccager le monde — et comme le
+tunnel masque les IP réelles, tu ne pourrais pas filtrer par adresse.
+
+Ajouter quelqu'un coûte une commande et zéro interruption (`./mc add <pseudo>`),
+donc la whitelist ne te fait rien perdre. Si tu veux vraiment ouvrir à tous :
+`./mc cmd "whitelist off"`.
+
+## Administration
+
+`nistroy9` est opérateur niveau 4. En jeu, tu peux donc taper directement
+`/whitelist add <pseudo>`, `/gamemode creative`, `/time set day`, etc.
+
+Pour bannir : **`/ban <pseudo>`**, jamais `/ban-ip` — tous les joueurs arrivent
+par l'IP du tunnel, tu bannirais tout le monde d'un coup, toi compris.
+
+## Ajouter des mods
+
+1. Télécharger le mod **version Fabric 1.21.1** (Modrinth ou CurseForge).
+2. Le déposer dans `server/mods/`.
+3. Les joueurs doivent installer **exactement les mêmes mods** côté client
+   (sauf les mods marqués « server-side only »).
+4. Redémarrer le serveur.
+
+Si tu ajoutes un gros modpack, passe `MEM="4G"` à `MEM="6G"` dans `start.sh`.
+
+## Sauvegardes
+
+```bash
+~/minecraft-server/backup.sh
+```
+
+À lancer serveur arrêté, ou après avoir tapé `save-all` dans la console.
+
+## Notes techniques
+
+- **Java 21** est forcé dans `start.sh` (`/opt/homebrew/opt/openjdk@21/bin/java`).
+  Le `java` du système est un Java 25, que beaucoup de mods ne supportent pas.
+- **Pourquoi 1.21.1 ?** C'est la version « ancre » du moddé actuel : ~31 000 mods
+  disponibles, contre ~12 000 pour la dernière version (26.2). Les versions les
+  plus récentes sont les moins bien fournies en mods.
+- **playit.gg** ne fournit pas de binaire macOS : l'agent tourne dans Docker
+  (image `linux/arm64`, native sur M1, pas d'émulation).
+- Le tunnel pointe vers `192.168.1.198:25565` (l'IP LAN du Mac). Si cette IP
+  change, il faut la mettre à jour dans le tableau de bord playit.gg —
+  pense à réserver l'IP dans ta box (bail DHCP statique).
