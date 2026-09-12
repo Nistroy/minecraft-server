@@ -12,8 +12,9 @@ small safe changes. Full-scale standards; dormant rules activate on triggers (§
 - `discord-mcp.sh` — Discord MCP launcher. Token `~/.config/discord-mcp/token`, never in repo.
 - Docs (FR): `README.md` ops · `MODS.md` modpack truth (✅/⏳/rejected, compat, install §6) ·
   `DISCORD.md` plan + pitfalls §5 · `discord/ETAT.md` live Discord inventory (roles, channels, IDs,
-  messages) · `discord/posts.json` forum post/poll IDs + texts.
-- Read before acting: mods → `MODS.md`; Discord MCP call → `discord/ETAT.md` + `discord/posts.json` + `DISCORD.md` §5.
+  messages) · `discord/posts.json` forum post/poll IDs + texts · `IA.md` in-game AI assistant plan (deferred).
+- Read before acting: mods → `MODS.md`; Discord MCP call → `discord/ETAT.md` + `discord/posts.json` + `DISCORD.md` §5;
+  AI assistant → `IA.md`.
 
 ## Markdown docs style (`*.md` only, mandatory)
 Scope: project `.md` files, this one included. NOT code, script comments, script messages, commits,
