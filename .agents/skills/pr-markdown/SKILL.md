@@ -85,4 +85,4 @@ Présenter le résultat final dans ce format exact :
 
 ## 🚀 Étape 4 : Sortie
 
-Afficher le bloc Markdown prêt à copier-coller dans GitHub. Sur demande explicite de l'utilisateur uniquement : l'enregistrer dans un fichier ou ouvrir la PR avec `gh pr create --title "<titre>" --body-file <fichier>` (après avoir poussé la branche, push également soumis à validation).
+Afficher le bloc Markdown prêt à copier-coller dans GitHub. Pour ouvrir la PR : pousser la branche puis `gh pr create --title "<titre>" --body-file <fichier>` ; push + PR + merge du travail vérifié sans validation (`CLAUDE.md` §Git).
