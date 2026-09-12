@@ -19,7 +19,7 @@ Ce skill permet d'analyser, découper et créer un ou plusieurs commits de mani�
 3. **🚫 Interdiction Absolue de Modifier les Fichiers** : Ne JAMAIS modifier, corriger, formater ou toucher aux fichiers du projet. Si un hook pre-commit ou une commande git échoue, **s'arrêter immédiatement**, ne rien modifier et remonter l'erreur brute à l'utilisateur.
 4. **Commits Atomiques** : Si des fichiers concernent des sujets différents (ex: script `mc` + config serveur + docs), découper en plusieurs commits distincts.
 5. **Norme Conventional Commits** : Messages en anglais, clairs et normés (`feat:`, `fix:`, `refactor:`, `docs:`, `chore:`, `style:`, `test:`, `perf:`).
-6. **🚫 Pas de Push** : Ne jamais pousser la branche ni ouvrir de PR sans demande explicite.
+6. **Commit seulement** : ce skill ne pousse pas et n'ouvre pas de PR. Push + PR + merge du travail vérifié : `CLAUDE.md` §Git.
 
 ---
 

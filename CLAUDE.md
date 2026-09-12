@@ -53,7 +53,8 @@ Exceptions (human-facing `.md`, normal French): PR descriptions (`pr-markdown`),
 
 ## Git
 - Never commit on `main`. Branch `<type>/<kebab-topic>`, atomic Conventional Commits, merge via GitHub PR (`gh`).
-- Commit finished, verified work directly, no need to ask. Push / force-push / merge / history rewrite → explicit validation.
+- Finished, verified work: commit, push, open PR, merge (`gh pr merge --merge`) directly, no need to ask (nistroy
+  2026-09-12). Force-push / history rewrite → explicit validation.
 - No secrets committed (`playit/secret.txt`, tokens, `.env*`); check untracked files before staging.
 
 ## Docs layout
@@ -106,7 +107,7 @@ Ask before:
 - console cmds changing world, gamerules or player state (`fill`, `setblock`, `kill`, `gamerule`,
   `difficulty`, `clear`); read-only (`list`, `whitelist list`) OK;
 - whitelist, op, bans, `server.properties` security options, playit tunnel;
-- git push, force-push, merge, history rewrite.
+- git force-push, history rewrite (push + PR + merge of verified work: §Git).
 
 Before any mod / MC-Fabric version / worldgen change: fresh backup, then take it out of rotation
 (`backup.sh` keeps last 10 `world_*.tar.gz`): `mv backups/world_<stamp>.tar.gz backups/pre-<change>_<stamp>.tar.gz`.
