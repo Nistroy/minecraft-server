@@ -172,6 +172,7 @@ Légende « Côté » :
 | Status Effect Bars | `status-effect-bars` | Durée des effets en barre |
 | BetterF3 | `betterf3` | Écran F3 lisible |
 | Chat Heads | `chat-heads` | Tête du joueur à côté de son message dans le chat |
+| Subtle Effects | `subtle-effects` | Petits détails en particules (éclaboussures, étincelles…). `1.14.3` : crash éclaboussure de lave → pack `bahbeuh-fixes` (§6.9) |
 
 ### 2.4 Bibliothèques
 
@@ -204,7 +205,6 @@ Toutes vérifiées disponibles en Fabric 1.21.1, **aucune incompatibilité décl
 | Tom's Simple Storage | `toms-storage` | S+C | Terminal pour chercher dans tous les coffres reliés | 🗳️ « à voir » |
 | Snow! Real Magic! | `snow-real-magic` | S+C | Neige qui s'accumule, recouvre escaliers/dalles/clôtures (lib Kiwi) | 🗳️ « à voir » |
 | Anti Enderman Grief | `anti-enderman-grief` | S | Les endermen ne prennent plus de blocs | 🗳️ « oui à voir » |
-| Subtle Effects | `subtle-effects` | C (+S optionnel) | Petits détails en particules, avec culling intégré (lib fzzy-config) | 🗳️ « à voir » |
 
 Rappel enchantements : Dungeons and Taverns (✅) ajoute déjà des enchantements uniques et Illager Invasion (✅)
 sa table d'imprégnation. **Un seul pack d'enchantements** (Enchants Plus ✅) : les packs ne gèrent pas les exclusivités entre eux.
