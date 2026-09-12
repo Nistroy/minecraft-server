@@ -233,7 +233,8 @@ temporaire (scratchpad) d'une conversation sont **perdus** ensuite → toujours 
 - Créations en parallèle : l'ordre a été respecté (ID croissants), mais vérifier avec `list_channels` ;
   le forum s'est placé en tête de sa catégorie → `reorder_channels`.
 - **Mode auto de Claude Code** : refuse de donner des droits (`modify_role_permissions` Administrateur,
-  `assign_role`). Ne pas contourner : demander à nistroy de le faire à la main.
+  `assign_role`) et `delete_message` non demandé explicitement (2026-09-12, ancien pack #modpack). Ne pas contourner :
+  demander à nistroy de le faire à la main.
 - Pas d'attribution automatique de rôle à l'arrivée (le bot ne réagit pas aux événements) ; l'Onboarding Discord
   exigerait un serveur « Communauté ».
 
