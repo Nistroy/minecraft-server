@@ -50,7 +50,7 @@ Exceptions (human-facing `.md`, normal French): PR descriptions (`pr-markdown`),
 
 ## Git
 - Never commit on `main`. Branch `<type>/<kebab-topic>`, atomic Conventional Commits, merge via GitHub PR (`gh`).
-- Commit only when asked. Push / force-push / merge / history rewrite → explicit validation.
+- Commit finished, verified work directly, no need to ask. Push / force-push / merge / history rewrite → explicit validation.
 - No secrets committed (`playit/secret.txt`, tokens, `.env*`); check untracked files before staging.
 
 ## Docs layout
