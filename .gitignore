@@ -1,8 +1,9 @@
 # ==========================================
 # Minecraft Server & Fabric
 # ==========================================
-# Monde de jeu (fichiers binaires fréquents, géré par backup.sh)
+# Monde de jeu (fichiers binaires fréquents, géré par backup.sh) + anciens mondes gardés à côté
 server/world/
+server/world-*/
 
 # Cache, versions et bibliothèques téléchargées automatiquement par Fabric
 server/libraries/
@@ -16,6 +17,17 @@ server/crash-reports/
 
 # Cache utilisateur généré à chaud
 server/usercache.json
+
+# Fichiers générés par les mods au démarrage
+server/.mixin.out/
+server/dynamic-data-pack-cache/
+server/defaultconfigs/
+server/emotes/
+server/moonlight-global-datapacks/
+# Configs de mods générées : seules celles qu'on modifie sont suivies (MODS.md §6 étape 6)
+server/config/*
+!server/config/friendsandfoes.json
+!server/config/textile_backup.json5
 
 # Mods binaires (évite de saturer Git avec des dizaines de Mo de JARs)
 server/mods/*.jar
