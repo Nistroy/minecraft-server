@@ -24,6 +24,7 @@ Design validé par nistroy 2026-09-12. Pas commencé. Démarrer seulement quand 
 | Pas de base vectorielle | index 1 ligne/mod + lecture des fiches par outil | exactitude noms/ID, debug facile, petit corpus. Revoir seulement si wikis entiers aspirés |
 | Distribution mod client | pack packwiz auto-maj | aucune action des potes |
 | Langages | cerveau Python, mods Java | validé nistroy |
+| Mod IA autonome | mods IA (client + serveur) : aucun contenu ni dépendance d'autres mods (Fabric API seule). Connaissances hors du mod, sur le Mac mini, servies par le cerveau | modpack change → seules les données du cerveau changent, mod intact ; rien des autres mods redistribué |
 
 ## Architecture
 touche → écran client → payload → mod serveur (async, jamais bloquer le tick) → HTTP `127.0.0.1` → cerveau → outils + LLM → réponse → payload → écran.
@@ -31,8 +32,8 @@ touche → écran client → payload → mod serveur (async, jamais bloquer le t
 ## Données
 | Couche | Contenu | Écrit par | Format |
 |---|---|---|---|
-| Exactes | items, recettes (`data/*/recipe/*.json`), noms FR/EN (`assets/*/lang/*.json`) extraits des jars | script, jamais l'IA ; relancé à chaque maj mod | SQLite, regénérable |
-| Fiches mods | 1 fiche caveman/mod (ajouts, mécaniques, pièges, version, sources) + `index.md` 1 ligne/mod | pré-base (agents + vérif), puis IA / nistroy | md git |
+| Exactes | items, recettes (`data/*/recipe/*.json`), noms FR/EN (`assets/*/lang/*.json`) extraits des jars | script, jamais l'IA ; relancé à chaque maj mod | SQLite local, regénérable, **jamais commité** ni dans un mod (contenu des mods, souvent All Rights Reserved ; dépôts publics) |
+| Fiches mods | 1 fiche caveman/mod (ajouts, mécaniques, pièges, version, sources) + `index.md` 1 ligne/mod ; résumés rédigés, pas de copie de texte des pages/wikis | pré-base (agents + vérif), puis IA / nistroy | md git |
 | Notes apprises | fait + source + version mod + date + statut `non-vérifié` / `confirmé-joueur` / `validé-nistroy` / `contesté` | IA, votes, nistroy | md git, statut en frontmatter |
 | Index recherche | FTS sur fiches + notes | reconstruit | SQLite, jetable |
 | Historique + votes | par joueur (UUID) | service | SQLite, sauvegardé, **jamais commité** (questions privées) |
