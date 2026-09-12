@@ -37,7 +37,7 @@ Légende « Côté » :
 | Mod | Slug Modrinth | Ce qu'il apporte |
 |---|---|---|
 | Lithium | `lithium` | Optimise la logique du jeu (mobs, physique, entonnoirs) sans rien changer au gameplay |
-| C2ME | `c2me-fabric` | Génération de chunks multi-cœurs — crucial avec Terralith/Tectonic |
+| C2ME | `c2me-fabric` | Génération de chunks multi-cœurs — crucial avec Terralith/Tectonic. Toute la ligne `0.4.0-*` exige Java 25 (module `c2me-opts-natives-math`) → `0.3.0+alpha.0.364+1.21.1` tant que Java 21 (test 2026-09-12) |
 | FerriteCore | `ferrite-core` | Moins de RAM |
 | ModernFix | `modernfix` | Démarrage plus rapide, moins de RAM |
 | Chunky | `chunky` | Pré-génération de la carte |
@@ -125,7 +125,7 @@ Légende « Côté » :
 | Macaw's Windows | `macaws-windows` | Fenêtres, rideaux, vitraux |
 | Macaw's Bridges | `macaws-bridges` | Ponts |
 | Dramatic Doors | `dramatic-doors` | Portes hautes (3 blocs) |
-| Bountiful | `bountiful` | Tableaux de primes dans les villages : missions contre récompenses (la page indique qu'il faut **Kambrik**) |
+| Bountiful | `bountiful` | Tableaux de primes dans les villages : missions contre récompenses. Requiert Kambrik (§2.4) |
 
 ### 2.3 Joueurs seulement (C)
 
@@ -172,13 +172,17 @@ Légende « Côté » :
 | Status Effect Bars | `status-effect-bars` | Durée des effets en barre |
 | BetterF3 | `betterf3` | Écran F3 lisible |
 | Chat Heads | `chat-heads` | Tête du joueur à côté de son message dans le chat |
+| Subtle Effects | `subtle-effects` | Petits détails en particules (éclaboussures, étincelles…). `1.14.3` : crash éclaboussure de lave → pack `bahbeuh-fixes` (§6.9) |
 
 ### 2.4 Bibliothèques
 
 À résoudre automatiquement (dépendances `required` de la version Fabric 1.21.1 de chaque mod, récursivement).
-Relevé du 2026-09-11 : fabric-api, fabric-language-kotlin, yungs-api, cloth-config, geckolib,
-cardinal-components-api, puzzles-lib, forge-config-api-port, owo-lib, balm, moonlight, lithostitched,
-cristel-lib, moogs-structure-lib, polymer, architectury-api, jamlib, resourceful-lib, fragmentum, yacl.
+Relevé du 2026-09-12 (API Modrinth, dernière release) : fabric-api, fabric-language-kotlin, yungs-api, cloth-config,
+geckolib, cardinal-components-api, puzzles-lib, forge-config-api-port, owo-lib, balm, moonlight, lithostitched,
+cristel-lib, moogs-structure-lib, polymer, architectury-api, jamlib, resourceful-lib, fragmentum, corgilib,
+data-anchor, resourceful-config, fzzy-config, cicada ; pour les ⏳ seulement : yacl, kiwi.
+Hors résolution auto : `kambrik` ≥ `8.0.0-beta.2`, requis par Bountiful (`fabric.mod.json`) mais absent de ses
+dépendances Modrinth → à ajouter à la main (échec de démarrage sans, test 2026-09-12).
 
 ---
 
@@ -201,9 +205,6 @@ Toutes vérifiées disponibles en Fabric 1.21.1, **aucune incompatibilité décl
 | Tom's Simple Storage | `toms-storage` | S+C | Terminal pour chercher dans tous les coffres reliés | 🗳️ « à voir » |
 | Snow! Real Magic! | `snow-real-magic` | S+C | Neige qui s'accumule, recouvre escaliers/dalles/clôtures (lib Kiwi) | 🗳️ « à voir » |
 | Anti Enderman Grief | `anti-enderman-grief` | S | Les endermen ne prennent plus de blocs | 🗳️ « oui à voir » |
-| Galosphere | `galosphere` | S+C | 3 biomes souterrains + mobs. ⚠️ Terralith refait déjà les grottes → cohabitation à tester | 🗳️ « à voir » |
-| Spelunkery | `spelunkery` | S+C | Refonte du minage (grottes variées, outils, progression). Un seul des deux avec Galosphere | 🗳️ « à voir » |
-| Subtle Effects | `subtle-effects` | C (+S optionnel) | Petits détails en particules, avec culling intégré (lib fzzy-config) | 🗳️ « à voir » |
 
 Rappel enchantements : Dungeons and Taverns (✅) ajoute déjà des enchantements uniques et Illager Invasion (✅)
 sa table d'imprégnation. **Un seul pack d'enchantements** (Enchants Plus ✅) : les packs ne gèrent pas les exclusivités entre eux.
@@ -242,6 +243,8 @@ Mods proposés et **refusés** — ne pas installer sans nouvelle demande.
 | Macaw's Lights and Lamps / Trapdoors / Fences and Walls, Beautify, Another Furniture, Cooking for Blockheads | Pas fan des mods de déco supplémentaires |
 | Reactive Music | AmbientSounds suffit pour l'ambiance sonore |
 | Visuality | Pas fan (et doublon avec Subtle Effects) |
+| Galosphere | Avec Terralith, ses 3 biomes souterrains ne génèrent pas (`locate biome` échoue, témoins vanilla OK ; Terralith `dimension/overworld.json` = liste explicite `minecraft`/`terralith`) → ses mobs, blocs et sanctuaire disparaissent, restent ruines + palladium. Sous-sol déjà couvert : Terralith (11 biomes `cave/`) + Tectonic (grottes, rivières souterraines). Test 2026-09-12 |
+| Spelunkery | `0.4.4` + Moonlight `3.6.4` : 63 `Failure adding generated resources … NoSuchElementException` (loot + worldgen des minerais), aussi seul → bug du mod. Écrase en plus des loots d'autres mods (Pyrolysis d'Enchants Plus sur 4 minerais deepslate, Wither d'Incendium). Test 2026-09-12 |
 | *(indisponibles en Fabric 1.21.1)* | Twilight Forest, Blue Skies, Etched, Sophisticated Backpacks, Moog's End/Nether Structures, Twigs, More Villagers, Croptopia, Iron Chests, Double Shulker Shells |
 
 ---
@@ -256,21 +259,38 @@ Vérifié sur Modrinth le 2026-09-11 :
 
 Points à régler / tester à l'installation :
 1. **Illusionner en double** : Friends&Foes et Illager Invasion le modifient tous les deux.
-   → Dans la config Friends&Foes, mettre `enableIllusioner = false` (Illager Invasion s'en charge).
-   Vérifier le nom exact de l'option dans le fichier généré.
+   → `config/friendsandfoes.json` : `"enableIllusioner": false` (nom vérifié dans le fichier généré, test 2026-09-12).
+   Autres clés F&F laissées par défaut : `enableIllusionerSpawn`, `enableIllusionerInRaids`, `replaceVanillaIllusioner`,
+   `generateIllusionerShackStructure`, `generateIllusionerTrainingGroundsStructure` (structures F&F `illusioner_shack`,
+   `illusioner_training_grounds`, en plus de `illagerinvasion:illusioner_tower`). Effet de `enableIllusioner` sur ces structures : non vérifié.
 2. **Villages** : Overhauled Village et Towns and Towers ajoutent tous les deux des villages.
    → Vérifier en jeu qu'ils cohabitent sans doublons gênants ; sinon en garder un.
 3. **Densité de structures** : ~20 mods de structures → vérifier que Sparse Structures espace suffisamment.
 4. **End** : vérifier que l'île YUNG's et l'Obsidilith apparaissent bien avec Nullscape.
 5. **Fresh Animations × Illusionner** : FA anime l'Illusionner vanilla, qu'Illager Invasion redessine.
    → Vérifier en jeu (symptôme de conflit : yeux vides, pas d'animation) ; sans gravité, côté client.
-6. Le seul vrai test : **démarrer le serveur** avec tout, lire le log, puis `/locate` quelques structures.
+6. Test serveur du lot complet fait 2026-09-12 (`TEST-MODS.md`, runs A/B) : démarrage OK après ajout Kambrik + C2ME Java 21,
+   aucun `Mixin apply failed`, structures/boss/dimensions trouvés par `locate`. Résultats : points 1, 7-8, Galosphere/Spelunkery écartés (§4), mesures (Consommation).
+   Lot final (110 jars, sans Galosphere/Spelunkery) : démarrage OK (258 mods), 19 `locate` OK (5 dimensions), pré-gén sans
+   nouvelle erreur (test 2026-09-12, port 25566, vanilla en marche).
+   Test client 2026-09-12 (`bahbeuh-test-2026-09-12.mrpack`, Windows, RTX 4060 portable) : lancement OK (256 mods),
+   ~150 FPS sans shaders, ~100 Complementary Reimagined, ~80 avec mobs ; 1 crash Subtle Effects → pack `bahbeuh-fixes` (§6.9).
+   Pas testé : points 2-5.
+   À refaire à l'installation réelle.
+7. **`/locate` gèle le serveur** (thread principal) : jusqu'à ~25 s pour une structure rare (`structory_towers:engineer_tower`, 36 km).
+   Plusieurs envoyés d'un coup en console = même tick → watchdog 60 s → crash (test 2026-09-12).
+   → Un seul à la fois, pas pendant que des amis jouent. YUNG's remplace la mine vanilla : `locate structure #bettermineshafts:better_mineshafts`.
+8. **Bountiful** : pools de compat Farmer's Delight / Supplementaries (`chef_*`, `carpenter_*`) rattachés à aucun décret
+   → ces primes n'apparaissent pas (`config/bountiful/errors.log`). Sans gravité.
 
 ---
 
 ### Compatibilité des mods graphiques / sonores (côté joueurs)
 - Sodium, Iris, Sodium Extra, Reese's Sodium Options, Continuity, LambDynamicLights, EMF/ETF : tous prévus pour
   Sodium ; Sodium Extra et Reese's déclarent l'intégration Iris. **Contrainte : Iris exige une version précise de Sodium.**
+  Paire vérifiée 2026-09-12 (`fabric.mod.json`) : Iris `1.8.14-beta.1+mc1.21.1` (dépend `sodium 0.8.x`) + Sodium `0.8.13`
+  (casse Iris `<1.8.13`). Iris release `1.8.8` veut Sodium `0.6.x` → exclu : Sodium Extra, Reese's (dépendent Sodium ≥ `0.8.12`),
+  More Culling (casse ≤ `0.6.13`), Supplementaries (casse < `0.8.12-beta.1`).
 - LambDynamicLights n'est incompatible qu'avec d'autres mods de lumière dynamique (Sodium Dynamic Lights, RyoamicLights) — aucun ici.
 - Shaders + LambDynamicLights : Complementary a sa propre lumière en main → effet en double, en désactiver un des deux.
 - Sound Physics Remastered + AmbientSounds : compatibles (SPR traite aussi les sons d'ambiance).
@@ -315,10 +335,23 @@ ScalableLux, FerriteCore/ModernFix (RAM). RAM à allouer aux joueurs : **6 Go** 
 | Exposure, Immersive Paintings | 🟢 processeur négligeable ; photos et images stockées dans le monde (disque) | Surveiller la taille du monde |
 | Structory, Tidal Towns | inclus dans le coût de génération ci-dessus | Pré-génération |
 
+Mesuré 2026-09-12 (`test-server/`, `MEM="6G"`, 0 joueur, lot complet, C2ME `0.3.0+alpha.0.364`) :
+
+| | Run A (Galosphere) | Run B (Spelunkery) | Lot final (vanilla en marche) |
+|---|---|---|---|
+| Chunky Overworld r=500 (4225 chunks) | 1 min 24 (~50 chunks/s) | 1 min 46 | 1 min 19 |
+| Nether / End r=250 (1089 chunks chacun) | 29 s / 20 s | 21 s / 19 s | 28 s / 21 s |
+| Pendant génération : TPS, tick méd./95 %/max | 20 · 1,4 / 6 / 182 ms | 20 · 1,2 / 4,8 / 35 ms | 20 · 1,6 / 6,2 / 19 ms |
+| RAM pendant / après | 4,1 / 3,1 Go sur 6 | 3,8 / 3,5 Go sur 6 | 4,2 / 3,4 Go sur 6 |
+| Monde après pré-gén | 115 Mo | 90 Mo | 103 Mo |
+
+→ `chunky radius 2500` (§6 étape 8, ~97 600 chunks Overworld) ≈ 30-40 min à ce rythme (extrapolation).
+
 ---
 
 ## 6. Procédure d'installation (pour l'agent)
 
+Test préalable sur instance jetable : `TEST-MODS.md`. Ses versions testées (`test-server/versions-testees.tsv`) priment sur l'étape 2.
 Contexte technique : voir `README.md` (tout se pilote avec `./mc`, Java 21 forcé dans `start.sh`).
 Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Modrinth.
 
@@ -334,6 +367,9 @@ Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Mo
 6. Configs : point 1 de la section 5 (Illusionner) ; Textile Backup → sauvegarde auto toutes les heures
    quand des joueurs sont connectés, rotation limitée (ex. 10), dossier `~/minecraft-server/backups/` ; puis redémarrer.
    Règle de jeu validée : `./mc cmd "gamerule playersSleepingPercentage 1"` (un seul joueur qui dort suffit).
+   Scoreboards validés (2026-09-12), stockés dans le monde → à faire après sa recréation, pas avant :
+   `./mc cmd 'scoreboard objectives add morts deathCount "Morts"'` + `./mc cmd "scoreboard objectives setdisplay list morts"` (morts dans Tab) ;
+   `./mc cmd 'scoreboard objectives add vie health "PV"'` + `./mc cmd "scoreboard objectives setdisplay below_name vie"` (PV sous le pseudo).
 7. Tests console : `/locate biome` (Terralith), `/locate structure` (YUNG's, CTOV, Towns and Towers, BoMD) ;
    pour l'End : `execute in minecraft:the_end run locate structure …`.
 8. Pré-génération en arrière-plan : `chunky radius 2500` puis `chunky start` (peut prendre plusieurs heures).
@@ -348,6 +384,12 @@ Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Mo
    avec `enchantment.farmersdelight.backstabbing.desc`. IDs : breaking_curse, breeze_burst, clumsiness_curse, crabs_touch,
    displacement_curse, double_edge_curse, gluttony, graviole, ice_aspect, kinetic_protection, luminosity, outreach,
    precision, pyrolysis, retrieval, scorch_walker, skyguard, stride, swift_strike, toxic, vitality, websnare.
+   **Pack maison « bahbeuh-fixes »** (activé par défaut, priorité la plus haute) : `assets/minecraft/subtle_effects/fluid_definitions/lava.json`
+   = celui du jar Subtle Effects `1.14.3` sans `splash_type` (champ optionnel) → plus d'éclaboussure de lave, eau intacte.
+   Cause : crash client `No sprite set is set for sprite set holder 'subtle_effects:lava_splash'` = course au chargement des
+   ressources (`SplashTypeReloadListener.prepare` crée la texture dynamique en parallèle de `DynamicSpriteSetsManager.reload`
+   appelé par `FabricParticleEngineMixin`) → aléatoire selon le lancement, F3+T ne garantit rien. Tickets GitHub #242/#237
+   ouverts, `1.14.3` = dernière version 1.21.1 (vérifié 2026-09-12). Retirer le pack quand une version corrige.
 10. Mettre à jour la section « Ajouter des mods » du `README.md` (comment les amis importent le `.mrpack`).
 11. Rendre compte : ce qui est installé, les versions, les problèmes rencontrés.
 

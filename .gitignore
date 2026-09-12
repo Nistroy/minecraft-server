@@ -21,6 +21,9 @@ server/usercache.json
 server/mods/*.jar
 !server/mods/.gitkeep
 
+# Instance de test jetable des mods (voir TEST-MODS.md)
+test-server/
+
 # ==========================================
 # Sauvegardes
 # ==========================================

@@ -68,10 +68,30 @@ Pas au vote : les mods de perf, les bibliothèques, et les mods côté joueur (S
 Un mod en plus ? → <#1548116811688444005>
 ```
 
-#annonces, #résultats, #modpack, #screenshots, #idées, #bugs-et-crashs : vides.
+**#modpack** — message `1548340069570715728` (2026-09-12), pièce jointe `bahbeuh-test-2026-09-12b.mrpack`
+(= `client-pack/`, 22 902 o, + pack `bahbeuh-fixes`). **Pack de test avant la fin du vote** (serveur de test en LAN) →
+à supprimer et remplacer par le pack final après le vote.
+Ancien message v1 `1548326166581092444` (`bahbeuh-test-2026-09-12.mrpack`) encore présent : suppression refusée par le
+mode auto (§5 `DISCORD.md`) → à supprimer à la main.
+```
+**Pack de test** (v2 : corrige un crash quand un truc tombe dans la lave) : je vérifie que tout marche en jeu avant la fin du vote.
+Minecraft 1.21.1 Fabric · tous les mods du vote + ceux côté joueur (Sodium, Iris, minimap…)
+
+1. Installe l'app Modrinth : <https://modrinth.com/app>
+2. « + » → Importer → le fichier `.mrpack` ci-dessous
+   L'app prévient que 2 fichiers ne sont pas sur Modrinth (`enchants-plus-lang.zip`, `bahbeuh-fixes.zip`) : c'est mes packs maison (traduction des enchantements, correctif du crash) → « Install anyways »
+3. Paramètres de l'instance → 6 Go de RAM (4 Go sans shaders)
+4. Lance le jeu, puis Multijoueur → Ajouter un serveur
+
+Serveur de test : `192.168.1.198:25566` (réseau local seulement, ce n'est pas l'adresse du vrai serveur)
+Shaders (optionnel) : onglet Shaders de l'app → Complementary Reimagined
+Un souci → <#1548117428674756689> avec le fichier `logs/latest.log` de l'instance
+```
+
+#annonces, #résultats, #screenshots, #idées, #bugs-et-crashs : vides.
 
 ## Forum `mods`
-52 posts de vote + 1 post ℹ️ « Mods côté joueurs (pas de vote) » (`1548124750650417264`).
-Chaque post de vote a un sondage « On le garde ? » (✅ Oui · ❌ Non · 🤷 Sans avis), sauf « Sous-sol » :
-« Lequel on prend ? » (💎 Galosphere · ⛏️ Spelunkery · ❌ Aucun). Tous créés le 2026-09-12, 768 h → fin auto ~2026-10-14.
+51 posts de vote + 1 post ℹ️ « Mods côté joueurs (pas de vote) » (`1548124750650417264`).
+Chaque post de vote a un sondage « On le garde ? » (✅ Oui · ❌ Non · 🤷 Sans avis). Tous créés le 2026-09-12, 768 h → fin auto ~2026-10-14.
+Post « Sous-sol : Galosphere ou Spelunkery ? » supprimé par nistroy le 2026-09-12 (les 2 écartés, `MODS.md` §4).
 Détail (titre, étiquettes, slugs, ID du fil et du sondage, vidéo vérifiée, texte exact) : `discord/posts.json`.

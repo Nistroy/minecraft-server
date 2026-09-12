@@ -41,7 +41,7 @@ Les étapes ci-dessous ne sont à refaire qu'en cas de nouveau token.
 - **Ton** (demande de nistroy) : textes courts, familiers, à la 1re personne — pas de règles ni de blabla « communauté ».
 - **Vote** : sondage Discord de 768 h (le maximum) dans chaque post, clos par nistroy quand le serveur est prêt
   (`end_poll`) — remplace « 1 semaine ». Une **vidéo YouTube** dans chaque post quand il y en a une.
-- **Étape 5 faite le 2026-09-12** : 52 posts de vote + post ℹ️ « Mods côté joueurs » publiés dans `mods`, chacun
+- **Étape 5 faite le 2026-09-12** : 51 posts de vote (« Sous-sol » supprimé ensuite) + post ℹ️ « Mods côté joueurs » publiés dans `mods`, chacun
   avec son sondage 768 h (fin automatique vers le 2026-10-14). **ID des fils et des sondages + texte exact de chaque post :
   `discord/posts.json`** — c'est la source pour l'étape 6. **Inventaire du serveur (rôles, salons, droits, ID) :
   `discord/ETAT.md`** — à lire avant d'appeler le MCP.
@@ -149,7 +149,7 @@ Les mods ❌ (section 4 « Écartés ») ne sont **pas** soumis au vote.
 | 🐾 Mobs | Friends&Foes · Illager Invasion · Naturalist 🗳️ · Critters and Companions 🗳️ |
 | 🎮 Gameplay | Lootr · Hardcore Revival · Bountiful · Enhanced Celestials · Tide 2 · Waystones · Nature's + Explorer's Compass · Universal Graves · FallingTree · Enchants Plus · Farmer's Delight · Traveler's Backpack · « Petits conforts » (Easy Anvils, Easy Magic, Grind Enchantments, Trade Cycling, Better Than Mending, RightClickHarvest) |
 | 🎨 Fun & déco | Exposure · Immersive Melodies · Immersive Paintings · Emotecraft · Supplementaries + Amendments · Handcrafted · Macaw's Doors/Windows/Bridges + Dramatic Doors · Ribbits · Better Archeology |
-| 🤔 Hésitations | Macaw's Roofs · Crafting Tweaks · Visual Workbench · BlazeandCave's Advancements · Storage Drawers · Reinforced Chests · Tom's Simple Storage · Snow! Real Magic! · Anti Enderman Grief · « Sous-sol » (Galosphere / Spelunkery / aucun — un seul choix) |
+| 🤔 Hésitations | Macaw's Roofs · Crafting Tweaks · Visual Workbench · BlazeandCave's Advancements · Storage Drawers · Reinforced Chests · Tom's Simple Storage · Snow! Real Magic! · Anti Enderman Grief |
 
 ### Contenu de chaque post
 Construit à partir de `MODS.md` et de l'API Modrinth (`curl https://api.modrinth.com/v2/project/<slug>`) :
@@ -166,7 +166,6 @@ Construit à partir de `MODS.md` et de l'API Modrinth (`curl https://api.modrint
 - **Vote** : sondage Discord « On le garde ? » → ✅ Oui · ❌ Non · 🤷 Sans avis, posté dans le fil du post
   avec `send_poll` (`channel` = ID du fil renvoyé par `create_forum_post`, `duration` = 168 h pour 1 semaine ;
   max 10 réponses, 768 h). À défaut : réactions ✅ / ❌ / 🤷 sur le premier message (`add_reaction`)
-- Pour « Sous-sol » : sondage à choix unique Galosphere / Spelunkery / Aucun
 
 ### Limites du MCP (vérifiées dans son code v2.1.1 et testées le 2026-09-12)
 - `send_poll`, `get_poll_results` et `end_poll` cherchent le salon **uniquement dans le cache** du MCP
@@ -221,13 +220,21 @@ temporaire (scratchpad) d'une conversation sont **perdus** ensuite → toujours 
   « tmp-cache » → `send_poll` → `delete_channel` de la catégorie. `modify_channel` ne rafraîchit **pas** le cache.
 - **ID d'un post de forum = ID de son premier message** → `edit_message(channel=<fil>, messageId=<fil>)`.
 - `create_forum_tag` : **une à la fois** (la liste est relue puis réécrite).
+- `send_message_with_file` : `fileUrl` passé tel quel à `AttachmentBuilder` de discord.js (code v2.1.1) → un **chemin local**
+  du Mac mini marche (testé 2026-09-12 avec le `.mrpack`). Dépôt GitHub privé → pas d'URL brute utilisable par le bot.
+  `send_dm` : texte seul, pas de pièce jointe.
+- Pièces jointes reçues (logs d'un joueur) : `get_messages` ne donne que `hasAttachments` ; `get_message(channel, messageId)`
+  renvoie `attachments[].url` (code v2.1.1) → télécharger avec `curl`.
+- `.mrpack` avec `overrides/` (pack `enchants-plus-lang.zip`) → l'app Modrinth affiche « Unknown files warning » ;
+  normal, « Install anyways » (vérifié par nistroy 2026-09-12, message #modpack mis à jour).
 - Toujours passer des **ID**, jamais des noms (recherche approximative à 70 %) ; vérifier `channelName` dans la réponse.
 - Un salon créé dans une catégorie **hérite de ses droits** à la création (vérifié). Dans un forum,
   « créer un post » = `SendMessages`, « répondre dans un post » = `SendMessagesInThreads`.
 - Créations en parallèle : l'ordre a été respecté (ID croissants), mais vérifier avec `list_channels` ;
   le forum s'est placé en tête de sa catégorie → `reorder_channels`.
 - **Mode auto de Claude Code** : refuse de donner des droits (`modify_role_permissions` Administrateur,
-  `assign_role`). Ne pas contourner : demander à nistroy de le faire à la main.
+  `assign_role`) et `delete_message` non demandé explicitement (2026-09-12, ancien pack #modpack). Ne pas contourner :
+  demander à nistroy de le faire à la main.
 - Pas d'attribution automatique de rôle à l'arrivée (le bot ne réagit pas aux événements) ; l'Onboarding Discord
   exigerait un serveur « Communauté ».
 
