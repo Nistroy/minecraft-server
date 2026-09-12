@@ -272,7 +272,10 @@ Points à régler / tester à l'installation :
 6. Test serveur du lot complet fait 2026-09-12 (`TEST-MODS.md`, runs A/B) : démarrage OK après ajout Kambrik + C2ME Java 21,
    aucun `Mixin apply failed`, structures/boss/dimensions trouvés par `locate`. Résultats : points 1, 7-8, Galosphere/Spelunkery écartés (§4), mesures (Consommation).
    Lot final (110 jars, sans Galosphere/Spelunkery) : démarrage OK (258 mods), 19 `locate` OK (5 dimensions), pré-gén sans
-   nouvelle erreur (test 2026-09-12, port 25566, vanilla en marche). Pas testé : en jeu (client, `.mrpack`), points 2-5.
+   nouvelle erreur (test 2026-09-12, port 25566, vanilla en marche).
+   Test client 2026-09-12 (`bahbeuh-test-2026-09-12.mrpack`, Windows, RTX 4060 portable) : lancement OK (256 mods),
+   ~150 FPS sans shaders, ~100 Complementary Reimagined, ~80 avec mobs ; 1 crash Subtle Effects → pack `bahbeuh-fixes` (§6.9).
+   Pas testé : points 2-5.
    À refaire à l'installation réelle.
 7. **`/locate` gèle le serveur** (thread principal) : jusqu'à ~25 s pour une structure rare (`structory_towers:engineer_tower`, 36 km).
    Plusieurs envoyés d'un coup en console = même tick → watchdog 60 s → crash (test 2026-09-12).
@@ -381,6 +384,12 @@ Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Mo
    avec `enchantment.farmersdelight.backstabbing.desc`. IDs : breaking_curse, breeze_burst, clumsiness_curse, crabs_touch,
    displacement_curse, double_edge_curse, gluttony, graviole, ice_aspect, kinetic_protection, luminosity, outreach,
    precision, pyrolysis, retrieval, scorch_walker, skyguard, stride, swift_strike, toxic, vitality, websnare.
+   **Pack maison « bahbeuh-fixes »** (activé par défaut, priorité la plus haute) : `assets/minecraft/subtle_effects/fluid_definitions/lava.json`
+   = celui du jar Subtle Effects `1.14.3` sans `splash_type` (champ optionnel) → plus d'éclaboussure de lave, eau intacte.
+   Cause : crash client `No sprite set is set for sprite set holder 'subtle_effects:lava_splash'` = course au chargement des
+   ressources (`SplashTypeReloadListener.prepare` crée la texture dynamique en parallèle de `DynamicSpriteSetsManager.reload`
+   appelé par `FabricParticleEngineMixin`) → aléatoire selon le lancement, F3+T ne garantit rien. Tickets GitHub #242/#237
+   ouverts, `1.14.3` = dernière version 1.21.1 (vérifié 2026-09-12). Retirer le pack quand une version corrige.
 10. Mettre à jour la section « Ajouter des mods » du `README.md` (comment les amis importent le `.mrpack`).
 11. Rendre compte : ce qui est installé, les versions, les problèmes rencontrés.
 
