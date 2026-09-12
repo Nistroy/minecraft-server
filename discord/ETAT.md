@@ -77,6 +77,7 @@ Minecraft 1.21.1 Fabric · tous les mods du vote + ceux côté joueur (Sodium, I
 
 1. Installe l'app Modrinth : <https://modrinth.com/app>
 2. « + » → Importer → le fichier `.mrpack` ci-dessous
+   L'app prévient qu'un fichier n'est pas sur Modrinth (`enchants-plus-lang.zip`) : c'est mon pack de traduction des enchantements → « Install anyways »
 3. Paramètres de l'instance → 6 Go de RAM (4 Go sans shaders)
 4. Lance le jeu, puis Multijoueur → Ajouter un serveur
 

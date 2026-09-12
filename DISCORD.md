@@ -223,6 +223,10 @@ temporaire (scratchpad) d'une conversation sont **perdus** ensuite → toujours 
 - `send_message_with_file` : `fileUrl` passé tel quel à `AttachmentBuilder` de discord.js (code v2.1.1) → un **chemin local**
   du Mac mini marche (testé 2026-09-12 avec le `.mrpack`). Dépôt GitHub privé → pas d'URL brute utilisable par le bot.
   `send_dm` : texte seul, pas de pièce jointe.
+- Pièces jointes reçues (logs d'un joueur) : `get_messages` ne donne que `hasAttachments` ; `get_message(channel, messageId)`
+  renvoie `attachments[].url` (code v2.1.1) → télécharger avec `curl`.
+- `.mrpack` avec `overrides/` (pack `enchants-plus-lang.zip`) → l'app Modrinth affiche « Unknown files warning » ;
+  normal, « Install anyways » (vérifié par nistroy 2026-09-12, message #modpack mis à jour).
 - Toujours passer des **ID**, jamais des noms (recherche approximative à 70 %) ; vérifier `channelName` dans la réponse.
 - Un salon créé dans une catégorie **hérite de ses droits** à la création (vérifié). Dans un forum,
   « créer un post » = `SendMessages`, « répondre dans un post » = `SendMessagesInThreads`.
