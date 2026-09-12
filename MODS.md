@@ -371,7 +371,8 @@ Mesuré 2026-09-12 (`test-server/`, `MEM="6G"`, 0 joueur, lot complet, C2ME `0.3
 | RAM pendant / après | 4,1 / 3,1 Go sur 6 | 3,8 / 3,5 Go sur 6 | 4,2 / 3,4 Go sur 6 |
 | Monde après pré-gén | 115 Mo | 90 Mo | 103 Mo |
 
-→ `chunky radius 2500` (§6 étape 8, ~97 600 chunks Overworld) ≈ 30-40 min à ce rythme (extrapolation).
+→ Install réelle 2026-09-12 : `chunky radius 2500` Overworld = 99 225 chunks en 29 min 23 (~56 chunks/s) ; après :
+TPS 20, tick méd./95 %/max 0,7 / 3,4 / 379 ms (1 min), RAM 3,9 / 6 Go, monde 1,5 Go.
 
 ---
 
