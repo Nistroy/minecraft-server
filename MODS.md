@@ -44,6 +44,7 @@ Légende « Côté » :
 | spark | `spark` | Profilage si le serveur rame |
 | ScalableLux | `scalablelux` | Calcul de la lumière plus rapide (aussi utile côté client) |
 | Clumps | `clumps` | Regroupe les orbes d'XP → moins de lag (client optionnel) |
+| Async Locator Refined | `async-locator-refined` | `/locate` structure/biome, cartes d'exploration, dauphins hors thread principal → plus de gel (§5 point 7). Ajouté 2026-09-13 hors sondage (perf, serveur seul) |
 
 **Terrain & biomes**
 
@@ -282,10 +283,11 @@ Points à régler / tester à l'installation :
      Tom's Storage, Macaw's Roofs, Anti Enderman Grief (§4), Better Archeology, Storage Drawers (§3) ; Subtle Effects (C) retiré.
      Démarrage OK (249 mods), aucune ERROR nouvelle vs test, datapack BlazeandCave's chargé, configs §6 étape 6 faites.
      Pack joueurs `client-pack/bahbeuh-2026-09-12.mrpack` = `12d` moins ces mods (110 fichiers).
-7. **`/locate` gèle le serveur** (thread principal) : jusqu'à ~25 s pour une structure rare (`structory_towers:engineer_tower`, 36 km).
-   Plusieurs envoyés d'un coup = même tick → watchdog 60 s → crash. Le retard s'additionne aussi entre `locate` lents
-   envoyés un par un (23 s + 17 s + 24 s… → crash, test en jeu 2026-09-12).
-   → Un seul à la fois, ~20 s de pause après un `locate` lent, pas pendant que des amis jouent.
+7. **`/locate`** : vanilla = thread principal, jusqu'à ~25 s pour une structure rare → plusieurs à la suite = watchdog
+   60 s → crash (test en jeu 2026-09-12, crash réel 2026-09-13 02:05).
+   → Corrigé 2026-09-13 : Async Locator Refined `1.21.1-1.6.0` (`config/asynclocator.properties` par défaut, 2 recherches
+   simultanées) + `max-tick-time=180000`. Vérifié : `engineer_tower` 41,8 km = 17,9 s sur `asynclocator-1`, `list` répond
+   pendant, aucun `Can't keep up`. Non couvert : recherches lancées par d'autres mods (page Modrinth : vanilla seulement), ex. Explorer's/Nature's Compass.
    YUNG's remplace la mine vanilla : `locate structure #bettermineshafts:better_mineshafts`.
 8. **Bountiful** : pools de compat Farmer's Delight / Supplementaries (`chef_*`, `carpenter_*`) rattachés à aucun décret
    → ces primes n'apparaissent pas (`config/bountiful/errors.log`). Sans gravité.

@@ -83,6 +83,9 @@ Modpack installé le 2026-09-12 : liste = `MODS.md` (§2-3), versions = `version
    les amis le reçoivent tout seuls au lancement suivant (`MODS.md` §7).
 
 RAM : `MEM="6G"` dans `start.sh` (modpack complet), jamais plus de 8G.
+`server.properties` (2026-09-13) : `view-distance=16` (demandé par nistroy ; au-delà de la zone pré-générée, 2500 blocs,
+génération plus lourde → réduire à 12 si lag à plusieurs), `simulation-distance=8` (coût mobs/redstone inchangé),
+`max-tick-time=180000` (filet anti-watchdog, `MODS.md` §5 point 7).
 
 ## Sauvegardes
 
