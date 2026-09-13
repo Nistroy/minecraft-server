@@ -111,3 +111,4 @@ resourceful-lib	3.0.12	resourcefullib-fabric-1.21-3.0.12.jar	df8a9586eaa0e2f8e1e
 yacl	3.8.2+1.21.1-fabric	yet_another_config_lib_v3-3.8.2+1.21.1-fabric.jar	353169f85fa63e73ce9bdd0d4ddce54e3cbc4d71153a93c982f74c68fd93325986663f94fc2f2b10f4427e8b15a0485c608c5587b3840d933204b50ea4cb6d4c	lib	release
 yungs-api	1.21.1-Fabric-5.1.8	YungsApi-1.21.1-Fabric-5.1.8.jar	7583d0f09197791faee281b30ec3370850d72f4006fef2e63c8478298220ef252a12ce999e7bc893f881ed108897f6cafd28d3742215cadba99c3b94eef3863a	lib	release
 kambrik	8.0.0-beta.2	kambrik-fabric-8.0.0-beta.2.jar	54060f83fff566d23d13e5a449076ffbe3230bbc3357170bb17c10de7a63be1fd98f5632e84ddac40eb402bb162d1b4e2762a91ae193d93d60df156dbb6e645c	lib	beta
+async-locator-refined	1.21.1-1.6.0	async-locator-refined-fabric-1.21.1-1.6.0.jar	f8145ddb8641965eed11b85ee3c2b7fda6b4cc070a98bb218cfceb8fc476a911aa76c65f4a4dbaf00617fe5b35f0f39d4d4ee79fb456768e6dea7746a5f63648	candidat	release
