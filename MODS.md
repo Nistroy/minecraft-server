@@ -126,7 +126,7 @@ Légende « Côté » :
 | Macaw's Bridges | `macaws-bridges` | Ponts |
 | Dramatic Doors | `dramatic-doors` | Portes hautes (3 blocs) |
 | Bountiful | `bountiful` | Tableaux de primes dans les villages : missions contre récompenses. Requiert Kambrik (§2.4) |
-| Minecraft IA | release GitHub `Nistroy/minecraft-ia` `v0.1.0` (`pack/mods/minecraft-ia.pw.toml`, pas Modrinth) | Assistant IA : touche `I` / `/ia`. Serveur : cerveau `~/minecraft-ia` doit tourner (tmux `ia`, pas encore de launchd), sinon `/ia` indisponible. Ajouté 2026-09-13 |
+| Minecraft IA | release GitHub `Nistroy/minecraft-ia` `v0.1.0` (`pack/mods/minecraft-ia.pw.toml`, pas Modrinth) | Assistant IA : touche `I` / `/ia`. Serveur : cerveau `~/minecraft-ia` doit tourner (tmux `ia`, lancé par `./mc start`), sinon `/ia` indisponible. Ajouté 2026-09-13 |
 
 ### 2.3 Joueurs seulement (C)
 
