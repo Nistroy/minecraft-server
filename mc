@@ -2,10 +2,10 @@
 # Pilote le serveur Minecraft. Le serveur tourne dans une session tmux nommee "mc",
 # ce qui permet de lui envoyer des commandes A CHAUD, sans jamais le redemarrer.
 #
-#   ./mc start            demarre le serveur
-#   ./mc stop             arrete proprement (sauvegarde le monde)
+#   ./mc start            demarre le cerveau IA (session tmux "ia") puis le serveur
+#   ./mc stop             arrete proprement (sauvegarde le monde) ; le cerveau IA reste lance
 #   ./mc restart
-#   ./mc status           tourne ou pas, joueurs connectes
+#   ./mc status           tourne ou pas, joueurs connectes, cerveau IA
 #   ./mc console          ouvre la console live (Ctrl+B puis D pour sortir)
 #   ./mc log              suit le journal
 #   ./mc add <pseudo>     autorise un joueur (immediat, sans redemarrage)
@@ -21,6 +21,8 @@ set -uo pipefail
 BASE="$(cd "$(dirname "$0")" && pwd)"
 SRV="$BASE/server"
 SESSION="mc"
+IA_SESSION="ia"
+IA_BRAIN="$HOME/minecraft-ia/brain"
 TMUX_BIN="/opt/homebrew/bin/tmux"
 [ -x "$TMUX_BIN" ] || TMUX_BIN="$(command -v tmux || true)"
 
@@ -36,6 +38,38 @@ require_running() {
         echo "Le serveur ne tourne pas. Demarre-le avec : ./mc start"
         exit 1
     fi
+}
+
+brain_running() { "$TMUX_BIN" has-session -t "$IA_SESSION" 2>/dev/null; }
+
+# Cerveau de l'assistant IA (depot minecraft-ia). Lance AVANT le serveur : le mod
+# lit le jeton du cerveau au demarrage du serveur. Sans cerveau le serveur tourne
+# quand meme, seul /ia est indisponible : on previent sans bloquer le demarrage.
+start_brain() {
+    if brain_running; then
+        echo "Cerveau IA : deja lance"
+        return
+    fi
+    if [ ! -x "$IA_BRAIN/.venv/bin/minecraft-ia" ]; then
+        echo "Cerveau IA introuvable ($IA_BRAIN) : /ia sera indisponible"
+        return
+    fi
+    "$TMUX_BIN" new-session -d -s "$IA_SESSION" -c "$IA_BRAIN" ".venv/bin/minecraft-ia serve"
+    for _ in $(seq 1 15); do
+        # Session disparue = le cerveau a quitte (config, port deja pris...).
+        if ! brain_running; then
+            echo "Cerveau IA : arrete au demarrage, /ia indisponible. Pour voir l'erreur :"
+            echo "  cd $IA_BRAIN && .venv/bin/minecraft-ia serve"
+            return
+        fi
+        # "cerveau pr" sans l'accent de "pret" : independant de la locale de grep.
+        if "$TMUX_BIN" capture-pane -p -t "$IA_SESSION" 2>/dev/null | grep -q 'cerveau pr'; then
+            echo "Cerveau IA : pret"
+            return
+        fi
+        python3 -c "import time; time.sleep(1)" 2>/dev/null
+    done
+    echo "Cerveau IA : pas pret apres 15 s. Regarde : $TMUX_BIN attach -t $IA_SESSION"
 }
 
 # Envoie une commande a la console et affiche UNIQUEMENT ce que le serveur
@@ -61,6 +95,7 @@ send() {
 case "${1:-}" in
 
 start)
+    start_brain
     if running; then
         echo "Le serveur tourne deja. Console : ./mc console"
         exit 0
@@ -121,6 +156,8 @@ status)
     else
         echo "Serveur : ARRETE"
     fi
+    echo -n "Cerveau IA : "
+    brain_running && echo "EN MARCHE" || echo "ARRETE"
     ;;
 
 console)

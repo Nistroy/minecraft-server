@@ -36,10 +36,10 @@ commandes **à chaud**. Rien de ce qui suit ne nécessite de redémarrage.
 ```bash
 cd ~/minecraft-server
 
-./mc start              # démarre
-./mc stop               # arrête proprement (sauvegarde le monde)
+./mc start              # démarre le cerveau IA (tmux `ia`) puis le serveur
+./mc stop               # arrête proprement (sauvegarde le monde) ; cerveau IA laissé lancé
 ./mc restart
-./mc status             # en marche ? RAM, CPU, joueurs connectés
+./mc status             # en marche ? RAM, CPU, joueurs connectés, cerveau IA
 ./mc console            # console live — Ctrl+B puis D pour sortir SANS arrêter
 ./mc log                # suit le journal
 
