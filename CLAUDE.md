@@ -4,7 +4,8 @@ Fabric MC server, 2-5 friends, Mac mini M1 + friends' Discord. Pragmatic, correc
 small safe changes. Full-scale standards; dormant rules activate on triggers (§Evolution).
 
 ## Map
-- `mc` — drives server via tmux session `mc` (start/stop/status, whitelist, console cmds).
+- `mc` — drives server via tmux session `mc` (start/stop/status, whitelist, console cmds). `start` launches AI brain
+  first (tmux `ia`, `~/minecraft-ia/brain`); `stop` leaves it running.
 - `backup.sh` — world → `backups/`, keeps 10.
 - `server/` — Fabric 1.21.1, Java 21 forced in `server/start.sh`. World/logs/`mods/*.jar` gitignored;
   `fabric-server-launch.jar` tracked.
