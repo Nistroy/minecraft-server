@@ -1,0 +1,8 @@
+name = "Assistant IA"
+filename = "minecraft-ia-0.1.0.jar"
+side = "both"
+
+[download]
+url = "https://github.com/Nistroy/minecraft-ia/releases/download/v0.1.0/minecraft-ia-0.1.0.jar"
+hash-format = "sha256"
+hash = "71f10e197154b9312f2fda6ba89baffb60bd2b62a62a84bce9a7ef2784c33233"

@@ -346,6 +346,11 @@ hash = "6803e0debba4fb27c735ccb139d26ae4c7744b8a7d2ac500d4f56b1d411faeea"
 metafile = true
 
 [[files]]
+file = "mods/minecraft-ia.pw.toml"
+hash = "acf8be69346e70d45b33eb7822bb1a1f7eed81e45af4409f4aba1de15802068c"
+metafile = true
+
+[[files]]
 file = "mods/modernfix.pw.toml"
 hash = "b9651d06e56ad51c1cdcf4b03b6a34328b7dc941f263ff92b189ee26a47cc224"
 metafile = true
