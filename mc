@@ -13,6 +13,7 @@
 #   ./mc list             joueurs autorises + joueurs connectes
 #   ./mc op <pseudo>      donne les droits admin
 #   ./mc cmd "<commande>" envoie n'importe quelle commande Minecraft
+#   ./mc restock [pseudo] [metier] reinitialise le stock des villageois (defaut: nistroy9 fisherman, ou "all")
 #   ./mc backup           sauvegarde le monde
 #   ./mc info             adresse du serveur et etat du tunnel
 
@@ -89,7 +90,7 @@ send() {
     "$TMUX_BIN" capture-pane -p -S - -t "$SESSION" \
         | grep '[^[:space:]]' \
         | tail -n +$((before + 1)) \
-        | grep -vxF "$1"
+        | (grep -vxF "$1" || true)
 }
 
 case "${1:-}" in
@@ -195,6 +196,22 @@ op)
 cmd)
     [ -n "${2:-}" ] || { echo 'Usage : ./mc cmd "<commande>"'; exit 1; }
     send "$2"
+    ;;
+
+restock)
+    target="${2:-nistroy9}"
+    profession="${3:-fisherman}"
+    if [ "$profession" = "fisherman" ]; then
+        echo "Reinitialisation des pecheurs proches de $target (rayon: 20m)..."
+        send "execute at $target as $target run function restock:fishermen"
+    elif [ "$profession" = "all" ]; then
+        echo "Reinitialisation de tous les villageois proches de $target (rayon: 20m)..."
+        send "execute at $target as $target run function restock:all"
+    else
+        echo "Reinitialisation des villageois ($profession) proches de $target (rayon: 20m)..."
+        send "execute at $target as @e[type=villager,distance=..20,nbt={VillagerData:{profession:\"minecraft:$profession\"}}] run data modify entity @s Offers.Recipes[].uses set value 0"
+        send "execute at $target as @e[type=villager,distance=..20,nbt={VillagerData:{profession:\"minecraft:$profession\"}}] run data modify entity @s RestocksToday set value 0"
+    fi
     ;;
 
 backup)

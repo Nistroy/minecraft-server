@@ -48,6 +48,7 @@ cd ~/minecraft-server
 ./mc list               # joueurs autorisés + connectés
 ./mc op <pseudo>        # droits admin
 ./mc cmd "<commande>"   # n'importe quelle commande Minecraft
+./mc restock [pseudo]   # réinitialise le stock des villageois proches (défaut: nistroy9, 20m, pêcheurs)
 
 ./mc backup
 ./mc info               # adresse du serveur + état du tunnel
