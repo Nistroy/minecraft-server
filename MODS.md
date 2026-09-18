@@ -116,7 +116,7 @@ Légende « Côté » :
 | Handcrafted | `handcrafted` | Meubles style vanilla |
 | Ribbits | `ribbits` | Villages de grenouilles dans les marais |
 | Enchants Plus | `enchants-plus` | 18 enchantements + 4 malédictions « comme vanilla ». Serveur suffit : le mod n'a **aucun fichier de langue** (noms en anglais via `fallback`, pas de descriptions) → pack de ressources maison, voir §6 étape 9 |
-| Easy Magic | `easy-magic` | La table d'enchantement garde les objets, relance possible |
+| Easy Magic | `easy-magic` | La table d'enchantement garde les objets, relance possible. `server/config/easymagic-server.toml` : `enchantment_hint = "ALL"` (tous les enchantements visibles au survol ; défaut `SINGLE`, 2026-09-18) |
 | Hardcore Revival | `hardcore-revival` | Au lieu de mourir, KO : les amis ont un temps limité pour te relever |
 | Exposure | `exposure` | Appareils photo, pellicules, développement, tirages, albums, cadres |
 | Immersive Melodies | `immersive-melodies` | Instruments pour jouer des mélodies, même à plusieurs |
