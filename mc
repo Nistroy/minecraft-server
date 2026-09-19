@@ -2,8 +2,8 @@
 # Pilote le serveur Minecraft. Le serveur tourne dans une session tmux nommee "mc",
 # ce qui permet de lui envoyer des commandes A CHAUD, sans jamais le redemarrer.
 #
-#   ./mc start            arrete les stacks Supabase (RAM), demarre le cerveau IA (session tmux "ia") puis le serveur
-#   ./mc stop             arrete proprement (sauvegarde le monde) ; le cerveau IA reste lance
+#   ./mc start            arrete Supabase, plafonne la RAM Docker (1 Go), demarre le cerveau IA (session tmux "ia") puis le serveur
+#   ./mc stop             arrete proprement (sauvegarde le monde), RAM Docker par defaut ; cerveau IA laisse lance
 #   ./mc restart
 #   ./mc status           tourne ou pas, joueurs connectes, cerveau IA
 #   ./mc console          ouvre la console live (Ctrl+B puis D pour sortir)
@@ -74,26 +74,86 @@ start_brain() {
 }
 
 # Docker partage les 16 Go du Mac avec le serveur. Une stack Supabase de dev
-# (~2,6 Go, 12 conteneurs) lancee a cote a fait swapper le heap Java et tomber
-# le serveur a ~10 TPS (2026-09-19) : on les arrete avant de demarrer.
-# docker stop tient malgre --restart unless-stopped. Le tunnel playit, lui, doit
-# tourner : Docker Desktop ne demarre pas seul au boot, on previent s'il manque.
-prepare_docker() {
-    if ! command -v docker >/dev/null || ! docker info >/dev/null 2>&1; then
-        echo "Docker ne tourne pas : tunnel playit ARRETE, les amis ne pourront pas se connecter."
-        echo "  Lance Docker Desktop (le conteneur playit-minecraft repart tout seul)."
+# (~2,6 Go, 12 conteneurs) a fait swapper le heap Java et tomber le serveur a
+# ~10 TPS (2026-09-19). Pendant que le serveur tourne, Docker n'heberge que
+# playit (~11 Mo) : on plafonne sa VM, et on rend la valeur par defaut a l'arret.
+# La VM ne rend pas au Mac la RAM deja prise : changer le plafond impose de
+# redemarrer Docker Desktop (tunnel coupe ~30 s, sans importance a ces moments-la).
+DOCKER_SETTINGS="$HOME/Library/Group Containers/group.com.docker/settings-store.json"
+DOCKER_MEM_LOW_MIB=1024
+
+docker_up() { docker info >/dev/null 2>&1; }
+
+# Valeur actuelle de MemoryMiB, vide si absente (= defaut Docker, moitie de la RAM).
+docker_mem_get() {
+    python3 -c 'import json,sys; print(json.load(open(sys.argv[1])).get("MemoryMiB",""))' "$DOCKER_SETTINGS"
+}
+
+# $1 = MiB, ou vide pour retirer la cle. A n'appeler que Docker Desktop arrete :
+# il reecrit ce fichier en quittant.
+docker_mem_write() {
+    python3 - "$DOCKER_SETTINGS" "$1" <<'EOF'
+import json, sys
+path, mib = sys.argv[1], sys.argv[2]
+with open(path) as f:
+    settings = json.load(f)
+if mib:
+    settings["MemoryMiB"] = int(mib)
+else:
+    settings.pop("MemoryMiB", None)
+with open(path, "w") as f:
+    json.dump(settings, f, indent=2)
+EOF
+}
+
+# Applique le plafond $1 (MiB, ou vide = defaut). Demarre Docker si besoin quand
+# $2 = "start" ; sinon ne redemarre Docker que s'il tournait deja.
+docker_mem_apply() {
+    local want="$1" mode="${2:-}"
+    [ -f "$DOCKER_SETTINGS" ] || { echo "Reglages Docker introuvables : plafond RAM non applique."; return; }
+    if [ "$(docker_mem_get)" = "$want" ]; then
+        if [ "$mode" = "start" ] && ! docker_up; then
+            echo "Demarrage de Docker Desktop..."
+            docker desktop start --timeout 120 >/dev/null || echo "Docker Desktop n'a pas demarre."
+        fi
         return
     fi
-    local ids
-    ids=$(docker ps -q --filter label=com.supabase.cli.project)
-    if [ -n "$ids" ]; then
-        echo "Arret des conteneurs Supabase pour liberer la RAM..."
-        # shellcheck disable=SC2086 # une liste d'IDs, decoupage voulu
-        docker stop $ids >/dev/null
+    if docker_up; then
+        echo "Redemarrage de Docker Desktop (RAM : ${want:-defaut} Mo)..."
+        docker desktop stop --timeout 120 >/dev/null || { echo "Docker Desktop ne s'arrete pas : plafond RAM inchange."; return; }
+    elif [ "$mode" != "start" ]; then
+        docker_mem_write "$want"
+        return
+    else
+        echo "Demarrage de Docker Desktop (RAM : $want Mo)..."
     fi
-    if [ -z "$(docker ps -q --filter name=^playit-minecraft$)" ]; then
-        echo "Tunnel playit : ARRETE. Relance-le : docker start playit-minecraft"
+    docker_mem_write "$want"
+    docker desktop start --timeout 120 >/dev/null || echo "Docker Desktop n'a pas demarre."
+}
+
+# Avant le serveur : Supabase arrete (docker stop tient malgre --restart
+# unless-stopped, sinon il repartirait avec Docker), VM plafonnee, tunnel verifie.
+prepare_docker() {
+    if ! command -v docker >/dev/null; then
+        echo "Docker introuvable : tunnel playit ARRETE, les amis ne pourront pas se connecter."
+        return
     fi
+    if docker_up; then
+        local ids
+        ids=$(docker ps -q --filter label=com.supabase.cli.project)
+        if [ -n "$ids" ]; then
+            echo "Arret des conteneurs Supabase pour liberer la RAM..."
+            # shellcheck disable=SC2086 # une liste d'IDs, decoupage voulu
+            docker stop $ids >/dev/null
+        fi
+    fi
+    docker_mem_apply "$DOCKER_MEM_LOW_MIB" start
+    # playit repart seul (--restart unless-stopped) quelques secondes apres Docker.
+    for _ in $(seq 1 30); do
+        [ -n "$(docker ps -q --filter name=^playit-minecraft$ 2>/dev/null)" ] && { echo "Tunnel playit : OK"; return; }
+        python3 -c "import time; time.sleep(1)" 2>/dev/null
+    done
+    echo "Tunnel playit : ARRETE, les amis ne pourront pas se connecter. Relance : docker start playit-minecraft"
 }
 
 # Envoie une commande a la console et affiche UNIQUEMENT ce que le serveur
@@ -159,14 +219,19 @@ stop)
     echo "Arret en cours (le monde est sauvegarde)..."
     "$TMUX_BIN" send-keys -t "$SESSION" -- "stop" Enter
     for _ in $(seq 1 60); do
-        running || { echo "Serveur arrete proprement."; exit 0; }
+        if ! running; then
+            echo "Serveur arrete proprement."
+            # restart : inutile de redemarrer Docker deux fois.
+            [ -n "${MC_KEEP_DOCKER:-}" ] || docker_mem_apply ""
+            exit 0
+        fi
         python3 -c "import time; time.sleep(1)" 2>/dev/null
     done
     echo "L'arret traine. Session encore active : ./mc console"
     ;;
 
 restart)
-    "$0" stop
+    MC_KEEP_DOCKER=1 "$0" stop
     "$0" start
     ;;
 

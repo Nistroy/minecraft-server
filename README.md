@@ -36,8 +36,8 @@ commandes **à chaud**. Rien de ce qui suit ne nécessite de redémarrage.
 ```bash
 cd ~/minecraft-server
 
-./mc start              # arrête les stacks Supabase (RAM), vérifie playit, démarre cerveau IA (tmux `ia`) puis serveur
-./mc stop               # arrête proprement (sauvegarde le monde) ; cerveau IA laissé lancé
+./mc start              # arrête Supabase, RAM Docker plafonnée 1 Go (redémarre Docker si besoin), vérifie playit, démarre cerveau IA (tmux `ia`) puis serveur
+./mc stop               # arrête proprement (sauvegarde le monde), RAM Docker remise par défaut (redémarre Docker) ; cerveau IA laissé lancé
 ./mc restart
 ./mc status             # en marche ? RAM, CPU, joueurs connectés, cerveau IA
 ./mc console            # console live — Ctrl+B puis D pour sortir SANS arrêter
