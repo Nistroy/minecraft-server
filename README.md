@@ -36,7 +36,7 @@ commandes **à chaud**. Rien de ce qui suit ne nécessite de redémarrage.
 ```bash
 cd ~/minecraft-server
 
-./mc start              # démarre le cerveau IA (tmux `ia`) puis le serveur
+./mc start              # arrête les stacks Supabase (RAM), vérifie playit, démarre cerveau IA (tmux `ia`) puis serveur
 ./mc stop               # arrête proprement (sauvegarde le monde) ; cerveau IA laissé lancé
 ./mc restart
 ./mc status             # en marche ? RAM, CPU, joueurs connectés, cerveau IA

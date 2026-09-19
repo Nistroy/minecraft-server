@@ -2,7 +2,7 @@
 # Pilote le serveur Minecraft. Le serveur tourne dans une session tmux nommee "mc",
 # ce qui permet de lui envoyer des commandes A CHAUD, sans jamais le redemarrer.
 #
-#   ./mc start            demarre le cerveau IA (session tmux "ia") puis le serveur
+#   ./mc start            arrete les stacks Supabase (RAM), demarre le cerveau IA (session tmux "ia") puis le serveur
 #   ./mc stop             arrete proprement (sauvegarde le monde) ; le cerveau IA reste lance
 #   ./mc restart
 #   ./mc status           tourne ou pas, joueurs connectes, cerveau IA
@@ -73,6 +73,29 @@ start_brain() {
     echo "Cerveau IA : pas pret apres 15 s. Regarde : $TMUX_BIN attach -t $IA_SESSION"
 }
 
+# Docker partage les 16 Go du Mac avec le serveur. Une stack Supabase de dev
+# (~2,6 Go, 12 conteneurs) lancee a cote a fait swapper le heap Java et tomber
+# le serveur a ~10 TPS (2026-09-19) : on les arrete avant de demarrer.
+# docker stop tient malgre --restart unless-stopped. Le tunnel playit, lui, doit
+# tourner : Docker Desktop ne demarre pas seul au boot, on previent s'il manque.
+prepare_docker() {
+    if ! command -v docker >/dev/null || ! docker info >/dev/null 2>&1; then
+        echo "Docker ne tourne pas : tunnel playit ARRETE, les amis ne pourront pas se connecter."
+        echo "  Lance Docker Desktop (le conteneur playit-minecraft repart tout seul)."
+        return
+    fi
+    local ids
+    ids=$(docker ps -q --filter label=com.supabase.cli.project)
+    if [ -n "$ids" ]; then
+        echo "Arret des conteneurs Supabase pour liberer la RAM..."
+        # shellcheck disable=SC2086 # une liste d'IDs, decoupage voulu
+        docker stop $ids >/dev/null
+    fi
+    if [ -z "$(docker ps -q --filter name=^playit-minecraft$)" ]; then
+        echo "Tunnel playit : ARRETE. Relance-le : docker start playit-minecraft"
+    fi
+}
+
 # Envoie une commande a la console et affiche UNIQUEMENT ce que le serveur
 # repond a cette commande. On compte les lignes de l'historique complet (-S -)
 # avant l'envoi, puis on n'affiche que ce qui est apparu apres : sans ca, on
@@ -96,6 +119,7 @@ send() {
 case "${1:-}" in
 
 start)
+    prepare_docker
     start_brain
     if running; then
         echo "Le serveur tourne deja. Console : ./mc console"
