@@ -372,7 +372,7 @@ metafile = true
 
 [[files]]
 file = "mods/motorboat.pw.toml"
-hash = "82ddb01bcf861c3ba39653b7d5bd5272699ff32dddaea1d67549488890b86332"
+hash = "e9fae98246b9dd3781797f6a983d348bc256a32cf89a3346ac1d4fd6fcd21e1c"
 metafile = true
 
 [[files]]

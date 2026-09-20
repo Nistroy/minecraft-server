@@ -127,7 +127,7 @@ Légende « Côté » :
 | Dramatic Doors | `dramatic-doors` | Portes hautes (3 blocs) |
 | Bountiful | `bountiful` | Tableaux de primes dans les villages : missions contre récompenses. Requiert Kambrik (§2.4) |
 | Minecraft IA | release GitHub `Nistroy/minecraft-ia` `v0.2.0` (`pack/mods/minecraft-ia.pw.toml`, pas Modrinth) | Assistant IA : touche `I` / `/ia` ; `v0.2.0` = écran refait, icônes d'items, grilles de craft. Serveur : cerveau `~/minecraft-ia` doit tourner (tmux `ia`, lancé par `./mc start`), sinon `/ia` indisponible ; `server/mods/` encore `v0.1.0` 2026-09-13 (maj au prochain redémarrage). Ajouté 2026-09-13 |
-| Barque à moteur | release GitHub `Nistroy/minecraft-motorboat` `v0.3.0` (`pack/mods/motorboat.pw.toml`, pas Modrinth) | Mod maison (§8) : bateau vanilla + moteur à combustible de four, soute, grande barque 6 places, 3 moteurs (16/24/32 bloc/s, −15 % sur la grande coque). Pack + `server/mods/` en `v0.3.0` 2026-09-20 |
+| Barque à moteur | release GitHub `Nistroy/minecraft-motorboat` `v0.3.1` (`pack/mods/motorboat.pw.toml`, pas Modrinth) | Mod maison (§8) : bateau vanilla + moteur à combustible de four, soute, grande barque 6 places, 3 moteurs (16/24/32 bloc/s, −15 % sur la grande coque). Pack + `server/mods/` en `v0.3.1` 2026-09-20 |
 
 ### 2.3 Joueurs seulement (C)
 
@@ -480,15 +480,16 @@ Chaque lancement : fenêtre packwiz télécharge seulement ce qui a changé, pui
 Dépôt séparé `Nistroy/minecraft-motorboat` (local `~/minecraft-motorboat`, instructions dans son `CLAUDE.md`).
 Décidé 2026-09-20 après test en jeu de Shippy Ships et Fish 'N' Ships (§4) : aucun mod 1.21.1 existant ne répond.
 
-### v0.3.0 publiée 2026-09-20 — pack **et** `server/mods/`
+### v0.3.1 publiée 2026-09-20 — pack **et** `server/mods/`
 - 2 coques : barque 2 places (coque vanilla) et grande barque 6 places (coque maison, 2,25 blocs → passe mal
   sous les ponts bas). Soute : accroupi + clic droit main vide (réservoir + slot moteur + coffre 27).
 - 3 moteurs, slot moteur de la soute : `motor` 16, `big_motor` 24, `double_motor` 32 bloc/s ; grande coque
   ×0,85 (13,6 / 20,4 / 27,2). Petite coque = moteur de base seulement. Slot vide = bateau à rames.
 - Combustible de four, réservoir 12 000 ticks (10 min, 7,5 charbons) ; plein à la main (accroupi + clic droit
   avec combustible) ou auto depuis le slot réservoir. Ne consomme que moteur posé **et** en marche.
-- Crafts : moteur (4 fer + 2 cuivre + 1 four) · gros moteur (moteur + 4 fer + bloc de cuivre) · double moteur
-  (2 gros moteurs + bloc de fer) · coque (bateau + 2 fer, **sans** moteur) · grande coque (coque + 7 planches).
+- Crafts, tous à forme fixe : moteur (4 fer + 2 cuivre + 1 four) · gros moteur (moteur + 4 fer + bloc de cuivre)
+  · double moteur (2 gros moteurs + bloc de fer) · coque (`fer bateau fer`, **sans** moteur, v0.3.1) · grande
+  coque (coque + 7 planches).
 - Config `config/motorboat.json` : 4 clés, **aucun plafond** de vitesse ; ancienne clé `topSpeedBlocksPerSecond`
   relue comme vitesse du moteur de base. Même fichier client et serveur.
 - Client et serveur doivent avoir la **même version** : sinon remap de registre → items d'autres mods au pick,
@@ -499,8 +500,8 @@ Décidé 2026-09-20 après test en jeu de Shippy Ships et Fish 'N' Ships (§4) :
   (`ServerGamePacketListenerImpl.handleMoveVehicle`, javap 1.21.1) ; 32 bloc/s = 1,6 bloc/tick → large marge.
 
 ### Reste à faire
-- Test en jeu (client) par nistroy : rendu des 3 moteurs, refus du gros moteur sur la petite coque, vitesses,
-  tenue à travers le tunnel playit (latence des copains).
+- Test en jeu fait par nistroy 2026-09-20 : « tout marche super bien ». Reste : coque 3D de la grande barque
+  jugée trop « radeau » → nistroy la refait dans Blockbench, recâblage côté mod ensuite ; sprites d'items idem.
 - Vote Discord pas fait (mod maison ajouté au pack sur décision de nistroy 2026-09-20). Prévenir les copains
   du changement de craft de la coque (le moteur ne fait plus partie de la recette).
 - Garder le bois du bateau utilisé au craft (aujourd'hui : coque chêne quel que soit le bateau).
