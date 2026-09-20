@@ -256,6 +256,21 @@ hash = "4307f143e64fe953798e35a013d87b802fc960cf3609793683505d34e12154bd"
 metafile = true
 
 [[files]]
+file = "mods/ftb-library.pw.toml"
+hash = "4bb7b2a0f833066ed9981dbd2271099ad594ee9f69cfd7e932904be62c38a995"
+metafile = true
+
+[[files]]
+file = "mods/ftb-quests.pw.toml"
+hash = "5c7e35d0ac3040aa60288f24f338c55fcae1b0acceaac80180a49690a10ac5ad"
+metafile = true
+
+[[files]]
+file = "mods/ftb-teams.pw.toml"
+hash = "178d8594881b43fc093ec4c532f5d8638593a511c815629fed673ec5c766878f"
+metafile = true
+
+[[files]]
 file = "mods/fzzy-config.pw.toml"
 hash = "dce0df1d0cb1a7f05811ba502f3a3de0458e0c5154f1b72ae493a339f3866083"
 metafile = true
