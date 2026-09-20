@@ -127,7 +127,7 @@ Légende « Côté » :
 | Dramatic Doors | `dramatic-doors` | Portes hautes (3 blocs) |
 | Bountiful | `bountiful` | Tableaux de primes dans les villages : missions contre récompenses. Requiert Kambrik (§2.4) |
 | Minecraft IA | release GitHub `Nistroy/minecraft-ia` `v0.2.0` (`pack/mods/minecraft-ia.pw.toml`, pas Modrinth) | Assistant IA : touche `I` / `/ia` ; `v0.2.0` = écran refait, icônes d'items, grilles de craft. Serveur : cerveau `~/minecraft-ia` doit tourner (tmux `ia`, lancé par `./mc start`), sinon `/ia` indisponible ; `server/mods/` encore `v0.1.0` 2026-09-13 (maj au prochain redémarrage). Ajouté 2026-09-13 |
-| Barque à moteur | release GitHub `Nistroy/minecraft-motorboat` `v0.3.1` (`pack/mods/motorboat.pw.toml`, pas Modrinth) | Mod maison (§8) : bateau vanilla + moteur à combustible de four, soute, grande barque 6 places, 3 moteurs (16/24/32 bloc/s, −15 % sur la grande coque). Pack + `server/mods/` en `v0.3.1` 2026-09-20 |
+| Barque à moteur | release GitHub `Nistroy/minecraft-motorboat` `v0.6.0` (`pack/mods/motorboat.pw.toml`, pas Modrinth) | Mod maison (§8) : bateau vanilla + moteur à combustible de four, soute, grande barque 6 places, 3 moteurs (16/24/32 bloc/s, −15 % sur la grande coque), coque 3D, hors-bord modélisés, houle. Pack + `server/mods/` en `v0.6.0` 2026-09-20 |
 
 ### 2.3 Joueurs seulement (C)
 
@@ -494,7 +494,16 @@ Chaque lancement : fenêtre packwiz télécharge seulement ce qui a changé, pui
 Dépôt séparé `Nistroy/minecraft-motorboat` (local `~/minecraft-motorboat`, instructions dans son `CLAUDE.md`).
 Décidé 2026-09-20 après test en jeu de Shippy Ships et Fish 'N' Ships (§4) : aucun mod 1.21.1 existant ne répond.
 
-### v0.3.1 publiée 2026-09-20 — pack **et** `server/mods/`
+### v0.6.0 déployée 2026-09-20 — pack **et** `server/mods/` (saut depuis `v0.3.1`)
+Trois versions d'un coup, une seule mise à jour pour les joueurs (choix nistroy) :
+- `v0.4.0` coque 3D de la grande barque (maquette Blockbench de nistroy) + sprites d'items faits main.
+- `v0.5.0` hors-bord accrochés au tableau arrière sur les deux coques, gros moteur avec son propre
+  modèle, grande coque allongée à 48 px (hitbox toujours 2,25).
+- `v0.6.0` houle : tangage, roulis et étrave qui se lève en vitesse. **Purement visuel** — rien côté
+  entité, hitbox et pilotage inchangés, rien de plus à synchroniser. La phase vient de l'heure du
+  monde et de la position, donc deux barques voisines prennent la même vague.
+
+### Contenu depuis v0.3.1
 - 2 coques : barque 2 places (coque vanilla) et grande barque 6 places (coque maison, 2,25 blocs → passe mal
   sous les ponts bas). Soute : accroupi + clic droit main vide (réservoir + slot moteur + coffre 27).
 - 3 moteurs, slot moteur de la soute : `motor` 16, `big_motor` 24, `double_motor` 32 bloc/s ; grande coque
@@ -514,10 +523,10 @@ Décidé 2026-09-20 après test en jeu de Shippy Ships et Fish 'N' Ships (§4) :
   (`ServerGamePacketListenerImpl.handleMoveVehicle`, javap 1.21.1) ; 32 bloc/s = 1,6 bloc/tick → large marge.
 
 ### Reste à faire
-- Test en jeu fait par nistroy 2026-09-20 : « tout marche super bien ». Reste : coque 3D de la grande barque
-  jugée trop « radeau » → nistroy la refait dans Blockbench, recâblage côté mod ensuite ; sprites d'items idem.
+- Regarder la houle en jeu et régler les amplitudes au goût (constantes de `Wave`, dépôt du mod).
 - Vote Discord pas fait (mod maison ajouté au pack sur décision de nistroy 2026-09-20). Prévenir les copains
-  du changement de craft de la coque (le moteur ne fait plus partie de la recette).
+  du changement de craft de la coque (le moteur ne fait plus partie de la recette) **et de la mise à jour
+  `0.6.0`** : relancer le launcher, client et serveur doivent avoir la même version.
 - Garder le bois du bateau utilisé au craft (aujourd'hui : coque chêne quel que soit le bateau).
 - **Hors périmètre, explicitement** : pont praticable en mouvement (demanderait mixins client + physique).
 
