@@ -21,11 +21,19 @@ de test, sans erreur, **avant** la fin du sondage. Liste, côtés, compat : `MOD
 ## Pièges
 - **Session tmux `test-mc`, jamais `mc-…`** : `./mc` fait `tmux has-session -t mc`, et tmux accepte un préfixe
   → avec le vanilla arrêté, `./mc start/stop/cmd` viseraient la session de test.
-- Tunnel playit → `192.168.1.198:25565` : le test sur 25565 est joignable de l'extérieur → garder
+- Tunnel playit → port `25565` du Mac (IP LAN `192.168.1.5` au 2026-09-20, mapping éditable seulement sur le
+  tableau de bord playit.gg, rien en local) : le test sur 25565 est joignable de l'extérieur → garder
   `white-list=true` + `enforce-whitelist=true` (valeurs actuelles de `server/server.properties`).
-- Variante sans arrêter le vanilla : `server-port=25566` (hors tunnel, valeur actuelle de `test-server/server.properties`),
-  faite 2026-09-12 pour le lot final (RAM 4 + 6 Go OK). `./mc status` affiche alors PID/RAM du **test** (`pgrep … | head -1`) ;
-  son `list` reste celui du vanilla.
+- Exposer le test aux joueurs distants : pas de 2e tunnel possible → arrêter le live et mettre
+  `server-port=25565` sur le test, qui hérite de l'adresse publique. Remettre 25566 après.
+- Variante sans arrêter le vanilla : `server-port=25566` (hors tunnel). Vérifier la valeur dans
+  `test-server/server.properties`, elle était retombée à 25565 (constaté 2026-09-20). `./mc status` affiche alors
+  PID/RAM du **test** (`pgrep … | head -1`) ; son `list` reste celui du vanilla.
+- **Run léger pendant que le live tourne** (recette 2026-09-20, après un gel de 18,6 s infligé à 4 joueurs) :
+  `nice -n 20 ./start.sh`, `MEM="3G"`, `view-distance=6`, `simulation-distance=4`, et surtout **réutiliser un monde
+  déjà généré** (`level-name` existant) : le coût n'est pas le chargement des mods mais la création du monde,
+  que C2ME parallélise sur tous les cœurs du M1. Avec ça : 0 `Can't keep up` sur le live, test chargé en 36 s.
+  C2ME réécrit son `config/c2me.toml` au démarrage (entiers sans guillemets) → vérifier la valeur après coup.
 - Ne pas supprimer de monde : un `level-name` différent par run.
 
 ## Procédure

@@ -241,6 +241,11 @@ Mods proposés et **refusés** — ne pas installer sans nouvelle demande.
 | Better Clouds | On utilise des shaders, qui dessinent déjà leurs propres nuages |
 | 3D Skin Layers, Every Compat, Diagonal Fences, Diagonal Walls, Rechiseled, [Let's Do] Vinery | Pas envie |
 | More Armor Trims, Elytra Trims | Pas envie |
+| Shippy Ships | Testé en jeu 2026-09-20 (`1.0.18`, dep IngeniumAPI) : charge propre avec le pack, navires OK. Écarté : vitesse ~1,4-1,6× vanilla seulement, construction en 5 paliers jugée pénible, on reste assis (pas de pont praticable, issue GitHub #2 ouverte). Projet jeune (publié 2026-04-15), source non publique, branche 1.21.1 figée à `1.0.18` |
+| Fish 'N' Ships | Testé 2026-09-20 (`1.1.0`) : le grand `ship` n'accepte **qu'un seul passager** (`ShipEntity.canAddPassenger` = `passengers.isEmpty()`), le pont n'est qu'une hitbox `ShipCabinPart` qui ne transporte pas les entités debout → inutile pour voyager en groupe. Licence All Rights Reserved |
+| Small Ships | Fabric 1.21.1 seulement en beta `2.0.0-b2.1` (2024-11-26), branche morte depuis. Non testé |
+| Sable / Eureka (navires en blocs) | Pas de build 1.21.1 pour Eureka. Sable existe (`1.21.1`) mais aucun assemblage en survie (commande `/sable`) et l'auteur le décrit « incredibly intrusive » |
+| Bullets Boats, Faster Boats, Seaworthy Boats | Écartés au profit d'un mod maison (§8) : gros canot ou simple multiplicateur de vitesse, pas des navires |
 | Macaw's Lights and Lamps / Trapdoors / Fences and Walls, Beautify, Another Furniture, Cooking for Blockheads | Pas fan des mods de déco supplémentaires |
 | Reactive Music | AmbientSounds suffit pour l'ambiance sonore |
 | Visuality | Pas fan (et doublon avec Subtle Effects) |
@@ -468,6 +473,31 @@ Chaque lancement : fenêtre packwiz télécharge seulement ce qui a changé, pui
 6. Shaders (optionnel) : Options → Vidéo → Shader Packs → Complementary Reimagined.
 7. FPS trop bas ? Dans l'ordre : couper les shaders → retirer Fresh Animations → baisser Sound Physics → baisser la distance de rendu.
 8. Touches : roue des emotes **B**, nouveau waypoint **N**, ouvrir le sac à dos **H**.
+
+---
+
+## 8. Mod maison — barque à moteur
+
+Dépôt séparé `Nistroy/minecraft-motorboat` (local `~/minecraft-motorboat`, instructions dans son `CLAUDE.md`).
+Décidé 2026-09-20 après test en jeu de Shippy Ships et Fish 'N' Ships (§4) : aucun mod 1.21.1 existant ne répond.
+
+### v0.1 écrite 2026-09-20 — pas encore installée sur le serveur
+- Entité héritée du bateau vanilla (2 places), coque vanilla + bloc moteur custom à la poupe (fumée + bulles).
+- Moteur à combustible de four : **accroupi + clic droit** avec le combustible. Réservoir 12 000 ticks (10 min,
+  7,5 charbons). Ne consomme que quand on avance ; à sec, retour à la rame.
+- 16 bloc/s contre 8 vanilla, réglable `config/motorboat.json` (8-40, même valeur client et serveur).
+- Craft : moteur (4 fer + 2 cuivre + 1 four) puis moteur + n'importe quel bateau (sans forme).
+- Vérifié 2026-09-20 : `./gradlew build` vert (tests JUnit), `runServer` démarre propre, `summon motorboat:motorboat` OK.
+- Seuil `Vehicle moved too quickly` : refus si distance² − vitesse² > 100 par paquet
+  (`ServerGamePacketListenerImpl.handleMoveVehicle`, javap 1.21.1) ; 16 bloc/s = 0,8 bloc/tick → large marge.
+
+### Reste à faire
+- Test en jeu (client), dont tenue à travers le tunnel playit (latence des copains).
+- Mod `required` des deux côtés (entité + objets) → pack packwiz + vote Discord comme tout ajout.
+- v0.2 (demandé nistroy 2026-09-20) : barque plus grosse, plusieurs places. Garder le bois du bateau au craft.
+- **Hors périmètre, explicitement** : pont praticable en mouvement (demanderait mixins client + physique).
+
+---
 
 ## 9. Livre de quêtes (FTB Quests)
 
