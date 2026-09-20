@@ -68,3 +68,6 @@ playit/playit-cli
 .claude/
 .idea/
 .vscode/
+
+# Workspace multi-dépôts VSCode (chemins locaux vers les dépôts frères)
+*.code-workspace
