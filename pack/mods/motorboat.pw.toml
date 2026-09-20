@@ -1,8 +1,8 @@
 name = "Barque à moteur"
-filename = "minecraft-motorboat-0.1.1.jar"
+filename = "minecraft-motorboat-0.3.0.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Nistroy/minecraft-motorboat/releases/download/v0.1.1/minecraft-motorboat-0.1.1.jar"
+url = "https://github.com/Nistroy/minecraft-motorboat/releases/download/v0.3.0/minecraft-motorboat-0.3.0.jar"
 hash-format = "sha256"
-hash = "2b180d215c01336c8c2c98288f1f720d53ad18ca8b23d5fe7b6d6c1827edd19a"
+hash = "3a1aebcdcbf474e1848fe2857d89c3616b003571bf29533befdedd0ea4ceec75"
