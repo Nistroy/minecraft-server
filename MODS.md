@@ -153,7 +153,7 @@ Légende « Côté » :
 | Mouse Tweaks | `mouse-tweaks` | Gestion de l'inventaire à la souris |
 | Controlling | `controlling` | Recherche dans les touches |
 | LambDynamicLights | `lambdynamiclights` | Une torche en main éclaire autour de soi |
-| Complementary Reimagined | `complementary-reimagined` (**shader**, `pack/shaderpacks/`) | Shader livré avec le pack, **désactivé par défaut** (Iris sans shader actif ne coûte rien) : Options → Vidéo → Shader Packs. `r5.9.3` 2026-09-20 |
+| Complementary Reimagined | `complementary-reimagined` (**shader**, `pack/shaderpacks/`) | Shader livré avec le pack, **désactivé par défaut** (Iris sans shader actif ne coûte rien) : Options → Vidéo → Shader Packs. Eau réglée en style Unbound d'office (§6.9). `r5.9.3` 2026-09-20 |
 | Fresh Animations | `fresh-animations` (**pack de ressources**) + `entitytexturefeatures` + `entity-model-features` | Animations des **mobs vanilla uniquement** (les mobs des autres mods gardent les leurs) |
 | AmbientSounds | `ambientsounds` | Sons d'ambiance selon le biome |
 | Sound Physics Remastered | `sound-physics-remastered` | Écho dans les grottes, sons étouffés |
@@ -422,6 +422,14 @@ Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Mo
      Complementary : licence propre (Complementary License Agreement 1.7 §1.2) — inclusion autorisée via Modrinth
      (URL + hash, ce que fait packwiz), interdit de réuploader le zip ou de modifier son contenu ;
      crédit obligatoire dans la description du pack seulement si activé par défaut → on le laisse désactivé.
+   - Réglages d'un shader : Iris lit `shaderpacks/<nom exact du zip>.txt`, un fichier `Properties` de ses seules valeurs
+     modifiées (`Iris.java` `loadExternalShaderpack`, branche 1.21.1, vérifié 2026-09-20) — hors du zip, donc pas une
+     modification du shader au sens de la licence. Livré : `ComplementaryReimagined_r5.9.3.zip.txt` = `WATER_STYLE_DEFINE=3`
+     (eau style Unbound ; `lib/common.glsl` : `-1` = suit le style du pack, `1` Reimagined, `2` + vagues, `3` Unbound ;
+     les caustiques suivent l'eau car `WATER_CAUSTIC_STYLE_DEFINE` reste à `-1`). `preserve = true` dans `index.toml`
+     → écrit au 1er install seulement, les réglages des amis ne sont jamais écrasés.
+     **Piège : le nom du fichier contient la version du shader** → à renommer à chaque mise à jour de Complementary,
+     sinon Iris repart des valeurs par défaut.
    - Après toute modif : `packwiz refresh` + monter `version` dans `pack.toml`.
    - `options.txt` : `preserve = true` dans `index.toml` → écrit au 1er install seulement, réglages des amis gardés ;
      nouvelles touches jamais poussées → les définir dans le mod. `refresh` garde `preserve` (vérifié 2026-09-12).
