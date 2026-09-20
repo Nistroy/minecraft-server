@@ -126,9 +126,6 @@ Légende « Côté » :
 | Macaw's Bridges | `macaws-bridges` | Ponts |
 | Dramatic Doors | `dramatic-doors` | Portes hautes (3 blocs) |
 | Bountiful | `bountiful` | Tableaux de primes dans les villages : missions contre récompenses. Requiert Kambrik (§2.4) |
-| FTB Quests | maven FTB `ftb-quests-fabric` `2101.1.36` (pas sur Modrinth ; `pack/mods/ftb-quests.pw.toml`) | Livre de quêtes = fil conducteur d'exploration (§9). Tâches dispo dans le jar : `structure` (id **ou** tag), `biome`, `dimension`, `kill`, `item`, `advancement`, `observation`, `checkmark`. Ajouté 2026-09-20 |
-| FTB Library | maven FTB `ftb-library-fabric` `2101.1.36` | Dépendance FTB Quests (`ftblibrary >=2101.1.36` dans son `fabric.mod.json`) |
-| FTB Teams | maven FTB `ftb-teams-fabric` `2101.1.11` | Dépendance FTB Quests. Party **opt-in** → sans rien faire, 1 joueur = 1 équipe = progression individuelle (§9) |
 | Minecraft IA | release GitHub `Nistroy/minecraft-ia` `v0.2.0` (`pack/mods/minecraft-ia.pw.toml`, pas Modrinth) | Assistant IA : touche `I` / `/ia` ; `v0.2.0` = écran refait, icônes d'items, grilles de craft. Serveur : cerveau `~/minecraft-ia` doit tourner (tmux `ia`, lancé par `./mc start`), sinon `/ia` indisponible ; `server/mods/` encore `v0.1.0` 2026-09-13 (maj au prochain redémarrage). Ajouté 2026-09-13 |
 | Barque à moteur | release GitHub `Nistroy/minecraft-motorboat` `v0.3.0` (`pack/mods/motorboat.pw.toml`, pas Modrinth) | Mod maison (§8) : bateau vanilla + moteur à combustible de four, soute, grande barque 6 places, 3 moteurs (16/24/32 bloc/s, −15 % sur la grande coque). Pack + `server/mods/` en `v0.3.0` 2026-09-20 |
 
@@ -256,6 +253,7 @@ Mods proposés et **refusés** — ne pas installer sans nouvelle demande.
 | Anti Enderman Grief | Pas voulu (nistroy, 2026-09-12) |
 | Galosphere | Avec Terralith, ses 3 biomes souterrains ne génèrent pas (`locate biome` échoue, témoins vanilla OK ; Terralith `dimension/overworld.json` = liste explicite `minecraft`/`terralith`) → ses mobs, blocs et sanctuaire disparaissent, restent ruines + palladium. Sous-sol déjà couvert : Terralith (11 biomes `cave/`) + Tectonic (grottes, rivières souterraines). Test 2026-09-12 |
 | Spelunkery | `0.4.4` + Moonlight `3.6.4` : 63 `Failure adding generated resources … NoSuchElementException` (loot + worldgen des minerais), aussi seul → bug du mod. Écrase en plus des loots d'autres mods (Pyrolysis d'Enchants Plus sur 4 minerais deepslate, Wither d'Incendium). Test 2026-09-12 |
+| FTB Quests (+ FTB Library, FTB Teams) | Livre de quêtes d'exploration installé 2026-09-20, retiré le jour même sur demande de nistroy. Ne pas réinstaller sans nouvelle demande |
 | *(indisponibles en Fabric 1.21.1)* | Twilight Forest, Blue Skies, Etched, Sophisticated Backpacks, Moog's End/Nether Structures, Twigs, More Villagers, Croptopia, Iron Chests, Double Shulker Shells |
 
 ---
@@ -508,29 +506,3 @@ Décidé 2026-09-20 après test en jeu de Shippy Ships et Fish 'N' Ships (§4) :
 - Garder le bois du bateau utilisé au craft (aujourd'hui : coque chêne quel que soit le bateau).
 - **Hors périmètre, explicitement** : pont praticable en mouvement (demanderait mixins client + physique).
 
----
-
-## 9. Livre de quêtes (FTB Quests)
-
-But (nistroy 2026-09-20) : donner un repère pour explorer un pack à ~20 mods de structures. Le livre dit **quoi**
-chercher, Explorer's/Nature's Compass disent **où est le plus proche**, la quête se valide en arrivant sur place.
-
-- **Progression individuelle** : FTB Teams ne crée une party que sur demande explicite (`Create a Party`) → chacun
-  coche ses propres découvertes. Ne pas créer de party, sinon une découverte d'un joueur est cochée pour tous.
-- **Coordonnées partagées** : chaque quête porte une récompense `command` (`elevate_perms: true`, `silent: true`) qui
-  fait `tellraw @a` avec les substitutions `{x} {y} {z}` de FTBQ → « X a trouvé : <quête> [x y z] » dans le chat.
-  C'est ce qui remplace « boussole d'explorateur » : les autres peuvent aller voir sans que ce soit coché pour eux.
-- **Spoilers mixtes** : grandes étapes visibles ; quêtes rares/lointaines en `hide_until_deps_complete: true`
-  (chaînées sur une quête sœur), chapitres de dimension révélés en y entrant.
-- **Fichiers** : `server/config/ftbquests/quests/chapters/*.snbt`. Emplacement vérifié dans le jar 2026-09-20 :
-  `ServerQuestFile.load()` = `Platform.getConfigFolder().resolve("ftbquests/quests")` → **`config/`, pas le monde**
-  (`world/ftbquests/` ne contient que la progression par joueur, 1 fichier par UUID). Piège : des chapitres posés
-  dans le monde ne produisent **aucune erreur au log**, le livre s'ouvre simplement vide. Source de bootstrap :
-  `quests/generate.py` (7 chapitres, 51 quêtes) ; `quests/validate.py` vérifie que chaque structure/biome/dimension/
-  entité/item référencé existe dans `server/mods/` (589 structures, 131 tags, 178 biomes relevés le 2026-09-20).
-- **Après la première édition en jeu** (mode édition FTBQ), le SNBT du monde est la source de vérité : relancer
-  `generate.py` écraserait ces changements.
-- **Rechargement** : `/ftbquests reload quests` refusé depuis la console (`requires` du littéral → source joueur) ;
-  passer par un joueur op en jeu, ou redémarrer le serveur.
-- Pièges connus : FTBQ a un historique de freezes sur gros livres (addons `ftb-quests-freeze-fix`,
-  `ftb-quests-optimizer` sur Modrinth) — à surveiller si le livre grossit.
