@@ -386,6 +386,11 @@ hash = "8d013469f5b94e1150927ef3c8d985070222fa61f8c7122173304ffb80363c40"
 metafile = true
 
 [[files]]
+file = "mods/motorboat.pw.toml"
+hash = "00328ed57b5af17b4e55fa97e78ae0a1fc043201f9c3dc7f9007dea710e111a2"
+metafile = true
+
+[[files]]
 file = "mods/mouse-tweaks.pw.toml"
 hash = "7fc969e77edc3b0b9946b42070fd858349a74555f0cf9648907241af8a3a2d25"
 metafile = true

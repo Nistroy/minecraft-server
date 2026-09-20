@@ -130,6 +130,7 @@ Légende « Côté » :
 | FTB Library | maven FTB `ftb-library-fabric` `2101.1.36` | Dépendance FTB Quests (`ftblibrary >=2101.1.36` dans son `fabric.mod.json`) |
 | FTB Teams | maven FTB `ftb-teams-fabric` `2101.1.11` | Dépendance FTB Quests. Party **opt-in** → sans rien faire, 1 joueur = 1 équipe = progression individuelle (§9) |
 | Minecraft IA | release GitHub `Nistroy/minecraft-ia` `v0.2.0` (`pack/mods/minecraft-ia.pw.toml`, pas Modrinth) | Assistant IA : touche `I` / `/ia` ; `v0.2.0` = écran refait, icônes d'items, grilles de craft. Serveur : cerveau `~/minecraft-ia` doit tourner (tmux `ia`, lancé par `./mc start`), sinon `/ia` indisponible ; `server/mods/` encore `v0.1.0` 2026-09-13 (maj au prochain redémarrage). Ajouté 2026-09-13 |
+| Barque à moteur | release GitHub `Nistroy/minecraft-motorboat` `v0.1.1` (`pack/mods/motorboat.pw.toml`, pas Modrinth) | Mod maison (§8) : bateau vanilla + moteur à combustible de four, 16 bloc/s contre 8. Ajouté au pack 2026-09-20 ; **pas encore dans `server/mods/`** → inutilisable en multi tant que le serveur ne l'a pas |
 
 ### 2.3 Joueurs seulement (C)
 
@@ -481,7 +482,7 @@ Chaque lancement : fenêtre packwiz télécharge seulement ce qui a changé, pui
 Dépôt séparé `Nistroy/minecraft-motorboat` (local `~/minecraft-motorboat`, instructions dans son `CLAUDE.md`).
 Décidé 2026-09-20 après test en jeu de Shippy Ships et Fish 'N' Ships (§4) : aucun mod 1.21.1 existant ne répond.
 
-### v0.1 écrite 2026-09-20 — pas encore installée sur le serveur
+### v0.1.1 publiée 2026-09-20 — dans le pack joueurs, pas encore sur le serveur
 - Entité héritée du bateau vanilla (2 places), coque vanilla + bloc moteur custom à la poupe (fumée + bulles).
 - Moteur à combustible de four : **accroupi + clic droit** avec le combustible. Réservoir 12 000 ticks (10 min,
   7,5 charbons). Ne consomme que quand on avance ; à sec, retour à la rame.
@@ -493,7 +494,9 @@ Décidé 2026-09-20 après test en jeu de Shippy Ships et Fish 'N' Ships (§4) :
 
 ### Reste à faire
 - Test en jeu (client), dont tenue à travers le tunnel playit (latence des copains).
-- Mod `required` des deux côtés (entité + objets) → pack packwiz + vote Discord comme tout ajout.
+- **Poser le jar dans `server/mods/`** (arrêt + sauvegarde hors rotation) : mod `required` des deux côtés, donc
+  inutilisable en multi tant que le serveur ne l'a pas. Les clients l'ont dès le prochain lancement (pack, 2026-09-20).
+- Vote Discord pas fait (mod maison ajouté au pack sur décision de nistroy 2026-09-20).
 - v0.2 (demandé nistroy 2026-09-20) : barque plus grosse, plusieurs places. Garder le bois du bateau au craft.
 - **Hors périmètre, explicitement** : pont praticable en mouvement (demanderait mixins client + physique).
 
