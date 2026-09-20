@@ -1,7 +1,7 @@
 """Verifie que chaque id reference par les chapitres existe dans les jars installes.
 
 Usage : python3 quests/validate.py [dossier_mods] [dossier_chapitres]
-Defauts : server/mods et server/world/ftbquests/quests/chapters.
+Defauts : server/mods et server/config/ftbquests/quests/chapters.
 """
 import re, pathlib, sys, zipfile
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -40,7 +40,7 @@ ents |= {"minecraft:ender_dragon"}
 dims |= {"minecraft:the_nether", "minecraft:the_end", "minecraft:overworld"}
 items |= {"waystones:waystone", "bountiful:bountyboard"}
 
-ch = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "server/world/ftbquests/quests/chapters"
+ch = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "server/config/ftbquests/quests/chapters"
 bad = []
 for f in sorted(ch.glob("*.snbt")):
     t = f.read_text()

@@ -5,9 +5,12 @@ Ids/structures/biomes/dimensions verifies dans les jars de server/mods le 2026-0
 Tache = type FTBQ ; chaque quete diffuse les coordonnees du joueur a tout le monde
 (recompense 'command' + substitutions {x} {y} {z} supportees par CommandReward).
 
-Usage : python3 quests/generate.py server/world/ftbquests/quests/chapters
+Usage : python3 quests/generate.py server/config/ftbquests/quests/chapters
+Emplacement verifie dans le jar (2026-09-20) : ServerQuestFile.load() resout
+Platform.getConfigFolder().resolve("ftbquests/quests") -> server/config/, PAS le monde.
+Le dossier du monde (world/ftbquests/) ne contient que la progression des joueurs.
 ATTENTION : ecrase les fichiers du dossier. Des la premiere edition en jeu
-(mode edition FTBQ), le SNBT du monde devient la source de verite, pas ce script."""
+(mode edition FTBQ), le SNBT de config devient la source de verite, pas ce script."""
 import pathlib, sys
 
 OUT = pathlib.Path(sys.argv[1])

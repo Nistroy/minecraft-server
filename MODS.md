@@ -481,7 +481,10 @@ chercher, Explorer's/Nature's Compass disent **où est le plus proche**, la quê
   C'est ce qui remplace « boussole d'explorateur » : les autres peuvent aller voir sans que ce soit coché pour eux.
 - **Spoilers mixtes** : grandes étapes visibles ; quêtes rares/lointaines en `hide_until_deps_complete: true`
   (chaînées sur une quête sœur), chapitres de dimension révélés en y entrant.
-- **Fichiers** : `server/world/ftbquests/quests/chapters/*.snbt` (monde = gitignoré). Source de bootstrap :
+- **Fichiers** : `server/config/ftbquests/quests/chapters/*.snbt`. Emplacement vérifié dans le jar 2026-09-20 :
+  `ServerQuestFile.load()` = `Platform.getConfigFolder().resolve("ftbquests/quests")` → **`config/`, pas le monde**
+  (`world/ftbquests/` ne contient que la progression par joueur, 1 fichier par UUID). Piège : des chapitres posés
+  dans le monde ne produisent **aucune erreur au log**, le livre s'ouvre simplement vide. Source de bootstrap :
   `quests/generate.py` (7 chapitres, 51 quêtes) ; `quests/validate.py` vérifie que chaque structure/biome/dimension/
   entité/item référencé existe dans `server/mods/` (589 structures, 131 tags, 178 biomes relevés le 2026-09-20).
 - **Après la première édition en jeu** (mode édition FTBQ), le SNBT du monde est la source de vérité : relancer
