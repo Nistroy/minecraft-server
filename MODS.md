@@ -126,6 +126,9 @@ Légende « Côté » :
 | Macaw's Bridges | `macaws-bridges` | Ponts |
 | Dramatic Doors | `dramatic-doors` | Portes hautes (3 blocs) |
 | Bountiful | `bountiful` | Tableaux de primes dans les villages : missions contre récompenses. Requiert Kambrik (§2.4) |
+| FTB Quests | maven FTB `ftb-quests-fabric` `2101.1.36` (pas sur Modrinth ; `pack/mods/ftb-quests.pw.toml`) | Livre de quêtes = fil conducteur d'exploration (§9). Tâches dispo dans le jar : `structure` (id **ou** tag), `biome`, `dimension`, `kill`, `item`, `advancement`, `observation`, `checkmark`. Ajouté 2026-09-20 |
+| FTB Library | maven FTB `ftb-library-fabric` `2101.1.36` | Dépendance FTB Quests (`ftblibrary >=2101.1.36` dans son `fabric.mod.json`) |
+| FTB Teams | maven FTB `ftb-teams-fabric` `2101.1.11` | Dépendance FTB Quests. Party **opt-in** → sans rien faire, 1 joueur = 1 équipe = progression individuelle (§9) |
 | Minecraft IA | release GitHub `Nistroy/minecraft-ia` `v0.2.0` (`pack/mods/minecraft-ia.pw.toml`, pas Modrinth) | Assistant IA : touche `I` / `/ia` ; `v0.2.0` = écran refait, icônes d'items, grilles de craft. Serveur : cerveau `~/minecraft-ia` doit tourner (tmux `ia`, lancé par `./mc start`), sinon `/ia` indisponible ; `server/mods/` encore `v0.1.0` 2026-09-13 (maj au prochain redémarrage). Ajouté 2026-09-13 |
 
 ### 2.3 Joueurs seulement (C)
@@ -465,3 +468,25 @@ Chaque lancement : fenêtre packwiz télécharge seulement ce qui a changé, pui
 6. Shaders (optionnel) : Options → Vidéo → Shader Packs → Complementary Reimagined.
 7. FPS trop bas ? Dans l'ordre : couper les shaders → retirer Fresh Animations → baisser Sound Physics → baisser la distance de rendu.
 8. Touches : roue des emotes **B**, nouveau waypoint **N**, ouvrir le sac à dos **H**.
+
+## 9. Livre de quêtes (FTB Quests)
+
+But (nistroy 2026-09-20) : donner un repère pour explorer un pack à ~20 mods de structures. Le livre dit **quoi**
+chercher, Explorer's/Nature's Compass disent **où est le plus proche**, la quête se valide en arrivant sur place.
+
+- **Progression individuelle** : FTB Teams ne crée une party que sur demande explicite (`Create a Party`) → chacun
+  coche ses propres découvertes. Ne pas créer de party, sinon une découverte d'un joueur est cochée pour tous.
+- **Coordonnées partagées** : chaque quête porte une récompense `command` (`elevate_perms: true`, `silent: true`) qui
+  fait `tellraw @a` avec les substitutions `{x} {y} {z}` de FTBQ → « X a trouvé : <quête> [x y z] » dans le chat.
+  C'est ce qui remplace « boussole d'explorateur » : les autres peuvent aller voir sans que ce soit coché pour eux.
+- **Spoilers mixtes** : grandes étapes visibles ; quêtes rares/lointaines en `hide_until_deps_complete: true`
+  (chaînées sur une quête sœur), chapitres de dimension révélés en y entrant.
+- **Fichiers** : `server/world/ftbquests/quests/chapters/*.snbt` (monde = gitignoré). Source de bootstrap :
+  `quests/generate.py` (7 chapitres, 51 quêtes) ; `quests/validate.py` vérifie que chaque structure/biome/dimension/
+  entité/item référencé existe dans `server/mods/` (589 structures, 131 tags, 178 biomes relevés le 2026-09-20).
+- **Après la première édition en jeu** (mode édition FTBQ), le SNBT du monde est la source de vérité : relancer
+  `generate.py` écraserait ces changements.
+- **Rechargement** : `/ftbquests reload quests` refusé depuis la console (`requires` du littéral → source joueur) ;
+  passer par un joueur op en jeu, ou redémarrer le serveur.
+- Pièges connus : FTBQ a un historique de freezes sur gros livres (addons `ftb-quests-freeze-fix`,
+  `ftb-quests-optimizer` sur Modrinth) — à surveiller si le livre grossit.
