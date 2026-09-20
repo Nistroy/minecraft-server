@@ -4,6 +4,7 @@
 # Monde de jeu (fichiers binaires fréquents, géré par backup.sh) + anciens mondes gardés à côté
 server/world/
 server/world-*/
+server/world_*/
 
 # Cache, versions et bibliothèques téléchargées automatiquement par Fabric
 server/libraries/
