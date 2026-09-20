@@ -473,29 +473,23 @@ Chaque lancement : fenêtre packwiz télécharge seulement ce qui a changé, pui
 
 ---
 
-## 8. Mod maison — barque à moteur (projet, pas commencé au 2026-09-20)
+## 8. Mod maison — barque à moteur
 
+Dépôt séparé `Nistroy/minecraft-motorboat` (local `~/minecraft-motorboat`, instructions dans son `CLAUDE.md`).
 Décidé 2026-09-20 après test en jeu de Shippy Ships et Fish 'N' Ships (§4) : aucun mod 1.21.1 existant ne répond.
 
-**Manques visés** (nistroy) : vitesse, craft simple, « une barque à moteur ».
-**Hors périmètre, explicitement** : pont praticable en mouvement. Non demandé → pas de mixin client, pas de
-sub-level/physique. (Le joueur fait autorité sur sa position côté client : porter une entité debout sur une entité
-mobile = rubber-band ; c'est pour ça que Sable embarque un moteur physique.)
+### v0.1 écrite 2026-09-20 — pas encore installée sur le serveur
+- Entité héritée du bateau vanilla (2 places), coque vanilla + bloc moteur custom à la poupe (fumée + bulles).
+- Moteur à combustible de four : **accroupi + clic droit** avec le combustible. Réservoir 12 000 ticks (10 min,
+  7,5 charbons). Ne consomme que quand on avance ; à sec, retour à la rame.
+- 16 bloc/s contre 8 vanilla, réglable `config/motorboat.json` (8-40, même valeur client et serveur).
+- Craft : moteur (4 fer + 2 cuivre + 1 four) puis moteur + n'importe quel bateau (sans forme).
+- Vérifié 2026-09-20 : `./gradlew build` vert (tests JUnit), `runServer` démarre propre, `summon motorboat:motorboat` OK.
+- Seuil `Vehicle moved too quickly` : refus si distance² − vitesse² > 100 par paquet
+  (`ServerGamePacketListenerImpl.handleMoveVehicle`, javap 1.21.1) ; 16 bloc/s = 0,8 bloc/tick → large marge.
 
-### v0.1
-- Entité barque, 2 places, comportement dérivé du bateau vanilla (pas de modèle 3D custom en v0.1).
-- Moteur au charbon : combustibles de four, vitesse pleine tant que ça brûle, retour à la rame à sec.
-- Vitesse cible ~2× vanilla (~16 bloc/s ; vanilla 8), réglable en config. Repère : Shippy plafonne à 1,6×.
-- Craft en 1 étape : bateau + moteur (moteur = fer/cuivre). Inverse du Ship Builder en 5 paliers, rejeté.
-- Son de moteur + bulles à l'arrière.
-
-### Contraintes
-- Dépôt **séparé** (modèle `minecraft-ia`), pas dans `minecraft-server` : l'ops reste sans toolchain Gradle.
-- Nouveau programme dans un dépôt → déclenche la règle TDD dormante (`CLAUDE.md` §Testing) : proposer le diff.
-- Fabric 1.21.1, Java 21 (`/opt/homebrew/opt/openjdk@21`), Fabric Loom + `gradlew` fourni (pas de Gradle système).
-  GeckoLib déjà dans le pack si animations plus tard.
-- Mod `required` des deux côtés → passe par le pack packwiz + poll Discord comme tout ajout.
-
-### À vérifier avant de coder
-- Contrôle serveur `Vehicle moved too quickly` : seuil réel à la vitesse visée.
-- Tenue à travers le tunnel playit (latence des copains).
+### Reste à faire
+- Test en jeu (client), dont tenue à travers le tunnel playit (latence des copains).
+- Mod `required` des deux côtés (entité + objets) → pack packwiz + vote Discord comme tout ajout.
+- v0.2 (demandé nistroy 2026-09-20) : barque plus grosse, plusieurs places. Garder le bois du bateau au craft.
+- **Hors périmètre, explicitement** : pont praticable en mouvement (demanderait mixins client + physique).
