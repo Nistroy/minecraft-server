@@ -594,6 +594,11 @@ hash = "6a1556a0e4fcb411b33efafc3382b4abd9a6e671f140dc0d42e9aad2808e24f3"
 metafile = true
 
 [[files]]
+file = "shaderpacks/ComplementaryReimagined_r5.9.3.zip.txt"
+hash = "7ba4ffdfe4dc7e303c7c0bd0811961cf9e86ec5bcba5a4f1acd88e2d2d3dfea3"
+preserve = true
+
+[[files]]
 file = "shaderpacks/complementary-reimagined.pw.toml"
 hash = "75d1d2488a0c332a9a58af7e57f980a1b006c02b3a1c580fbd50443088e4eab0"
 metafile = true
