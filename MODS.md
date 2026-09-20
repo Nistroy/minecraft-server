@@ -134,7 +134,7 @@ Légende « Côté » :
 | Mod | Slug | Ce qu'il apporte |
 |---|---|---|
 | Sodium | `sodium` | Moteur de rendu, gros gain de FPS |
-| Iris | `iris` | Shaders (pack conseillé : Complementary Reimagined) |
+| Iris | `iris` | Charge les shaders |
 | Entity Culling | `entityculling` | N'affiche pas ce qui est caché |
 | ImmediatelyFast | `immediatelyfast` | Rendu de l'interface/texte accéléré |
 | FerriteCore | `ferrite-core` | Moins de RAM |
@@ -153,6 +153,7 @@ Légende « Côté » :
 | Mouse Tweaks | `mouse-tweaks` | Gestion de l'inventaire à la souris |
 | Controlling | `controlling` | Recherche dans les touches |
 | LambDynamicLights | `lambdynamiclights` | Une torche en main éclaire autour de soi |
+| Complementary Reimagined | `complementary-reimagined` (**shader**, `pack/shaderpacks/`) | Shader livré avec le pack, **désactivé par défaut** (Iris sans shader actif ne coûte rien) : Options → Vidéo → Shader Packs. `r5.9.3` 2026-09-20 |
 | Fresh Animations | `fresh-animations` (**pack de ressources**) + `entitytexturefeatures` + `entity-model-features` | Animations des **mobs vanilla uniquement** (les mobs des autres mods gardent les leurs) |
 | AmbientSounds | `ambientsounds` | Sons d'ambiance selon le biome |
 | Sound Physics Remastered | `sound-physics-remastered` | Écho dans les grottes, sons étouffés |
@@ -416,6 +417,11 @@ Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Mo
    - Outil : `~/go/bin/packwiz` (`go install github.com/packwiz/packwiz@latest`, pas de formule brew). Commandes depuis `pack/`.
    - Ajouter : `packwiz modrinth add <slug>` ; version testée imposée : `--project-id <id> --version-id <id>`.
      Retirer : `packwiz remove <slug>`. `side` dans `mods/<slug>.pw.toml` : `client` (C) ou `both` (S+C).
+   - Shaders : `packwiz modrinth add <slug>` les range seul dans `shaderpacks/`, mais Modrinth les déclare `env: unknown`
+     → packwiz écrit `side = "both"`, à corriger en `client` à la main (vérifié 2026-09-20).
+     Complementary : licence propre (Complementary License Agreement 1.7 §1.2) — inclusion autorisée via Modrinth
+     (URL + hash, ce que fait packwiz), interdit de réuploader le zip ou de modifier son contenu ;
+     crédit obligatoire dans la description du pack seulement si activé par défaut → on le laisse désactivé.
    - Après toute modif : `packwiz refresh` + monter `version` dans `pack.toml`.
    - `options.txt` : `preserve = true` dans `index.toml` → écrit au 1er install seulement, réglages des amis gardés ;
      nouvelles touches jamais poussées → les définir dans le mod. `refresh` garde `preserve` (vérifié 2026-09-12).
@@ -469,7 +475,7 @@ Chaque lancement : fenêtre packwiz télécharge seulement ce qui a changé, pui
 4. Lancer, se connecter à `schmidt-shut.tun.ply.gg`.
 5. Au 1er lancement : Options → Packs de ressources → actifs, de haut en bas : bahbeuh-fixes, enchants-plus-lang,
    Fresh Animations, Default Connected Textures. Normalement déjà réglé par le pack ; sinon les activer dans cet ordre.
-6. Shaders (optionnel) : Options → Vidéo → Shader Packs → Complementary Reimagined.
+6. Shaders (optionnel, gros coût GPU) : Options → Vidéo → Shader Packs → Complementary Reimagined (déjà livré, rien à télécharger).
 7. FPS trop bas ? Dans l'ordre : couper les shaders → retirer Fresh Animations → baisser Sound Physics → baisser la distance de rendu.
 8. Touches : roue des emotes **B**, nouveau waypoint **N**, ouvrir le sac à dos **H**.
 
