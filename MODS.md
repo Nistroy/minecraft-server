@@ -127,7 +127,7 @@ Légende « Côté » :
 | Dramatic Doors | `dramatic-doors` | Portes hautes (3 blocs) |
 | Bountiful | `bountiful` | Tableaux de primes dans les villages : missions contre récompenses. Requiert Kambrik (§2.4) |
 | Minecraft IA | release GitHub `Nistroy/minecraft-ia` `v0.2.0` (`pack/mods/minecraft-ia.pw.toml`, pas Modrinth) | Assistant IA : touche `I` / `/ia` ; `v0.2.0` = écran refait, icônes d'items, grilles de craft. Serveur : cerveau `~/minecraft-ia` doit tourner (tmux `ia`, lancé par `./mc start`), sinon `/ia` indisponible ; `server/mods/` encore `v0.1.0` 2026-09-13 (maj au prochain redémarrage). Ajouté 2026-09-13 |
-| Barque à moteur | release GitHub `Nistroy/minecraft-motorboat` `v0.6.0` (`pack/mods/motorboat.pw.toml`, pas Modrinth) | Mod maison (§8) : bateau vanilla + moteur à combustible de four, soute, grande barque 6 places, 3 moteurs (16/24/32 bloc/s, −15 % sur la grande coque), coque 3D, hors-bord modélisés, houle. Pack + `server/mods/` en `v0.6.0` 2026-09-20 |
+| Barque à moteur | release GitHub `Nistroy/minecraft-motorboat` `v0.6.1` (`pack/mods/motorboat.pw.toml`, pas Modrinth) | Mod maison (§8) : bateau vanilla + moteur à combustible de four, soute, grande barque 6 places, 3 moteurs (16/24/32 bloc/s, −15 % sur la grande coque), coque 3D, hors-bord modélisés, houle. Pack + `server/mods/` en `v0.6.1` 2026-09-21 |
 
 ### 2.3 Joueurs seulement (C)
 
@@ -502,6 +502,8 @@ Trois versions d'un coup, une seule mise à jour pour les joueurs (choix nistroy
 - `v0.6.0` houle : tangage, roulis et étrave qui se lève en vitesse. **Purement visuel** — rien côté
   entité, hitbox et pilotage inchangés, rien de plus à synchroniser. La phase vient de l'heure du
   monde et de la position, donc deux barques voisines prennent la même vague.
+- `v0.6.1` (2026-09-21) la houle vient **par séries** : eau plate ~72 % du temps puis une série de
+  5-10 s. La 0.6.0 oscillait en continu — « ça ne fait que trembler » (nistroy, essai en jeu).
 
 ### Contenu depuis v0.3.1
 - 2 coques : barque 2 places (coque vanilla) et grande barque 6 places (coque maison, 2,25 blocs → passe mal
