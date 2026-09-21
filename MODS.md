@@ -110,7 +110,7 @@ Légende « Côté » :
 | Nature's Compass | `natures-compass` | Boussole qui trouve un biome choisi |
 | Explorer's Compass | `explorers-compass` | Boussole qui trouve une structure choisie |
 | Lootr | `lootr` | Chaque joueur a **son propre butin** dans les coffres de structures |
-| Enhanced Celestials | `enhanced-celestials` | Événements lunaires : lune de sang (plus de monstres), lune des moissons, lune bleue |
+| Enhanced Celestials | release GitHub `Nistroy/minecraft-server` `pack-2026-09-21` (base `6.0.2.6-fabric`, patch sans popup annonce EC2) | Événements lunaires : lune de sang (plus de monstres), lune des moissons, lune bleue |
 | Tide 2 | `tide` | Refonte de la pêche : poissons par biome, pêche dans la lave, carnet |
 | Amendments | `amendments` | Améliorations de blocs vanilla, par l'auteur de Supplementaries |
 | Handcrafted | `handcrafted` | Meubles style vanilla |

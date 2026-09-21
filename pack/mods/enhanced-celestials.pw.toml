@@ -3,11 +3,6 @@ filename = "Enhanced-Celestials-Fabric-1.21.1-6.0.2.6.jar"
 side = "both"
 
 [download]
-url = "https://cdn.modrinth.com/data/2rL16t1O/versions/8Jl5X4ms/Enhanced-Celestials-Fabric-1.21.1-6.0.2.6.jar"
-hash-format = "sha512"
-hash = "d80a4e47b4abcf9d43747d84c2231511cbb249a0d144f5785335c412669fffa6e068511aba5afc18f583b105a9beee3b9229dc8d6ac1c80b9581e34ad538d868"
-
-[update]
-[update.modrinth]
-mod-id = "2rL16t1O"
-version = "8Jl5X4ms"
+url = "https://github.com/Nistroy/minecraft-server/releases/download/pack-2026-09-21/Enhanced-Celestials-Fabric-1.21.1-6.0.2.6.jar"
+hash-format = "sha256"
+hash = "a494e5c8bc46b5a64bb7c292c1b1ecc5526e8e15031efd9b85460fa7f35a975c"
