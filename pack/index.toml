@@ -491,6 +491,11 @@ hash = "1fa203fbf7578d4f6fc251b3529cf79935d7e4a573a281241de74e488be639b7"
 metafile = true
 
 [[files]]
+file = "mods/storagedrawers.pw.toml"
+hash = "c7472ae71ab0b72df30939071422b0df04428e1e187a080f1e5f1df0cb1f2465"
+metafile = true
+
+[[files]]
 file = "mods/subtle-effects.pw.toml"
 hash = "39b0c31561fba4814a23e0c398888652d5f610920b4e33681c194bc1668f9e75"
 metafile = true

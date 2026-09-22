@@ -129,6 +129,7 @@ Légende « Côté » :
 | Minecraft IA | release GitHub `Nistroy/minecraft-ia` `v0.2.0` (`pack/mods/minecraft-ia.pw.toml`, pas Modrinth) | Assistant IA : touche `I` / `/ia` ; `v0.2.0` = écran refait, icônes d'items, grilles de craft. Serveur : cerveau `~/minecraft-ia` doit tourner (tmux `ia`, lancé par `./mc start`), sinon `/ia` indisponible ; `server/mods/` encore `v0.1.0` 2026-09-13 (maj au prochain redémarrage). Ajouté 2026-09-13 |
 | Barque à moteur | release GitHub `Nistroy/minecraft-motorboat` `v0.6.1` (`pack/mods/motorboat.pw.toml`, pas Modrinth) | Mod maison (§8) : bateau vanilla + moteur à combustible de four, soute, grande barque 6 places, 3 moteurs (16/24/32 bloc/s, −15 % sur la grande coque), coque 3D, hors-bord modélisés, houle. Pack + `server/mods/` en `v0.6.1` 2026-09-21 |
 | Comforts | `comforts` | Hamacs (dormir le jour pour passer la journée jusqu'au crépuscule) et sacs de couchage portables sans réinitialiser le point de spawn |
+| Storage Drawers | `storagedrawers` | Tiroirs : 1 type d'objet par case, contenu + quantité affichés sur la face, clic pour prendre/déposer sans ouvrir d'interface. Capacités par défaut (lues dans le jar `13.11.4`) : 1×1 = 2048 objets, 1×2 = 1024/case, 2×2 = 512/case. Contrôleur = tri auto (`interactPutItemsIntoInventory` : clic droit → l'inventaire se range), `controllerRange` = 50, réseau découvert en largeur → les tiroirs doivent se toucher en chaîne (bandeaux = rallonge). Contrôleur IO (or) pour entonnoirs. Compare les composants NBT (`isSameItemSameComponents`) → inutile pour l'équipement enchanté. Ajouté 2026-09-22 |
 
 ### 2.3 Joueurs seulement (C)
 
@@ -203,7 +204,6 @@ régénérer le monde (§6). Sinon : ne pas installer.
 | Visual Workbench | `visual-workbench` | S+C | Objets visibles sur l'établi, qui les garde | Installé |
 | Critters and Companions | `critters-and-companions` | S+C | Petits animaux (loutres, pandas roux, koïs, libellules…) | Installé |
 | BlazeandCave's Advancements | `blazeandcaves-advancements-pack` | S (**datapack** → `world/datapacks/`) | +1 000 progrès, 16 onglets | Installé (`BlazeandCave's Advancements Pack 1.17.2.zip`) |
-| Storage Drawers | `storagedrawers` | S+C | Tiroirs grand volume ; contrôleur = tri automatique ; entonnoirs OK (API de transfert Fabric vérifiée dans le jar) | Pas installé : « plus tard, a l'air bien » (nistroy 2026-09-12) ; pas de génération de monde → ajout possible à tout moment |
 | Better Archeology | `better-archeology` | S+C | Plus d'archéologie (structures, blocs suspects, 3 enchantements) | Retiré du pack de base (test en jeu 2026-09-12) ; peut revenir : objets partout, structures seulement dans les chunks jamais générés |
 | Snow! Real Magic! | `snow-real-magic` | S+C | Neige qui s'accumule, recouvre escaliers/dalles/clôtures (lib Kiwi) | Installé |
 
@@ -291,7 +291,7 @@ Points à régler / tester à l'installation :
      raid, mobs, pêche Tide, rangement, emotes, lunes, explosions) : 47 OK, 0 crash client/serveur, TPS ~20 ;
      `Can't keep up` seulement en tp vers des chunks neufs. Points ouverts : point 9.
    - Installation `server/` 2026-09-12 : 103 jars du lot testé (sha512 = `versions-testees.tsv`), sans Reinforced Chests,
-     Tom's Storage, Macaw's Roofs, Anti Enderman Grief (§4), Better Archeology, Storage Drawers (§3) ; Subtle Effects (C) retiré.
+     Tom's Storage, Macaw's Roofs, Anti Enderman Grief (§4), Better Archeology, Storage Drawers (ajouté depuis, §2.2) ; Subtle Effects (C) retiré.
      Démarrage OK (249 mods), aucune ERROR nouvelle vs test, datapack BlazeandCave's chargé, configs §6 étape 6 faites.
      Pack joueurs `client-pack/bahbeuh-2026-09-12.mrpack` = `12d` moins ces mods (110 fichiers).
 7. **`/locate`** : vanilla = thread principal, jusqu'à ~25 s pour une structure rare → plusieurs à la suite = watchdog
