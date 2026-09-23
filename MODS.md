@@ -209,7 +209,11 @@ régénérer le monde (§6). Sinon : ne pas installer.
 
 Rappel enchantements : Dungeons and Taverns (✅) ajoute déjà des enchantements uniques et Illager Invasion (✅)
 sa table d'imprégnation. **Un seul pack d'enchantements** (Enchants Plus ✅) : les packs ne gèrent pas les exclusivités entre eux.
-Datapack maison `world/datapacks/starlight-bow-enchants/` (hors dépôt, 2026-09-22) : Starlight Bow (Tide) accepte Puissance, Précision, Toxique (Enchants+ les limite à `bow`/`crossbow`). Ses flèches `tide:star_arrow` ≠ `minecraft:arrow` → Toxique = `post_attack` Poison 11,25 s, Rafale de vent = `hit_block` → `enchantsplus:breezeburst/bb_wc`. Précision sans effet (déjà sans gravité). Copies de `power.json`, `precision.json`, `toxic.json`, `breeze_burst.json` d'Enchants+ → à resynchroniser si Enchants+ mis à jour.
+Datapack maison `world/datapacks/starlight-bow-enchants/` (hors dépôt, 2026-09-23) — Starlight Bow (Tide) :
+- Étoile flèche `tide:star_arrow` : vitesse 2,5 (flèche 3,0) → 5 dégâts au lieu de 6 ; vit 50 ticks ; détruite au 1er contact (pas de perforation) ; mixin Tide `ProjectileWeaponItemMixin` : 60 % → 1 flèche gratuite, saute `ammo_use`/`projectile_count` vanilla (source : bytecode Tide 2.1.1).
+- Enchants+ Puissance/Précision/Toxique/Rafale de vent étendus à l'arc (copies de `power.json`, `precision.json`, `toxic.json`, `breeze_burst.json` → resynchroniser si Enchants+ mis à jour). Puissance + Toxique : sans effet sur joueur touché par étoile.
+- `starbow:etoile_filante` I-III, recette Tide surchargée → arc crafté niveau I ; I+I / II+II à l'enclume ; incompatible Infinité (déjà applicable via `#enchantable/bow` de Tide). I : +1 base (×2,5), lueur, joueur touché → Régén II 6,5 s au lieu de dégâts, particules. II : 80 % munitions, Marque +1 vs cible lumineuse, Régén II 3 s tireur, vision nocturne en main (21 s, rafraîchie /200 ticks). III : infini, Chasseur +2 vs `#starbow:celestial`, pluie d'étoiles (tir accroupi, 7 étoiles en 3,5 s, recharge 30 s via `time query gametime`, pas de tick).
+- Paliers = `random_chance` + `enchantment_level` lookup. Enchantements = registre dynamique → **redémarrage requis**, `/reload` ne suffit pas (recette en erreur tant que l'enchantement n'est pas chargé). Validé sur serveur vanilla 1.21.1 jetable (ids Tide remplacés).
 Datapack maison `world/datapacks/enchantsplus-perf/` (hors dépôt, 2026-09-23) : surcharge `enchantsplus:tick` (lag, `PERF.md` §Enchants Plus) → à régénérer si Enchants+ mis à jour.
 
 ---
