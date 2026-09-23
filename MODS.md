@@ -361,7 +361,7 @@ Points à régler / tester à l'installation :
 Gains : Sodium, Entity Culling, More Culling, ImmediatelyFast, Sodium Extra (couper particules/animations), Dynamic FPS,
 ScalableLux, FerriteCore/ModernFix (RAM). RAM à allouer aux joueurs : **6 Go** (4 Go minimum sans shaders).
 
-**Côté serveur (Mac mini M1)** :
+**Côté serveur (Mac mini M1)** : causes de lag et de crash observées en jeu → `PERF.md`.
 
 | Mod | Impact | Parade |
 |---|---|---|
