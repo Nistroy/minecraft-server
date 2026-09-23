@@ -210,6 +210,7 @@ régénérer le monde (§6). Sinon : ne pas installer.
 Rappel enchantements : Dungeons and Taverns (✅) ajoute déjà des enchantements uniques et Illager Invasion (✅)
 sa table d'imprégnation. **Un seul pack d'enchantements** (Enchants Plus ✅) : les packs ne gèrent pas les exclusivités entre eux.
 Datapack maison `world/datapacks/starlight-bow-enchants/` (hors dépôt, 2026-09-22) : Starlight Bow (Tide) accepte Puissance, Précision, Toxique (Enchants+ les limite à `bow`/`crossbow`). Ses flèches `tide:star_arrow` ≠ `minecraft:arrow` → Toxique = `post_attack` Poison 11,25 s, Rafale de vent = `hit_block` → `enchantsplus:breezeburst/bb_wc`. Précision sans effet (déjà sans gravité). Copies de `power.json`, `precision.json`, `toxic.json`, `breeze_burst.json` d'Enchants+ → à resynchroniser si Enchants+ mis à jour.
+Datapack maison `world/datapacks/enchantsplus-perf/` (hors dépôt, 2026-09-23) : surcharge `enchantsplus:tick` (lag, `PERF.md` §Enchants Plus) → à régénérer si Enchants+ mis à jour.
 
 ---
 

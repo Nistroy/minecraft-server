@@ -7,8 +7,8 @@ Coûts « à prévoir » des mods (génération, sauvegardes…) : `MODS.md` §5
 
 | # | Cause | Impact | Statut |
 |---|---|---|---|
-| 1 | Enchants Plus : fonction `enchantsplus:tick` | 🔴 ~55 % du tick, qui grimpe avec le nombre de joueurs | **À corriger** (§Enchants Plus) |
-| 2 | RAM du Mac saturée → Java en swap | 🔴 risque de gels de plusieurs secondes | **À corriger** (§RAM du Mac) |
+| 1 | Enchants Plus : fonction `enchantsplus:tick` | 🔴 ~55 % du tick, qui grimpe avec le nombre de joueurs | Corrigé 2026-09-23 (§Enchants Plus) |
+| 2 | RAM du Mac saturée → Java en swap | 🔴 risque de gels de plusieurs secondes | À surveiller (§RAM du Mac) |
 | 3 | Génération de chunks neufs hors pré-génération | 🟠 pics en exploration | À surveiller |
 | 4 | Entités nombreuses : 145 glares (Friends&Foes), 94 gardiens (ferme), 195 objets au sol | 🟡 glares ~2 % du tick | À surveiller |
 | 5 | Enhanced Celestials (prévisions lunaires, à chaque tick) | 🟡 ~2 % du tick | Accepté |
@@ -42,11 +42,22 @@ Coûts « à prévoir » des mods (génération, sauvegardes…) : `MODS.md` §5
   chaque joueur est sérialisé 7 fois par tick, avec son inventaire, son sac à dos et ses Accessories. Le coût est proportionnel au nombre de joueurs.
 - Les autres lignes filtrent d'abord par `type`/`tag` (flèches, marqueurs) : coût faible.
 
-Options (analyse des jars Modrinth 2026-09-23, builds Fabric 1.21.1) :
+**Correctif 2026-09-23** : datapack `server/world/datapacks/enchantsplus-perf/` (hors dépôt, `pack_format` 48). Il redéfinit
+`enchantsplus:tick`, ce qui marche parce que les datapacks du monde se chargent après ceux des mods (`datapack list`).
+Copie de l'original avec 8 remplacements :
+- 7 × `@a[nbt={SelectedItem…}]` / `@a[nbt={Inventory…Slot:102b}]` → `@a` + `if items entity @s weapon.mainhand` /
+  `armor.chest *[minecraft:enchantments~[{enchantments:"enchantsplus:<id>",levels:<n>}]]` ;
+- `@e[type=!player,nbt={NoAI:true},tag=ep.entity.frozen]` → `tag` avant `nbt`.
+
+Vérifié : `if items` et l'ancien `nbt=` donnent le même résultat sur nistroy9 (Luminosité III sur le plastron) ; `/reload` sans
+nouvelle erreur, 81 packs ; marqueurs `ep.light.mark` présents après correction. Profil avec 6 joueurs
+<https://spark.lucko.me/FLcnPhaII5> : fonctions 55 % → 5,5 % du tick, tick médian 43 → 21 ms, TPS 20.
+Enchants+ mis à jour → régénérer la surcharge à partir du nouveau `tick.mcfunction`.
+
+Autres options (analyse des jars Modrinth 2026-09-23, builds Fabric 1.21.1) :
 
 | Option | Coût serveur | Côté joueurs | Remarques |
 |---|---|---|---|
-| **Garder Enchants Plus + surcharger `enchantsplus:tick`** (datapack dans `world/datapacks/`) | quasi nul : tests `tag` avant `nbt`, `if items entity @s weapon.mainhand` / `armor.chest` au lieu de `@a[nbt=…]` | rien | Même comportement. À resynchroniser si Enchants Plus est mis à jour. Recommandé |
 | More Enchants `moreenchantments` `1.2.1+mod` | nul (21 enchantements en données pures, aucune fonction par tick) | optionnel | Enchantements à attributs (vitesse, force, portée…), moins « vanilla » |
 | Enchantments Encore `1.8+mod` | faible : 1 × `@a[nbt={SleepTimer…}]` par tick + tests `nbt` sur les projectiles | optionnel | 153 fichiers d'enchantement. Déjà écarté au vote (un seul pack d'enchantements) |
 | Neo Enchant+ `5.14.0` | faible : chaque tick, lit les objets au sol à moins de 10 blocs des joueurs (`if data`) | optionnel | 129 fichiers d'enchantement |
@@ -59,8 +70,10 @@ ressources `enchants-plus-lang` (`MODS.md` §6 étape 9) et le datapack `starlig
 
 16 Go au total : Java 6 Go de heap (`MEM="6G"`, 7,1 Go en tout) + VM Docker (playit, ~1 Go) + le reste.
 Si macOS manque de RAM, il compresse et swappe la mémoire de Java. Le GC doit ensuite relire ces pages
-depuis le disque, d'où des gels. À corriger : fermer RustDesk quand il ne sert pas (4,8 Go, fuite probable),
-limiter Chrome et l'IDE pendant les sessions de jeu. Ne pas augmenter `MEM` sans RAM libre.
+depuis le disque, d'où des gels. RustDesk (4,8 Go, fuite probable) sert à l'accès à distance : ne pas le fermer.
+Leviers : limiter Chrome et l'IDE pendant les sessions de jeu ; ne pas augmenter `MEM` sans RAM libre.
+Baisser `MEM` : heap utilisé jusqu'à 4,3 Go le 2026-09-23 (6 joueurs) → 5 Go laisserait peu de marge. `MEM` ne sert
+que serveur lancé (Java rend tout à l'arrêt), donc rien à « remettre » après un arrêt.
 
 ## Génération hors pré-génération
 
