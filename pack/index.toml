@@ -595,8 +595,16 @@ file = "resourcepacks/enchants-plus-lang/assets/farmersdelight/lang/fr_fr.json"
 hash = "71577fcc99441060fcbfd23bb064857b0427df0d3788bf2eb876babb20d26ddc"
 
 [[files]]
+file = "resourcepacks/enchants-plus-lang/assets/starbow/lang/en_us.json"
+hash = "d69504dde5c9acea06829bdce4c541f6e7a6d4b7425c97f8a6f782b50cb0abbf"
+
+[[files]]
+file = "resourcepacks/enchants-plus-lang/assets/starbow/lang/fr_fr.json"
+hash = "df5a59681b0f6e7a89e65f2751d86335f7bcd27ae910e3c134d5c07ecdca5356"
+
+[[files]]
 file = "resourcepacks/enchants-plus-lang/pack.mcmeta"
-hash = "227d1f86ba474e9c276614fdbac4d7e53ce331feb0834dd588956f11a416c3c5"
+hash = "59810f27ce2ea28801322de1c921e103d80f2c5fbb5e864e271fc95684157a8f"
 
 [[files]]
 file = "resourcepacks/fresh-animations.pw.toml"
