@@ -70,7 +70,11 @@ ressources `enchants-plus-lang` (`MODS.md` §6 étape 9) et le datapack `starlig
 
 16 Go au total : Java 6 Go de heap (`MEM="6G"`, 7,1 Go en tout) + VM Docker (playit, ~1 Go) + le reste.
 Si macOS manque de RAM, il compresse et swappe la mémoire de Java. Le GC doit ensuite relire ces pages
-depuis le disque, d'où des gels. RustDesk (4,8 Go, fuite probable) sert à l'accès à distance : ne pas le fermer.
+depuis le disque, d'où des gels. RustDesk `1.4.8` (`--server`, service launchd `gui/501/com.carriez.RustDesk_server`)
+fuit : 4,7 Go après 10 jours. Il sert à l'accès à distance, donc on ne le ferme pas. macOS ne sait pas plafonner la RAM d'un processus.
+Parade : le redémarrer avec `launchctl kickstart -k gui/501/com.carriez.RustDesk_server` (relancé en ~1 s, la session
+distante coupe). 2026-09-23 : 4,7 Go → 60 Mo, swap 4,1 → 1,2 Go, mémoire compressée 7,7 → 2,8 Go.
+Redémarrage automatique à 6 h (validé par nistroy) : LaunchAgent `~/Library/LaunchAgents/com.nistroy.rustdesk-restart.plist`, à installer.
 Leviers : limiter Chrome et l'IDE pendant les sessions de jeu ; ne pas augmenter `MEM` sans RAM libre.
 Baisser `MEM` : heap utilisé jusqu'à 4,3 Go le 2026-09-23 (6 joueurs) → 5 Go laisserait peu de marge. `MEM` ne sert
 que serveur lancé (Java rend tout à l'arrêt), donc rien à « remettre » après un arrêt.
