@@ -213,6 +213,7 @@ Datapack maison `world/datapacks/starlight-bow-enchants/` (hors dépôt, 2026-09
 - Étoile flèche `tide:star_arrow` : vitesse 2,5 (flèche 3,0) → 5 dégâts au lieu de 6 ; vit 50 ticks ; détruite au 1er contact (pas de perforation) ; mixin Tide `ProjectileWeaponItemMixin` : 60 % → 1 flèche gratuite, saute `ammo_use`/`projectile_count` vanilla (source : bytecode Tide 2.1.1).
 - Enchants+ Puissance/Précision/Toxique/Rafale de vent étendus à l'arc (copies de `power.json`, `precision.json`, `toxic.json`, `breeze_burst.json` → resynchroniser si Enchants+ mis à jour). Puissance + Toxique : sans effet sur joueur touché par étoile.
 - `starbow:etoile_filante` I-III, recette Tide surchargée → arc crafté niveau I ; I+I / II+II à l'enclume ; incompatible Infinité (déjà applicable via `#enchantable/bow` de Tide). I : +1 base (×2,5), lueur, joueur touché → Régén II 6,5 s au lieu de dégâts, particules. II : 80 % munitions, Marque +1 vs cible lumineuse, Régén II 3 s tireur, vision nocturne en main (21 s, rafraîchie /200 ticks). III : infini, Chasseur +2 vs `#starbow:celestial`, pluie d'étoiles (tir accroupi, 7 étoiles en 3,5 s, recharge 30 s via `time query gametime`, pas de tick).
+- Lore des paliers : recette (lignes = chaînes JSON, sinon recette en erreur) + `starbow:lore` (`item modify entity <joueur> weapon.mainhand starbow:lore`) → garder les deux identiques.
 - Paliers = `random_chance` + `enchantment_level` lookup. Enchantements = registre dynamique → **redémarrage requis**, `/reload` ne suffit pas (recette en erreur tant que l'enchantement n'est pas chargé). Validé sur serveur vanilla 1.21.1 jetable (ids Tide remplacés).
 Datapack maison `world/datapacks/enchantsplus-perf/` (hors dépôt, 2026-09-23) : surcharge `enchantsplus:tick` (lag, `PERF.md` §Enchants Plus) → à régénérer si Enchants+ mis à jour.
 
@@ -455,7 +456,8 @@ Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Mo
    **Pack de ressources maison « enchants-plus-lang »** (activé par défaut) : `assets/enchantsplus/lang/`
    `en_us.json` + `fr_fr.json` avec, pour les 22 enchantements, le nom (`enchantment.enchantsplus.<id>`) et la description
    (`enchantment.enchantsplus.<id>.desc`), rédigés d'après la page Modrinth d'Enchants Plus ; + `assets/farmersdelight/lang/`
-   avec `enchantment.farmersdelight.backstabbing.desc`. IDs : breaking_curse, breeze_burst, clumsiness_curse, crabs_touch,
+   avec `enchantment.farmersdelight.backstabbing.desc`. + `assets/starbow/lang/` : `enchantment.starbow.etoile_filante.desc` (datapack Étoile filante ;
+   clé EnchDesc = `enchantment.<ns>.<id>.desc` même si le nom de l'enchantement est un texte littéral, vérifié dans `enchdesc-fabric-1.21.1-21.1.11.jar`). IDs : breaking_curse, breeze_burst, clumsiness_curse, crabs_touch,
    displacement_curse, double_edge_curse, gluttony, graviole, ice_aspect, kinetic_protection, luminosity, outreach,
    precision, pyrolysis, retrieval, scorch_walker, skyguard, stride, swift_strike, toxic, vitality, websnare.
    **Pack maison « bahbeuh-fixes »** (activé par défaut, priorité la plus haute) : `assets/minecraft/subtle_effects/fluid_definitions/lava.json`
