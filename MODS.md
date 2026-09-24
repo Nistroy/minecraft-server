@@ -155,6 +155,7 @@ Légende « Côté » :
 | Reese's Sodium Options | `reeses-sodium-options` | Menu des options graphiques plus clair |
 | Mouse Tweaks | `mouse-tweaks` | Gestion de l'inventaire à la souris |
 | Controlling | `controlling` | Recherche dans les touches |
+| Amecs | `amecs` | Combinaisons de touches (Shift/Ctrl/Alt + touche) et plusieurs actions sur une même touche (ex. sprint + boost Élytre des âmes). `1.6.3+mc1.21.1` 2026-09-24, dépendances incluses dans le jar ; compatible Controlling (issue GitHub `Siphalor/amecs#119`, 1.21, 2026-06-30) |
 | LambDynamicLights | `lambdynamiclights` | Une torche en main éclaire autour de soi |
 | Complementary Reimagined | `complementary-reimagined` (**shader**, `pack/shaderpacks/`) | Shader livré avec le pack, **désactivé par défaut** (Iris sans shader actif ne coûte rien) : Options → Vidéo → Shader Packs. Eau réglée en style Unbound d'office (§6.9). `r5.9.3` 2026-09-20 |
 | Fresh Animations | `fresh-animations` (**pack de ressources**) + `entitytexturefeatures` + `entity-model-features` | Animations des **mobs vanilla uniquement** (les mobs des autres mods gardent les leurs) |
