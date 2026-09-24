@@ -219,6 +219,7 @@ Datapack maison `world/datapacks/starlight-bow-enchants/` (hors dépôt, 2026-09
 - Piège : tireur d'un projectile = `execute on origin` (`on owner` = animaux apprivoisés/vex/crocs, vide pour une flèche) ; `projectile_spawned` s'exécute dans le constructeur (propriétaire pas encore posé → tireur = `@p[distance=..2]`).
 - Paliers = `random_chance` + `enchantment_level` lookup. Enchantements = registre dynamique → **redémarrage requis**, `/reload` ne suffit pas (recette en erreur tant que l'enchantement n'est pas chargé). Validé sur serveur vanilla 1.21.1 jetable (ids Tide remplacés).
 Datapack maison `world/datapacks/enchantsplus-perf/` (hors dépôt, 2026-09-23) : surcharge `enchantsplus:tick` (lag, `PERF.md` §Enchants Plus) → à régénérer si Enchants+ mis à jour.
+Datapack maison `world/datapacks/soul-elytra-enchants/` (hors dépôt, 2026-09-24) : copies de `graviole.json` + `skyguard.json` (Enchants+) avec `supported_items` = `minecraft:elytra` + `deeperdarker:soul_elytra` (original : élytre vanilla seule → enclume refuse l'Élytre des âmes ; effets indépendants de l'objet). Redémarrage requis ; resynchroniser si Enchants+ mis à jour.
 
 ---
 
