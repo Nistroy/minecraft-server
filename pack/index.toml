@@ -6,6 +6,11 @@ hash = "26085aa8480f728633c0b84a5eb1879f2911993905c425f3596fb2bef0ed94cc"
 metafile = true
 
 [[files]]
+file = "mods/adventure-map.pw.toml"
+hash = "021a695de4c28fbd755c8a0ac099aebbd53abf51b15d48c892d2cd745a521df8"
+metafile = true
+
+[[files]]
 file = "mods/aether.pw.toml"
 hash = "e71c04679ff75573cd8ef1003eb167830f794b8979f2bdd3c99d28793f2918b0"
 metafile = true

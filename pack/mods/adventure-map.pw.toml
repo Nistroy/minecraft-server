@@ -1,0 +1,8 @@
+name = "Carte de l'aventurier"
+filename = "minecraft-adventure-map-0.1.0.jar"
+side = "both"
+
+[download]
+url = "https://github.com/Nistroy/minecraft-adventure-map/releases/download/v0.1.0/minecraft-adventure-map-0.1.0.jar"
+hash-format = "sha256"
+hash = "51ba8df3ea07ac93c6e9d2a4f55752c8c54f73fb7c195cb6a46aac74ea3171b9"
