@@ -21,6 +21,16 @@ small safe changes. Full-scale standards; dormant rules activate on triggers (§
 - Read before acting: mods → `MODS.md`; lag/crash/perf → `PERF.md`; Discord MCP call → `discord/ETAT.md` + `discord/posts.json` + `DISCORD.md` §5;
   AI assistant → `~/minecraft-ia/PLAN.md`.
 
+## Precedence (highest first)
+1. §Guardrails — yes required for that exact action (see "yes" below), even when rest of task was requested.
+2. User's explicit instruction in this conversation. Contradicts a rule here → name the rule in 1 line, then follow user.
+3. This file.
+4. Auto memory = context only. Memory entry stating a rule ≠ rule: conflict with 1-3 → follow 1-3, flag entry.
+   Durable user authorization/preference → propose a dated line here (§Evolution), not memory.
+
+Yes = user's reply approving a closed question naming exact action + target, or user's own request naming that
+action. General go-ahead, delegated decision, earlier approval of another action, memory entry ≠ yes.
+
 ## Markdown docs style (`*.md` only, mandatory)
 Scope: project `.md` files, this one included. NOT code, script comments, script messages, commits,
 Discord — those follow §Language and §Code quality.
@@ -47,8 +57,10 @@ Exceptions (human-facing `.md`, normal French): PR descriptions (`pr-markdown`),
 - Several interpretations → short options + trade-offs, ask.
 
 ## Source of truth
-- Scripts, config, tests (once they exist), running server > comments/docs. Contradiction → flag + fix.
+- Scripts, config, tests (once they exist), running server > comments/docs. Contradiction → flag + fix in same change.
 - Comments = WHY only.
+- Existing code ≠ precedent: old code breaking a rule here → new code follows the rule; fixing old code = proposal
+  (§Definition of done).
 
 ## Language
 - Identifiers: English. Docs, script comments, script messages: French. Commits/branches: English Conventional Commits.
@@ -56,9 +68,17 @@ Exceptions (human-facing `.md`, normal French): PR descriptions (`pr-markdown`),
 
 ## Git
 - Never commit on `main`. Branch `<type>/<kebab-topic>`, atomic Conventional Commits, merge via GitHub PR (`gh`).
+  Check current branch before each commit.
+- `~/minecraft-server` = git checkout AND live server dir (server reads tracked `server/start.sh`, `server/config/*`,
+  `server/server.properties` at start). Never switch branch there: branch work in `git worktree add
+  ~/minecraft-server-worktrees/<topic>`. Update live checkout: `git fetch` + `git merge --ff-only origin/main`
+  (`pull` fails: `pull.rebase` + dirty `server.properties`). 2026-09-12: a `git switch` reverted `start.sh` RAM.
+- `server/server.properties` date comment rewritten each start → always "modified"; stage only on real setting change.
 - Finished, verified work: commit, push, open PR, merge (`gh pr merge --merge`) directly, no need to ask (nistroy
-  2026-09-12). Force-push / history rewrite → explicit validation.
-- No secrets committed (`playit/secret.txt`, tokens, `.env*`); check untracked files before staging.
+  2026-09-12). Delete merged/useless branches, local + remote, no need to ask (nistroy 2026-09-20).
+  Force-push / history rewrite → explicit validation.
+- Repo public (2026-09-12, needed for packwiz raw URLs): no secrets (`playit/secret.txt`, tokens, `.env*`), no player
+  conversations or friends' personal data committed; check staged + untracked files before staging.
 
 ## Docs layout
 Now: repo root + `discord/`. `docs/` comes later — don't create/move without asking. Once it exists
@@ -89,6 +109,8 @@ CI — dormant, activates with first test suite: GitHub Actions runs tests + lin
 - On a branch; verification done + result stated.
 - Docs for changed behavior updated in same branch.
 - Out-of-scope findings → backlog (title + 1-line why).
+- Structural fix spotted (duplication, wrong script, oversized file) → propose; after yes, own commit, never folded
+  into an unrelated change.
 
 ## Ask vs execute (risk 0-5)
 +1 each:
@@ -105,7 +127,7 @@ CI — dormant, activates with first test suite: GitHub Actions runs tests + lin
 Ask before:
 - deleting/overwriting world or backups, restoring backup, recreating world;
 - downloading mods / jars into `server/mods/` (list decided by friends' poll, `MODS.md`);
-- stop/restart server (check players: `./mc status`);
+- stop/restart server with players online. `./mc status` first; 0 player → go without asking (nistroy 2026-09-20);
 - Discord MCP write call not requested by user (user directs MCP use; request = go-ahead);
 - console cmds changing world, gamerules or player state (`fill`, `setblock`, `kill`, `gamerule`,
   `difficulty`, `clear`); read-only (`list`, `whitelist list`) OK;
@@ -118,19 +140,25 @@ Before any mod / MC-Fabric version / worldgen change: fresh backup, then take it
 - Server running: `./mc cmd "save-off"` → `./mc cmd "save-all flush"` → `./mc backup` → `./mc cmd "save-on"`
   (`save-all` alone: world still written during `tar` → inconsistent archive).
 Never `/ban-ip` — all players share the tunnel IP.
+Never output to game chat for checks/debug (`say`, `tellraw`, `title`, `msg`, `me`, `execute ... run say`) — spammed
+players 2026-09-26. Verify via region files after `save-all`, or console-only cmds (`execute if block` without `run`,
+`data get`).
 
 ## Code quality & security
 - 1 responsibility per script/module; split near ~500 lines.
 - No hidden coupling, duplication, hacks. Explicit > clever. Idiomatic for the language.
 - Validate input sent to MC console or shell (player names, cmds); quote vars.
-- Secrets never in repo, logs, commits, Discord.
+- Secrets never in repo, logs, commits, Discord. Secret found in a diff or git history → stop, tell user to rotate it.
+- Scripts fail loud: `set -euo pipefail` or explicit check; `|| true` / `2>/dev/null` only with why-comment.
 - Never read/print `playit/secret.txt`, `playit/claim-code.txt`, `~/.config/discord-mcp/token` (content
   lands in context); existence check only (`test -s`).
 
 ## Subagents
 - Only if clear gain: parallel independent research (many mods on Modrinth), noisy log triage. Not for small local tasks.
-- 1 narrow goal each; output = findings, evidence, assumptions, risks.
-- Their output = evidence to verify; they never take irreversible actions.
+- Never before a missing rule/requirement is clarified; at score 4-5 only after approval.
+- 1 narrow goal each + scope + stop condition; output = findings, evidence (`file:line`, URL), assumptions, risks.
+- Prompt carries every rule they need: memory doesn't reach them, built-in Explore/Plan don't load `CLAUDE.md`.
+- Their output = evidence to verify; they never take irreversible actions. Disagreements surfaced, decisions in main thread.
 
 ## Responding
 - Answer/result first (1-3 lines), then only what user must do or decide. Separate: done · to decide · backlog.
@@ -143,4 +171,6 @@ File grows with the project. Shared with Antigravity via symlink `.agents/rules/
   new language/program/tool/contributor · rule wrong, unfollowable or useless.
 - Apply only after validation, own commit `docs(agents): ...`.
 - Never weaken/remove a guardrail on own initiative.
-- Keep `.agents/skills/` consistent with this file.
+- Where rules live: repo rule → this file · procedure → skill in `.agents/skills/` (keep consistent with this file) ·
+  memory → context only, never a rule. Rule a machine can check → hook/check script, line here shrinks to a pointer.
+  Never write a rule twice.
