@@ -51,6 +51,7 @@ cd ~/minecraft-server
 ./mc restock [pseudo]   # réinitialise le stock des villageois proches (défaut: nistroy9, 20m, pêcheurs)
 
 ./mc backup
+./mc backup-pre <nom>   # avant un changement de mods/version/worldgen : sauvegarde hors rotation (pre-<nom>_<date>)
 ./mc info               # adresse du serveur + état du tunnel
 ```
 
