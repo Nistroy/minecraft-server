@@ -15,6 +15,7 @@
 #   ./mc cmd "<commande>" envoie n'importe quelle commande Minecraft
 #   ./mc restock [pseudo] [metier] reinitialise le stock des villageois (defaut: nistroy9 fisherman, ou "all")
 #   ./mc backup           sauvegarde le monde
+#   ./mc backup-pre <nom> sauvegarde hors rotation avant un changement de mods/version/worldgen (pre-<nom>_<date>)
 #   ./mc info             adresse du serveur et etat du tunnel
 
 set -uo pipefail
@@ -176,6 +177,22 @@ send() {
         | (grep -vxF "$1" || true)
 }
 
+# Envoie "save-all flush" et attend "Saved the game" dans la sortie de CETTE
+# commande : sans cette attente, tar lirait des regions encore en ecriture.
+save_flush() {
+    local before
+    before=$("$TMUX_BIN" capture-pane -p -S - -t "$SESSION" | grep -c '[^[:space:]]')
+    "$TMUX_BIN" send-keys -t "$SESSION" -- "save-all flush" Enter
+    for _ in $(seq 1 120); do
+        if "$TMUX_BIN" capture-pane -p -S - -t "$SESSION" \
+            | grep '[^[:space:]]' | tail -n +$((before + 1)) | grep -q 'Saved the game'; then
+            return 0
+        fi
+        python3 -c "import time; time.sleep(1)" 2>/dev/null
+    done
+    return 1
+}
+
 case "${1:-}" in
 
 start)
@@ -305,6 +322,27 @@ restock)
 
 backup)
     exec "$BASE/backup.sh"
+    ;;
+
+backup-pre)
+    change="${2:-}"
+    if [[ ! "$change" =~ ^[a-z0-9][a-z0-9-]*$ ]]; then
+        echo "Usage : ./mc backup-pre <nom> (minuscules, chiffres, tirets ; ex. add-create)"
+        exit 1
+    fi
+    if running; then
+        send "save-off"
+        # save-on meme si la sauvegarde echoue : sinon le monde n'est plus jamais ecrit.
+        trap 'send "save-on"' EXIT
+        save_flush || { echo "Pas de \"Saved the game\" apres 120 s : sauvegarde annulee."; exit 1; }
+    fi
+    "$BASE/backup.sh" || exit 1
+    # backup.sh garde les 10 derniers world_* : on sort celle-ci de la rotation.
+    latest=$(ls -1t "$BASE"/backups/world_*.tar.gz | head -1)
+    name=$(basename "$latest")
+    kept="$BASE/backups/pre-${change}_${name#world_}"
+    mv "$latest" "$kept"
+    echo "Hors rotation : $kept"
     ;;
 
 info)

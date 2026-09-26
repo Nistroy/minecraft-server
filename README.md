@@ -25,6 +25,7 @@ Testé de bout en bout : ~30 ms de latence vers le tunnel (datacenter européen)
 │   └── whitelist.json   Les joueurs autorisés
 ├── backups/             Sauvegardes du monde (10 max, rotation auto)
 ├── backup.sh            ← lance une sauvegarde
+├── justfile             ← raccourcis `just` (liste : `just`)
 └── playit/              Agent du tunnel playit.gg
 ```
 
@@ -51,6 +52,7 @@ cd ~/minecraft-server
 ./mc restock [pseudo]   # réinitialise le stock des villageois proches (défaut: nistroy9, 20m, pêcheurs)
 
 ./mc backup
+./mc backup-pre <nom>   # avant un changement de mods/version/worldgen : sauvegarde hors rotation (pre-<nom>_<date>)
 ./mc info               # adresse du serveur + état du tunnel
 ```
 
@@ -87,6 +89,9 @@ RAM : `MEM="6G"` dans `start.sh` (modpack complet), jamais plus de 8G.
 `server.properties` (2026-09-13) : `view-distance=16` (demandé par nistroy ; au-delà de la zone pré-générée, 2500 blocs,
 génération plus lourde → réduire à 12 si lag à plusieurs), `simulation-distance=8` (coût mobs/redstone inchangé),
 `max-tick-time=180000` (filet anti-watchdog, `MODS.md` §5 point 7).
+
+Mêmes commandes via `just` (`brew install just`) : `just` liste tout — serveur, sauvegardes, pack (`pack-refresh`,
+`pack-release`, `pack-serve`), vérifications (`check`, `check-start`), git (`worktree`, `sync`, `clean-branches`).
 
 ## Sauvegardes
 

@@ -7,6 +7,7 @@ small safe changes. Full-scale standards; dormant rules activate on triggers (§
 - `mc` — drives server via tmux session `mc` (start/stop/status, whitelist, console cmds). `start` launches AI brain
   first (tmux `ia`, `~/minecraft-ia/brain`); `stop` leaves it running.
 - `backup.sh` — world → `backups/`, keeps 10.
+- `justfile` — `just` lists recipes: server (→ live `mc`, even from a worktree), backups, pack, checks, git.
 - `server/` — Fabric 1.21.1, Java 21 forced in `server/start.sh`. World/logs/`mods/*.jar` gitignored;
   `fabric-server-launch.jar` tracked.
 - `playit/` — playit.gg tunnel agent, Docker linux/arm64.
@@ -70,9 +71,9 @@ Exceptions (human-facing `.md`, normal French): PR descriptions (`pr-markdown`),
 - Never commit on `main`. Branch `<type>/<kebab-topic>`, atomic Conventional Commits, merge via GitHub PR (`gh`).
   Check current branch before each commit.
 - `~/minecraft-server` = git checkout AND live server dir (server reads tracked `server/start.sh`, `server/config/*`,
-  `server/server.properties` at start). Never switch branch there: branch work in `git worktree add
-  ~/minecraft-server-worktrees/<topic>`. Update live checkout: `git fetch` + `git merge --ff-only origin/main`
-  (`pull` fails: `pull.rebase` + dirty `server.properties`). 2026-09-12: a `git switch` reverted `start.sh` RAM.
+  `server/server.properties` at start). Never switch branch there: branch work in a worktree (`just worktree <type> <topic>`
+  → `~/minecraft-server-worktrees/<type>-<topic>`). Update live checkout: `just sync` (`--ff-only`; `pull` fails:
+  `pull.rebase` + dirty `server.properties`). Merged branches: `just clean-branches`. 2026-09-12: a `git switch` reverted `start.sh` RAM.
 - `server/server.properties` date comment rewritten each start → always "modified"; stage only on real setting change.
 - Finished, verified work: commit, push, open PR, merge (`gh pr merge --merge`) directly, no need to ask (nistroy
   2026-09-12). Delete merged/useless branches, local + remote, no need to ask (nistroy 2026-09-20).
@@ -93,9 +94,10 @@ Until then sync: `./mc` cmds → `README.md`; mods → `MODS.md`; Discord → `d
 
 ## Testing & verification
 Now: no test suite.
-- Script change: `bash -n` (+ `shellcheck` if installed — absent 2026-09-12); state manual check done.
-- Server/mod/config change: proof = clean start (`Done (` in log), no mod load error / missing dep
-  in `server/logs/latest.log`. Start/restart → §Guardrails.
+- Script change: `just check` (`bash -n` + `shellcheck` if installed — absent 2026-09-26); state manual check done.
+- Server/mod/config change: proof = clean start, `just check-start` (`Done (` in last startup log, rotated
+  `.log.gz` included; ERROR count ~250 known datapack noise 2026-09-25) + no mod load error / missing dep.
+  Start/restart → §Guardrails.
 
 TDD — dormant. Mandatory once: scripts rewritten in another language (start with tests pinning
 current bash behavior) · new program in repo (bot, web panel, tooling) · user asks. Then:
@@ -134,11 +136,9 @@ Ask before:
 - whitelist, op, bans, `server.properties` security options, playit tunnel;
 - git force-push, history rewrite (push + PR + merge of verified work: §Git).
 
-Before any mod / MC-Fabric version / worldgen change: fresh backup, then take it out of rotation
-(`backup.sh` keeps last 10 `world_*.tar.gz`): `mv backups/world_<stamp>.tar.gz backups/pre-<change>_<stamp>.tar.gz`.
-- Server stopped: `./mc backup`.
-- Server running: `./mc cmd "save-off"` → `./mc cmd "save-all flush"` → `./mc backup` → `./mc cmd "save-on"`
-  (`save-all` alone: world still written during `tar` → inconsistent archive).
+Before any mod / MC-Fabric version / worldgen change: `just backup-pre <change>` (= `./mc backup-pre`): server running →
+`save-off` + `save-all flush` + waits `Saved the game` (else `tar` reads regions mid-write), archive, `save-on` even on
+failure; then renames to `backups/pre-<change>_<stamp>.tar.gz` (out of `backup.sh` 10-archive rotation).
 Never `/ban-ip` — all players share the tunnel IP.
 Never output to game chat for checks/debug (`say`, `tellraw`, `title`, `msg`, `me`, `execute ... run say`) — spammed
 players 2026-09-26. Verify via region files after `save-all`, or console-only cmds (`execute if block` without `run`,
