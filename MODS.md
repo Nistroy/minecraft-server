@@ -215,6 +215,7 @@ régénérer le monde (§6). Sinon : ne pas installer.
 | BlazeandCave's Advancements | `blazeandcaves-advancements-pack` | S (**datapack** → `world/datapacks/`) | +1 000 progrès, 16 onglets | Installé (`BlazeandCave's Advancements Pack 1.17.2.zip`) |
 | Better Archeology | `better-archeology` | S+C | Plus d'archéologie (structures, blocs suspects, 3 enchantements) | Retiré du pack de base (test en jeu 2026-09-12) ; peut revenir : objets partout, structures seulement dans les chunks jamais générés |
 | Snow! Real Magic! | `snow-real-magic` | S+C | Neige qui s'accumule, recouvre escaliers/dalles/clôtures (lib Kiwi) | Installé |
+| Twilight Forest | CurseForge seulement (pas Modrinth) | S+C | Dimension forêt crépusculaire, boss en progression. Build Fabric officiel **bêta** `twilightforest-fabric-1.21.1-4.8.629.jar` (2026-09-10, api.cfwidget.com) ; release = NeoForge seul. Demandé nemessvr (#idées) | Non installé, pas testé |
 
 Rappel enchantements : Dungeons and Taverns (✅) ajoute déjà des enchantements uniques et Illager Invasion (✅)
 sa table d'imprégnation. **Un seul pack d'enchantements** (Enchants Plus ✅) : les packs ne gèrent pas les exclusivités entre eux.
@@ -274,7 +275,7 @@ Mods proposés et **refusés** — ne pas installer sans nouvelle demande.
 | Galosphere | Avec Terralith, ses 3 biomes souterrains ne génèrent pas (`locate biome` échoue, témoins vanilla OK ; Terralith `dimension/overworld.json` = liste explicite `minecraft`/`terralith`) → ses mobs, blocs et sanctuaire disparaissent, restent ruines + palladium. Sous-sol déjà couvert : Terralith (11 biomes `cave/`) + Tectonic (grottes, rivières souterraines). Test 2026-09-12 |
 | Spelunkery | `0.4.4` + Moonlight `3.6.4` : 63 `Failure adding generated resources … NoSuchElementException` (loot + worldgen des minerais), aussi seul → bug du mod. Écrase en plus des loots d'autres mods (Pyrolysis d'Enchants Plus sur 4 minerais deepslate, Wither d'Incendium). Test 2026-09-12 |
 | FTB Quests (+ FTB Library, FTB Teams) | Livre de quêtes d'exploration installé 2026-09-20, retiré le jour même sur demande de nistroy. Ne pas réinstaller sans nouvelle demande |
-| *(indisponibles en Fabric 1.21.1)* | Twilight Forest, Blue Skies, Alex's Mobs, Bosses'Rise, RPG Style More Weapons, The Undergarden, EEEAB's Mobs, Betweenlands (Forge/NeoForge seuls, vérifié 2026-09-27), Etched, Sophisticated Backpacks, Moog's End/Nether Structures, Twigs, More Villagers, Croptopia, Iron Chests, Double Shulker Shells |
+| *(indisponibles en Fabric 1.21.1)* | Blue Skies, Alex's Mobs, Bosses'Rise, RPG Style More Weapons, The Undergarden, EEEAB's Mobs, Betweenlands (Forge/NeoForge seuls, vérifié 2026-09-27), Etched, Sophisticated Backpacks, Moog's End/Nether Structures, Twigs, More Villagers, Croptopia, Iron Chests, Double Shulker Shells |
 
 ---
 
