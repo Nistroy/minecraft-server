@@ -228,6 +228,7 @@ Datapack maison `world/datapacks/starlight-bow-enchants/` (hors dépôt, 2026-09
 - Paliers = `random_chance` + `enchantment_level` lookup. Enchantements = registre dynamique → **redémarrage requis**, `/reload` ne suffit pas (recette en erreur tant que l'enchantement n'est pas chargé). Validé sur serveur vanilla 1.21.1 jetable (ids Tide remplacés).
 Datapack maison `world/datapacks/enchantsplus-perf/` (hors dépôt, 2026-09-23) : surcharge `enchantsplus:tick` (lag, `PERF.md` §Enchants Plus) → à régénérer si Enchants+ mis à jour.
 Datapack maison `world/datapacks/soul-elytra-enchants/` (hors dépôt, 2026-09-24) : copies de `graviole.json` + `skyguard.json` (Enchants+) avec `supported_items` = `minecraft:elytra` + `deeperdarker:soul_elytra` (original : élytre vanilla seule → enclume refuse l'Élytre des âmes ; effets indépendants de l'objet). Redémarrage requis ; resynchroniser si Enchants+ mis à jour.
+Datapack maison `world/datapacks/spell-imbuing/` (hors dépôt, 2026-09-28, nistroy) : ajoute les 8 enchantements Spell Power (`spell_power`, `haste`, `critical_chance`, `critical_damage`, `sunfire`, `soulfrost`, `energize`, `magic_protection`) au tag `#illagerinvasion:imbuing` (`required: false`) → table d'imprégnation : livre à 1 seul enchantement, au niveau max → max + 1 (`ImbuingMenu`, bytecode Illager Invasion `21.1.6`). Testé `test-server` : pack activé, aucune erreur de tag. Tags → `/reload` suffit (pas un nouvel enchantement).
 
 ---
 
