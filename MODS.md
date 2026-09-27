@@ -131,6 +131,7 @@ Légende « Côté » :
 | Carte de l'aventurier | release GitHub `Nistroy/minecraft-adventure-map` `v0.1.0` (`pack/mods/adventure-map.pw.toml`, pas Modrinth) | Mod maison : carte au trésor de progression **par joueur** (6 régions, 36 objectifs, sceaux, brouillard, récompenses à réclamer). Carte donnée à la 1re connexion, `/carte` pour la récupérer, aucune touche. Remplace FTB Quests (§4). Réglages sans release : `server/config/adventuremap/map.json` (copie de `default_map.json` du dépôt). Pack + `server/mods/` en `v0.1.0` 2026-09-24 |
 | Comforts | `comforts` | Hamacs (dormir le jour pour passer la journée jusqu'au crépuscule) et sacs de couchage portables sans réinitialiser le point de spawn |
 | Storage Drawers | `storagedrawers` | Tiroirs : 1 type d'objet par case, contenu + quantité affichés sur la face, clic pour prendre/déposer sans ouvrir d'interface. Capacités par défaut (lues dans le jar `13.11.4`) : 1×1 = 2048 objets, 1×2 = 1024/case, 2×2 = 512/case. Contrôleur = tri auto (`interactPutItemsIntoInventory` : clic droit → l'inventaire se range), `controllerRange` = 50, réseau découvert en largeur → les tiroirs doivent se toucher en chaîne (bandeaux = rallonge). Contrôleur IO (or) pour entonnoirs. Compare les composants NBT (`isSameItemSameComponents`) → inutile pour l'équipement enchanté. Ajouté 2026-09-22 |
+| Elytra Slot | `elytra-slot` | Emplacement Trinkets dédié à l'élytre → plastron + élytre en même temps (torse reste possible). Intégré : Élytre des âmes (boost, Deeper and Darker), Wavey Capes ; tombe Universal Graves (`TrinketsCompat`). `9.0.1+1.21.1` + Trinkets `3.10.0`. Trinkets ≠ Accessories embarqué par Aether (`beta.48`) → 2 systèmes séparés ; couche `accessories-compat-layer` écartée (exige Accessories ≥ `beta.53`). Dans le slot, inactifs : Graviole (`slots: chest`), Skyguard (`armor`), Mending (emplacements d'équipement seulement). Ajouté 2026-09-27 (demande nemessvr, #idées) |
 
 ### 2.3 Joueurs seulement (C)
 
@@ -187,7 +188,7 @@ Légende « Côté » :
 Relevé du 2026-09-12 (API Modrinth, dernière release) : fabric-api, fabric-language-kotlin, yungs-api, cloth-config,
 geckolib, cardinal-components-api, puzzles-lib, forge-config-api-port, owo-lib, balm, moonlight, lithostitched,
 cristel-lib, moogs-structure-lib, polymer, architectury-api, jamlib, resourceful-lib, fragmentum, corgilib,
-data-anchor, resourceful-config, fzzy-config, cicada ; pour les ⏳ seulement : yacl, kiwi.
+data-anchor, resourceful-config, fzzy-config, cicada, trinkets (Elytra Slot) ; pour les ⏳ seulement : yacl, kiwi.
 Hors résolution auto : `kambrik` ≥ `8.0.0-beta.2`, requis par Bountiful (`fabric.mod.json`) mais absent de ses
 dépendances Modrinth → à ajouter à la main (échec de démarrage sans, test 2026-09-12).
 
@@ -267,7 +268,7 @@ Mods proposés et **refusés** — ne pas installer sans nouvelle demande.
 | Galosphere | Avec Terralith, ses 3 biomes souterrains ne génèrent pas (`locate biome` échoue, témoins vanilla OK ; Terralith `dimension/overworld.json` = liste explicite `minecraft`/`terralith`) → ses mobs, blocs et sanctuaire disparaissent, restent ruines + palladium. Sous-sol déjà couvert : Terralith (11 biomes `cave/`) + Tectonic (grottes, rivières souterraines). Test 2026-09-12 |
 | Spelunkery | `0.4.4` + Moonlight `3.6.4` : 63 `Failure adding generated resources … NoSuchElementException` (loot + worldgen des minerais), aussi seul → bug du mod. Écrase en plus des loots d'autres mods (Pyrolysis d'Enchants Plus sur 4 minerais deepslate, Wither d'Incendium). Test 2026-09-12 |
 | FTB Quests (+ FTB Library, FTB Teams) | Livre de quêtes d'exploration installé 2026-09-20, retiré le jour même sur demande de nistroy. Ne pas réinstaller sans nouvelle demande |
-| *(indisponibles en Fabric 1.21.1)* | Twilight Forest, Blue Skies, Etched, Sophisticated Backpacks, Moog's End/Nether Structures, Twigs, More Villagers, Croptopia, Iron Chests, Double Shulker Shells |
+| *(indisponibles en Fabric 1.21.1)* | Twilight Forest, Blue Skies, Alex's Mobs, Bosses'Rise, RPG Style More Weapons, The Undergarden, EEEAB's Mobs, Betweenlands (Forge/NeoForge seuls, vérifié 2026-09-27), Etched, Sophisticated Backpacks, Moog's End/Nether Structures, Twigs, More Villagers, Croptopia, Iron Chests, Double Shulker Shells |
 
 ---
 
