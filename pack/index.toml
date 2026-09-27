@@ -601,6 +601,11 @@ hash = "100b417ff1e93686ce9ba92c26f292bfebba401d92838ed8ec2dfc5e7567505f"
 metafile = true
 
 [[files]]
+file = "mods/the-twilight-forest.pw.toml"
+hash = "a0f1b5bb0d09a3ccb081bff8153889ef6a83584aceb72a53bc0262e2126452ea"
+metafile = true
+
+[[files]]
 file = "mods/tide.pw.toml"
 hash = "6628a68502f27a97fa378e192472cedba6759aa317f8ef735fd2dbfcfaf45ccd"
 metafile = true
