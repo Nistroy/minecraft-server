@@ -1,0 +1,13 @@
+name = "LibZ"
+filename = "libz-1.1.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/yUBXc3AH/versions/tvtFvW21/libz-1.1.0.jar"
+hash-format = "sha512"
+hash = "43be7ad20b4e9eae10204c3221f4539b576da239b4994de75dbabb3e242468db2f5cc2987cd4f130b58aa97340108c4ed22199e3a3553d35ba9dc8b5135cb0ca"
+
+[update]
+[update.modrinth]
+mod-id = "yUBXc3AH"
+version = "tvtFvW21"

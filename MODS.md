@@ -90,6 +90,8 @@ Légende « Côté » :
 | Grind Enchantments | `grind-enchantments` | La meule transfère les enchantements sur un livre |
 | Textile Backup | `textile_backup` | Sauvegardes automatiques **pendant** que le serveur tourne |
 | Better Than Mending | `better-than-mending` | Shift + clic droit : répare un objet Mending avec son XP |
+| Élytre du slot | release GitHub `Nistroy/minecraft-elytra-slot-enchants` `v0.1.0` (pas Modrinth) | Mod maison : enchantements « torse seul » (Graviole) actifs sur l'élytre du slot Elytra Slot, coupés au retrait. Trinkets passe `inSlot = null` → `trinkets:slots` par datapack = NPE `idForSlot` au vol, d'où le mod. Ajouté 2026-09-27 |
+| Annihilation Recreated | `annihilation-recreated` | Boss Annihilation de Wynncraft (datapack emballé en mod, client optionnel). `r1.2.5_mc1.21.1+mod`. Ajouté 2026-09-27 (#idées) |
 
 ### 2.2 Serveur + joueurs (S+C)
 
@@ -131,6 +133,11 @@ Légende « Côté » :
 | Carte de l'aventurier | release GitHub `Nistroy/minecraft-adventure-map` `v0.1.0` (`pack/mods/adventure-map.pw.toml`, pas Modrinth) | Mod maison : carte au trésor de progression **par joueur** (6 régions, 36 objectifs, sceaux, brouillard, récompenses à réclamer). Carte donnée à la 1re connexion, `/carte` pour la récupérer, aucune touche. Remplace FTB Quests (§4). Réglages sans release : `server/config/adventuremap/map.json` (copie de `default_map.json` du dépôt). Pack + `server/mods/` en `v0.1.0` 2026-09-24 |
 | Comforts | `comforts` | Hamacs (dormir le jour pour passer la journée jusqu'au crépuscule) et sacs de couchage portables sans réinitialiser le point de spawn |
 | Storage Drawers | `storagedrawers` | Tiroirs : 1 type d'objet par case, contenu + quantité affichés sur la face, clic pour prendre/déposer sans ouvrir d'interface. Capacités par défaut (lues dans le jar `13.11.4`) : 1×1 = 2048 objets, 1×2 = 1024/case, 2×2 = 512/case. Contrôleur = tri auto (`interactPutItemsIntoInventory` : clic droit → l'inventaire se range), `controllerRange` = 50, réseau découvert en largeur → les tiroirs doivent se toucher en chaîne (bandeaux = rallonge). Contrôleur IO (or) pour entonnoirs. Compare les composants NBT (`isSameItemSameComponents`) → inutile pour l'équipement enchanté. Ajouté 2026-09-22 |
+| Elytra Slot | `elytra-slot` | Emplacement Trinkets dédié à l'élytre → plastron + élytre en même temps (torse reste possible). Intégré : Élytre des âmes (boost, Deeper and Darker), Wavey Capes ; tombe Universal Graves (`TrinketsCompat`). `9.0.1+1.21.1` + Trinkets `3.10.0`. Trinkets ≠ Accessories embarqué par Aether (`beta.48`) → 2 systèmes séparés ; couche `accessories-compat-layer` écartée (exige Accessories ≥ `beta.53`). Enchantements dans le slot : Trinkets applique ceux `any`/`armor` (Mending, Solidité, Skyguard) ; Graviole (`chest`) via mod maison Élytre du slot (§2.1). Ajouté 2026-09-27 (demande nemessvr, #idées) |
+| Marium's Soulslike Weaponry | `mariums-soulslike-weaponry` | Boss + armes légendaires. Minerais moonstone/verglas et structures (ex. `soulsweapons:cathedral_of_resurrection`, 22,7 km du spawn test) : chunks neufs seulement. Deps AttributeFix (plafonds d'attributs → 1 000 000), GeckoLib `4.9.2` du pack (exige ≥ `4.7.6`). Ajouté 2026-09-27 |
+| TieredZ | `tieredz` | Modificateurs aléatoires sur l'équipement (lib LibZ). Ajouté 2026-09-27 |
+| RPG Series : Wizards, Archers, Paladins & Priests, Rogues & Warriors, Jewelry | `wizards`, `archers`, `paladins-and-priests`, `rogues-and-warriors`, `jewelry` | Classes, sorts (Spell Engine), runes, bijoux (slots Trinkets). `3.1.3` (Jewelry `2.5.0`). Filons de gemmes Jewelry : chunks neufs seulement (monde pré-généré r=2500). Ajouté 2026-09-27 |
+| Better Combat | `better-combat` | Combat au corps à corps façon Minecraft Dungeons (combos, portée par arme). playerAnimator `2.0.4` remplace le `2.0.1` embarqué par Emotecraft (Fabric garde le plus récent). Ajouté 2026-09-27 |
 
 ### 2.3 Joueurs seulement (C)
 
@@ -187,7 +194,7 @@ Légende « Côté » :
 Relevé du 2026-09-12 (API Modrinth, dernière release) : fabric-api, fabric-language-kotlin, yungs-api, cloth-config,
 geckolib, cardinal-components-api, puzzles-lib, forge-config-api-port, owo-lib, balm, moonlight, lithostitched,
 cristel-lib, moogs-structure-lib, polymer, architectury-api, jamlib, resourceful-lib, fragmentum, corgilib,
-data-anchor, resourceful-config, fzzy-config, cicada ; pour les ⏳ seulement : yacl, kiwi.
+data-anchor, resourceful-config, fzzy-config, cicada, trinkets ; 2026-09-27 : attributefix, bookshelf-lib, prickle, ranged-weapon-api, libz, runes, bundle-api (absent de la résolution packwiz, ajouté à la main), armor-model-api, structure-pool-api (serveur seul sur Modrinth mais requis par les `fabric.mod.json` RPG → `both`), spell-engine, spell-power, playeranimator ; pour les ⏳ seulement : yacl, kiwi.
 Hors résolution auto : `kambrik` ≥ `8.0.0-beta.2`, requis par Bountiful (`fabric.mod.json`) mais absent de ses
 dépendances Modrinth → à ajouter à la main (échec de démarrage sans, test 2026-09-12).
 
@@ -208,6 +215,7 @@ régénérer le monde (§6). Sinon : ne pas installer.
 | BlazeandCave's Advancements | `blazeandcaves-advancements-pack` | S (**datapack** → `world/datapacks/`) | +1 000 progrès, 16 onglets | Installé (`BlazeandCave's Advancements Pack 1.17.2.zip`) |
 | Better Archeology | `better-archeology` | S+C | Plus d'archéologie (structures, blocs suspects, 3 enchantements) | Retiré du pack de base (test en jeu 2026-09-12) ; peut revenir : objets partout, structures seulement dans les chunks jamais générés |
 | Snow! Real Magic! | `snow-real-magic` | S+C | Neige qui s'accumule, recouvre escaliers/dalles/clôtures (lib Kiwi) | Installé |
+| Twilight Forest | CurseForge seulement (pas Modrinth) | S+C | Dimension forêt crépusculaire, boss en progression. Build Fabric officiel **bêta** `twilightforest-fabric-1.21.1-4.8.629.jar` (2026-09-10, api.cfwidget.com) ; release = NeoForge seul. Demandé nemessvr (#idées) | Non installé, pas testé |
 
 Rappel enchantements : Dungeons and Taverns (✅) ajoute déjà des enchantements uniques et Illager Invasion (✅)
 sa table d'imprégnation. **Un seul pack d'enchantements** (Enchants Plus ✅) : les packs ne gèrent pas les exclusivités entre eux.
@@ -267,7 +275,7 @@ Mods proposés et **refusés** — ne pas installer sans nouvelle demande.
 | Galosphere | Avec Terralith, ses 3 biomes souterrains ne génèrent pas (`locate biome` échoue, témoins vanilla OK ; Terralith `dimension/overworld.json` = liste explicite `minecraft`/`terralith`) → ses mobs, blocs et sanctuaire disparaissent, restent ruines + palladium. Sous-sol déjà couvert : Terralith (11 biomes `cave/`) + Tectonic (grottes, rivières souterraines). Test 2026-09-12 |
 | Spelunkery | `0.4.4` + Moonlight `3.6.4` : 63 `Failure adding generated resources … NoSuchElementException` (loot + worldgen des minerais), aussi seul → bug du mod. Écrase en plus des loots d'autres mods (Pyrolysis d'Enchants Plus sur 4 minerais deepslate, Wither d'Incendium). Test 2026-09-12 |
 | FTB Quests (+ FTB Library, FTB Teams) | Livre de quêtes d'exploration installé 2026-09-20, retiré le jour même sur demande de nistroy. Ne pas réinstaller sans nouvelle demande |
-| *(indisponibles en Fabric 1.21.1)* | Twilight Forest, Blue Skies, Etched, Sophisticated Backpacks, Moog's End/Nether Structures, Twigs, More Villagers, Croptopia, Iron Chests, Double Shulker Shells |
+| *(indisponibles en Fabric 1.21.1)* | Blue Skies, Alex's Mobs, Bosses'Rise, RPG Style More Weapons, The Undergarden, EEEAB's Mobs, Betweenlands (Forge/NeoForge seuls, vérifié 2026-09-27), Etched, Sophisticated Backpacks, Moog's End/Nether Structures, Twigs, More Villagers, Croptopia, Iron Chests, Double Shulker Shells |
 
 ---
 
@@ -331,6 +339,11 @@ Points à régler / tester à l'installation :
      (grand village de plaine) ; ERROR `Block-attached entity at invalid position` et `Failed to parse vibration listener for
      Sculk Sensor` en génération, source non identifiée.
    - AmbientSounds = mod, pas pack de ressources : visible dans Mod Menu, pas dans Packs.
+10. **Lot 2026-09-27** (Elytra Slot, Soulslike, Annihilation, TieredZ, RPG Series, Better Combat + 13 libs) : `test-server/`
+    run léger (`world-farm`, `MEM="3G"`, nice) = mods du live + 23 jars. 280 mods, `Done (6.856s)`, aucune ERROR/WARN venant
+    des nouveaux mods (ERROR = bruit connu : Dungeons Arise, Dramatic Doors, Supplementaries), `locate structure
+    soulsweapons:cathedral_of_resurrection` OK (async 4,5 s), TPS 20, arrêt propre. Live : 1 `Can't keep up` 2 s au démarrage du test.
+    Non testé : en jeu (client, touches, combat), aucun `incompatible` déclaré sur Modrinth.
 
 ---
 
