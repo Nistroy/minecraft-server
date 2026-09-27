@@ -68,6 +68,8 @@ Pas au vote : les mods de perf, les bibliothèques, et les mods côté joueur (S
 Un mod en plus ? → <#1548116811688444005>
 ```
 
+**#annonces** — message `1553831302237782027` (2026-09-27) : consigne temporaire (ne pas changer le sac de slot, rien de précieux dans le slot élytre) après la perte de l'élytre de THS_01 → à suivre d'un « c'est bon » une fois corrigé.
+
 **#rejoindre** `1548120922957807696` : son étape 2 (import `.mrpack`) est obsolète depuis le pack packwiz (2026-09-12)
 → à remplacer par un renvoi vers #modpack (sur demande de nistroy).
 
