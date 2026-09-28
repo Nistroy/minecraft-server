@@ -606,6 +606,11 @@ hash = "6628a68502f27a97fa378e192472cedba6759aa317f8ef735fd2dbfcfaf45ccd"
 metafile = true
 
 [[files]]
+file = "mods/tiered-trinkets.pw.toml"
+hash = "762fa321ad3f1da877c4f8570c98e25bb9bd68fe7045be3b55d691d1d4bf8db2"
+metafile = true
+
+[[files]]
 file = "mods/tieredz.pw.toml"
 hash = "bc7f4e1478079aac935a9ca339befc69f4643d9489b872b588daf5fdbd910b6c"
 metafile = true
