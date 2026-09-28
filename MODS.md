@@ -91,6 +91,7 @@ Légende « Côté » :
 | Textile Backup | `textile_backup` | Sauvegardes automatiques **pendant** que le serveur tourne |
 | Better Than Mending | `better-than-mending` | Shift + clic droit : répare un objet Mending avec son XP |
 | Élytre du slot | release GitHub `Nistroy/minecraft-elytra-slot-enchants` `v0.1.0` (pas Modrinth) | Mod maison : enchantements « torse seul » (Graviole) actifs sur l'élytre du slot Elytra Slot, coupés au retrait. Trinkets passe `inSlot = null` → `trinkets:slots` par datapack = NPE `idForSlot` au vol, d'où le mod. Ajouté 2026-09-27 |
+| Paliers Trinkets | release GitHub `Nistroy/minecraft-tiered-trinkets` `v0.1.0` (pas Modrinth) | Mod maison, serveur seul : palier TieredZ d'un objet porté dans un emplacement Trinkets appliqué (mixin `TrinketModifiers.get*`). 102 paliers : bijoux Jewelry (thème du bijou, moitié des armes ; émeraude = Chance jusqu'à +2), sacs Traveler's Backpack (moitié armure), Élytre des âmes (copie élytre). Clé, carquois, charme, pêche exclus (nistroy 2026-09-28). Noms → pack `enchants-plus-lang`. Détails : `CLAUDE.md` du dépôt |
 | Annihilation Recreated | `annihilation-recreated` | Boss Annihilation de Wynncraft (datapack emballé en mod, client optionnel). `r1.2.5_mc1.21.1+mod`. Ajouté 2026-09-27 (#idées) |
 
 ### 2.2 Serveur + joueurs (S+C)
@@ -475,7 +476,7 @@ Sur ce Mac, **Python `urllib` échoue en SSL** → utiliser `curl` pour l'API Mo
    **Pack de ressources maison « enchants-plus-lang »** (activé par défaut) : `assets/enchantsplus/lang/`
    `en_us.json` + `fr_fr.json` avec, pour les 22 enchantements, le nom (`enchantment.enchantsplus.<id>`) et la description
    (`enchantment.enchantsplus.<id>.desc`), rédigés d'après la page Modrinth d'Enchants Plus ; + `assets/farmersdelight/lang/`
-   avec `enchantment.farmersdelight.backstabbing.desc`. + `assets/tiered/lang/en_us.json` : 96 noms de palier `tiered:<palier>_staff_<école>_<n>.label` (datapack `mage-staff-tiers`, sinon clé brute dans le nom de l'objet ; `en_us` seul comme le jar). + `assets/starbow/lang/` : `enchantment.starbow.etoile_filante.desc` (datapack Étoile filante ;
+   avec `enchantment.farmersdelight.backstabbing.desc`. + `assets/tiered/lang/en_us.json` : noms de palier `<id>.label` (sinon clé brute dans le nom de l'objet ; `en_us` seul comme le jar) : 96 `tiered:<palier>_staff_<école>_<n>` (datapack `mage-staff-tiers`) + 102 du mod `minecraft-tiered-trinkets` (`lang/en_us.json` du dépôt, fusion). + `assets/starbow/lang/` : `enchantment.starbow.etoile_filante.desc` (datapack Étoile filante ;
    clé EnchDesc = `enchantment.<ns>.<id>.desc` même si le nom de l'enchantement est un texte littéral, vérifié dans `enchdesc-fabric-1.21.1-21.1.11.jar`). IDs : breaking_curse, breeze_burst, clumsiness_curse, crabs_touch,
    displacement_curse, double_edge_curse, gluttony, graviole, ice_aspect, kinetic_protection, luminosity, outreach,
    precision, pyrolysis, retrieval, scorch_walker, skyguard, stride, swift_strike, toxic, vitality, websnare.

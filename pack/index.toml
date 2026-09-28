@@ -714,11 +714,11 @@ hash = "df5a59681b0f6e7a89e65f2751d86335f7bcd27ae910e3c134d5c07ecdca5356"
 
 [[files]]
 file = "resourcepacks/enchants-plus-lang/assets/tiered/lang/en_us.json"
-hash = "df7ecec831015b95dd0b6747abd9f6efdb7a731f08f3ca839d9d259a71480718"
+hash = "e5f5e409ae9612f26de5464794a8d4e7608d186a2f87d595d092a9f1b68b49e7"
 
 [[files]]
 file = "resourcepacks/enchants-plus-lang/pack.mcmeta"
-hash = "3c8049a38cebee20f074f6fddd78851c93b211cf007aa58468e741b68a9bcafd"
+hash = "5115b971e506e1d4099da4610f71c86a5cff52538e24347ce3b293008f6768c6"
 
 [[files]]
 file = "resourcepacks/fresh-animations.pw.toml"
