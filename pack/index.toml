@@ -611,6 +611,11 @@ hash = "6628a68502f27a97fa378e192472cedba6759aa317f8ef735fd2dbfcfaf45ccd"
 metafile = true
 
 [[files]]
+file = "mods/tiered-trinkets.pw.toml"
+hash = "760f2158342b42e0898e8e11ee88a1076041cb18e5f25a4ff0626b5b8685d21d"
+metafile = true
+
+[[files]]
 file = "mods/tieredz.pw.toml"
 hash = "bc7f4e1478079aac935a9ca339befc69f4643d9489b872b588daf5fdbd910b6c"
 metafile = true
@@ -718,8 +723,12 @@ file = "resourcepacks/enchants-plus-lang/assets/starbow/lang/fr_fr.json"
 hash = "df5a59681b0f6e7a89e65f2751d86335f7bcd27ae910e3c134d5c07ecdca5356"
 
 [[files]]
+file = "resourcepacks/enchants-plus-lang/assets/tiered/lang/en_us.json"
+hash = "66a605500a0fff90c48ed2a7e47e440d15d12c0a60dfd317372dd5267e3d2924"
+
+[[files]]
 file = "resourcepacks/enchants-plus-lang/pack.mcmeta"
-hash = "59810f27ce2ea28801322de1c921e103d80f2c5fbb5e864e271fc95684157a8f"
+hash = "5115b971e506e1d4099da4610f71c86a5cff52538e24347ce3b293008f6768c6"
 
 [[files]]
 file = "resourcepacks/fresh-animations.pw.toml"
