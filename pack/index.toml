@@ -7,7 +7,7 @@ metafile = true
 
 [[files]]
 file = "mods/adventure-map.pw.toml"
-hash = "021a695de4c28fbd755c8a0ac099aebbd53abf51b15d48c892d2cd745a521df8"
+hash = "9b20a6e9cfb0b5eeb2632240cfb4a490939298678f51a304661ee3a68433a4c2"
 metafile = true
 
 [[files]]
@@ -598,6 +598,11 @@ metafile = true
 [[files]]
 file = "mods/supplementaries.pw.toml"
 hash = "100b417ff1e93686ce9ba92c26f292bfebba401d92838ed8ec2dfc5e7567505f"
+metafile = true
+
+[[files]]
+file = "mods/the-twilight-forest.pw.toml"
+hash = "a0f1b5bb0d09a3ccb081bff8153889ef6a83584aceb72a53bc0262e2126452ea"
 metafile = true
 
 [[files]]

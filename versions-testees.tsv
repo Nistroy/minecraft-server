@@ -135,3 +135,4 @@ structure-pool-api	1.2.1+1.21.1-fabric	structure_pool_api-fabric-1.2.1+1.21.1.ja
 spell-engine	1.10.8+1.21.1-fabric	spell_engine-fabric-1.10.8+1.21.1.jar	db16a6afdfeaf53662c38f0b0238249f434216eadcfd9eca8f72d6b5a546b68f7c366ec5be619d2e3f3d589833038e4063c61d4c20676c22888ce82d21d0ab79	lib	release
 spell-power	1.6.0+1.21.1-fabric	spell_power-fabric-1.6.0+1.21.1.jar	ec8578cd965bd9027d81b16944936307c4751e620747e1724f1e9745882196a9641e181d928dd9ae904b89326317581e7286d282ad0614ae3459f2c7e772850c	lib	release
 playeranimator	2.0.4+1.21.1-fabric	player-animation-lib-fabric-2.0.4+1.21.1.jar	14a931f5cf9f1a767c717a2ae65eb1041d3aab1fbb2c90e3f3a18433ed2f7264674fe40b85c136036fa08d2459543394b65e6866e73e8893e823c5ce37dfd086	lib	beta
+the-twilight-forest	4.8.629	twilightforest-fabric-1.21.1-4.8.629.jar	sha1:e4e960abe5f08c0e5c717c3825fb00a1106fa817	candidat	beta
