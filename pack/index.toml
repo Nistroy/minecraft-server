@@ -7,7 +7,7 @@ metafile = true
 
 [[files]]
 file = "mods/adventure-map.pw.toml"
-hash = "021a695de4c28fbd755c8a0ac099aebbd53abf51b15d48c892d2cd745a521df8"
+hash = "9b20a6e9cfb0b5eeb2632240cfb4a490939298678f51a304661ee3a68433a4c2"
 metafile = true
 
 [[files]]
