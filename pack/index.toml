@@ -607,7 +607,7 @@ metafile = true
 
 [[files]]
 file = "mods/tiered-trinkets.pw.toml"
-hash = "762fa321ad3f1da877c4f8570c98e25bb9bd68fe7045be3b55d691d1d4bf8db2"
+hash = "760f2158342b42e0898e8e11ee88a1076041cb18e5f25a4ff0626b5b8685d21d"
 metafile = true
 
 [[files]]
@@ -719,7 +719,7 @@ hash = "df5a59681b0f6e7a89e65f2751d86335f7bcd27ae910e3c134d5c07ecdca5356"
 
 [[files]]
 file = "resourcepacks/enchants-plus-lang/assets/tiered/lang/en_us.json"
-hash = "e5f5e409ae9612f26de5464794a8d4e7608d186a2f87d595d092a9f1b68b49e7"
+hash = "66a605500a0fff90c48ed2a7e47e440d15d12c0a60dfd317372dd5267e3d2924"
 
 [[files]]
 file = "resourcepacks/enchants-plus-lang/pack.mcmeta"
