@@ -1,8 +1,8 @@
 name = "Paliers Trinkets"
-filename = "minecraft-tiered-trinkets-0.1.0.jar"
+filename = "minecraft-tiered-trinkets-0.2.0.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Nistroy/minecraft-tiered-trinkets/releases/download/v0.1.0/minecraft-tiered-trinkets-0.1.0.jar"
+url = "https://github.com/Nistroy/minecraft-tiered-trinkets/releases/download/v0.2.0/minecraft-tiered-trinkets-0.2.0.jar"
 hash-format = "sha256"
-hash = "06b3447ff0800e41cd797f11a721aa5dc91a611f87d04d7325782f71131efe19"
+hash = "c9831d4265f8bde165256314e107363898374a7bf576247e3b872990dde6a2f8"
