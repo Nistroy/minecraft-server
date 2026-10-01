@@ -109,7 +109,7 @@ Légende « Côté » :
 | Illager Invasion | `illager-invasion` | ~10 nouveaux illagers, fort, tour, labyrinthe, table d'imprégnation |
 | Waystones | `waystones` | Pierres de téléportation |
 | Farmer's Delight Refabricated | `farmers-delight-refabricated` | Cuisine, nouvelles cultures, dizaines de plats |
-| Supplementaries | `supplementaries` | Blocs déco/pratiques style vanilla |
+| Supplementaries | `supplementaries` | Blocs déco/pratiques style vanilla. `config/supplementaries-common.json` `plunderer.naval_raid_chance` = `0.0` (défaut `0.75`, 2026-10-01) : raid naval = vague sur l'eau en bateau (`NavalRaidSpawner`) → ferme à raid sur l'océan inutilisable |
 | Traveler's Backpack | `travelersbackpack` | Sacs à dos (compat. Universal Graves déclarée) |
 | Easy Anvils | `easy-anvils` | Plus de « Trop cher ! » à l'enclume |
 | Trade Cycling | `trade-cycling` | Relancer les offres d'un villageois |
