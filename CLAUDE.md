@@ -128,7 +128,9 @@ CI — dormant, activates with first test suite: GitHub Actions runs tests + lin
 ## Guardrails (override score)
 Ask before:
 - deleting/overwriting world or backups, restoring backup, recreating world;
-- downloading mods / jars into `server/mods/` (list decided by friends' poll, `MODS.md`);
+- downloading mods / jars into `server/mods/` (list decided by friends' poll, `MODS.md`). Exception: jar of own mod
+  (GitHub release `Nistroy/*`) user requested, tests green → `just backup-pre`, install, restart without asking
+  (nistroy 2026-10-01);
 - stop/restart server with players online. `./mc status` first; 0 player → go without asking (nistroy 2026-09-20);
 - Discord MCP write call not requested by user (user directs MCP use; request = go-ahead);
 - console cmds changing world, gamerules or player state (`fill`, `setblock`, `kill`, `gamerule`,
