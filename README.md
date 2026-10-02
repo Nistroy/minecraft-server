@@ -100,8 +100,9 @@ Mêmes commandes via `just` (`brew install just`) : `just` liste tout — serveu
 ```
 
 À lancer serveur arrêté, ou après avoir tapé `save-all` dans la console.
-En plus, Textile Backup sauvegarde toutes les heures quand des joueurs sont connectés, et à l'arrêt, dans `backups/`
-(10 gardées, `server/config/textile_backup.json5`).
+En plus, Textile Backup sauvegarde toutes les 2 h quand des joueurs sont connectés, et à l'arrêt, dans `backups/world/`
+(5 gardées, ~6,5 Go chacune, `server/config/textile_backup.json5`). 2026-10-02 : 10 × 1 h + archives `pre-*` ont rempli
+le disque (joueurs déconnectés, Docker figé) → vérifier `df -h /System/Volumes/Data` avant un `backup-pre`.
 
 ## Notes techniques
 

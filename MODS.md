@@ -399,7 +399,7 @@ ScalableLux, FerriteCore/ModernFix (RAM). RAM à allouer aux joueurs : **6 Go** 
 | Mod | Impact | Parade |
 |---|---|---|
 | Génération (Terralith, Tectonic, ~20 mods de structures) | 🔴 fort, **uniquement** en générant de nouveaux chunks | C2ME + pré-génération Chunky |
-| Textile Backup | 🟠 pic processeur pendant la compression | 1×/heure, seulement si des joueurs sont connectés |
+| Textile Backup | 🟠 pic processeur pendant la compression | 1×/2 h, seulement si des joueurs sont connectés |
 | FallingTree | 🟡 petit pic en abattant un arbre géant | Limite de taille dans sa config |
 | Enhanced Celestials | 🟡 lune de sang = plus de mobs pendant une nuit | — |
 | Mobs des mods (Friends&Foes, Illager Invasion, boss) | 🟡 un peu plus d'entités | Lithium |
