@@ -186,6 +186,11 @@ hash = "7b9204de0626ccbcb91201c16427cf5bc70e5990e35fe553d4709794f3b21776"
 metafile = true
 
 [[files]]
+file = "mods/duel.pw.toml"
+hash = "44e030e968ac8b6c839bd6fd907286814d39c252661db89e93cc71cd479c7d34"
+metafile = true
+
+[[files]]
 file = "mods/dynamic-fps.pw.toml"
 hash = "582070fa54fe1743a837c0351eee7ea4a79080e647d5438656d372ae9433b272"
 metafile = true
