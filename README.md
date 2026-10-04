@@ -89,6 +89,7 @@ RAM : `MEM="6G"` dans `start.sh` (modpack complet), jamais plus de 8G.
 `server.properties` (2026-09-13) : `view-distance=16` (demandé par nistroy ; au-delà de la zone pré-générée, 2500 blocs,
 génération plus lourde → réduire à 12 si lag à plusieurs), `simulation-distance=8` (coût mobs/redstone inchangé),
 `max-tick-time=180000` (filet anti-watchdog, `MODS.md` §5 point 7).
+`allow-flight=true` (2026-10-04, nistroy, serveur entre amis) : `false` expulsait « floating too long » (mods de saut/vol, arène de duel).
 
 Mêmes commandes via `just` (`brew install just`) : `just` liste tout — serveur, sauvegardes, pack (`pack-refresh`,
 `pack-release`, `pack-serve`), vérifications (`check`, `check-start`), git (`worktree`, `sync`, `clean-branches`).
