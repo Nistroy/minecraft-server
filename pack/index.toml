@@ -187,7 +187,7 @@ metafile = true
 
 [[files]]
 file = "mods/duel.pw.toml"
-hash = "56bd10487c127d319bbfee3f9b876ad782c28d351017fd322ad5b272b53a3149"
+hash = "614fa3a5e1e97d0df64bec1636279a2407a9b856ca2267ba107e144b798dd442"
 metafile = true
 
 [[files]]
