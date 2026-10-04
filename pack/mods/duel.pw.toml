@@ -1,8 +1,8 @@
 name = "Duel"
-filename = "minecraft-duel-0.2.0.jar"
+filename = "minecraft-duel-0.2.1.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Nistroy/minecraft-duel/releases/download/v0.2.0/minecraft-duel-0.2.0.jar"
+url = "https://github.com/Nistroy/minecraft-duel/releases/download/v0.2.1/minecraft-duel-0.2.1.jar"
 hash-format = "sha256"
-hash = "9577a1a786d6de409efa72b9cbc19920bfaf009a145d0f09c8820414badf128c"
+hash = "df54134f3e07a996468d11864f902e087625c3a9271094515380a2f211abe19c"
