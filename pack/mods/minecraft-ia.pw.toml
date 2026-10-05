@@ -1,8 +1,8 @@
 name = "Assistant IA"
-filename = "minecraft-ia-0.2.0.jar"
+filename = "minecraft-ia-0.3.0.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Nistroy/minecraft-ia/releases/download/v0.2.0/minecraft-ia-0.2.0.jar"
+url = "https://github.com/Nistroy/minecraft-ia/releases/download/v0.3.0/minecraft-ia-0.3.0.jar"
 hash-format = "sha256"
-hash = "eabad8940c3ebd807f7f3c63ed83e9c56c576d3f7725fb8f5200f4fc8e70de4b"
+hash = "e72f5ec5848325091d836fdac838326ac9f40f2c254783e281900bf19f28924f"
