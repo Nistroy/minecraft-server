@@ -1,12 +1,12 @@
 name = "BahBeuh"
 author = "nistroy"
-version = "2026-09-27"
+version = "2026-10-05"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "3fa5021389d6b89126e657b054b6615b831720122c5b4d06ddd9e18c60d65a6a"
+hash = "d351f762602733c6b7f4d0c449548f573e966b134c4ca7dae57401368b251f56"
 
 [versions]
 fabric = "0.19.5"

@@ -85,11 +85,16 @@ mcp-add pseudo:
 mcp-list:
     @"{{ia}}" mcp-link list
 
-# Coupe l'acces d'un pote, effet immediat (ex. just mcp-revoke larrysto)
+# Coupe l'acces d'un pote, effet immediat : son lien manuel et celui du jeu (<pseudo>-jeu) (ex. just mcp-revoke larrysto)
 [group('mcp')]
 [positional-arguments]
 mcp-revoke pseudo:
-    @"{{ia}}" mcp-link revoke "$(tr 'A-Z' 'a-z' <<<"$1")"
+    #!/usr/bin/env bash
+    set -euo pipefail
+    name=$(tr 'A-Z' 'a-z' <<<"$1")
+    if "{{ia}}" mcp-link list | grep -qx "$name"; then "{{ia}}" mcp-link revoke "$name"; fi
+    # Lien du jeu toujours bloque, meme jamais cree : sinon le mod en redemanderait un.
+    "{{ia}}" mcp-link block "$name-jeu"
 
 # MCP lance ? + exposition Tailscale Funnel
 [group('mcp')]
