@@ -5,7 +5,7 @@ small safe changes. Full-scale standards; dormant rules activate on triggers (§
 
 ## Map
 - `mc` — drives server via tmux session `mc` (start/stop/status, whitelist, console cmds). `start` launches AI brain
-  first (tmux `ia`, `~/minecraft-ia/brain`); `stop` leaves it running.
+  (tmux `ia`) + read-only MCP (tmux `ia-mcp`, exposed by Tailscale Funnel) from `~/minecraft-ia/brain` first; `stop` leaves them.
 - `backup.sh` — world → `backups/`, keeps 10.
 - `justfile` — `just` lists recipes: server (→ live `mc`, even from a worktree), backups, pack, checks, git.
 - `server/` — Fabric 1.21.1, Java 21 forced in `server/start.sh`. World/logs/`mods/*.jar` gitignored;

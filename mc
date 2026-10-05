@@ -2,10 +2,10 @@
 # Pilote le serveur Minecraft. Le serveur tourne dans une session tmux nommee "mc",
 # ce qui permet de lui envoyer des commandes A CHAUD, sans jamais le redemarrer.
 #
-#   ./mc start            arrete Supabase, plafonne la RAM Docker (1 Go), demarre le cerveau IA (session tmux "ia") puis le serveur
-#   ./mc stop             arrete proprement (sauvegarde le monde), RAM Docker par defaut ; cerveau IA laisse lance
+#   ./mc start            arrete Supabase, plafonne la RAM Docker (1 Go), demarre cerveau IA (tmux "ia"), MCP (tmux "ia-mcp") puis serveur
+#   ./mc stop             arrete proprement (sauvegarde le monde), RAM Docker par defaut ; cerveau IA et MCP laisses lances
 #   ./mc restart
-#   ./mc status           tourne ou pas, joueurs connectes, cerveau IA
+#   ./mc status           tourne ou pas, joueurs connectes, cerveau IA, MCP
 #   ./mc console          ouvre la console live (Ctrl+B puis D pour sortir)
 #   ./mc log              suit le journal
 #   ./mc add <pseudo>     autorise un joueur (immediat, sans redemarrage)
@@ -24,6 +24,7 @@ BASE="$(cd "$(dirname "$0")" && pwd)"
 SRV="$BASE/server"
 SESSION="mc"
 IA_SESSION="ia"
+IA_MCP_SESSION="ia-mcp"
 IA_BRAIN="$HOME/minecraft-ia/brain"
 TMUX_BIN="/opt/homebrew/bin/tmux"
 [ -x "$TMUX_BIN" ] || TMUX_BIN="$(command -v tmux || true)"
@@ -42,36 +43,51 @@ require_running() {
     fi
 }
 
-brain_running() { "$TMUX_BIN" has-session -t "$IA_SESSION" 2>/dev/null; }
+session_running() { "$TMUX_BIN" has-session -t "$1" 2>/dev/null; }
+brain_running() { session_running "$IA_SESSION"; }
+mcp_running() { session_running "$IA_MCP_SESSION"; }
 
-# Cerveau de l'assistant IA (depot minecraft-ia). Lance AVANT le serveur : le mod
-# lit le jeton du cerveau au demarrage du serveur. Sans cerveau le serveur tourne
-# quand meme, seul /ia est indisponible : on previent sans bloquer le demarrage.
-start_brain() {
-    if brain_running; then
-        echo "Cerveau IA : deja lance"
+# Lance une sous-commande minecraft-ia dans sa session tmux et attend sa ligne "pret".
+# Echec = on previent sans bloquer le demarrage du serveur.
+#   $1 session  $2 sous-commande  $3 libelle  $4 motif "pret"  $5 consequence si absent
+start_ia_service() {
+    local session="$1" command="$2" label="$3" ready="$4" missing="$5"
+    if session_running "$session"; then
+        echo "$label : deja lance"
         return
     fi
     if [ ! -x "$IA_BRAIN/.venv/bin/minecraft-ia" ]; then
-        echo "Cerveau IA introuvable ($IA_BRAIN) : /ia sera indisponible"
+        echo "$label introuvable ($IA_BRAIN) : $missing"
         return
     fi
-    "$TMUX_BIN" new-session -d -s "$IA_SESSION" -c "$IA_BRAIN" ".venv/bin/minecraft-ia serve"
+    "$TMUX_BIN" new-session -d -s "$session" -c "$IA_BRAIN" ".venv/bin/minecraft-ia $command"
     for _ in $(seq 1 15); do
-        # Session disparue = le cerveau a quitte (config, port deja pris...).
-        if ! brain_running; then
-            echo "Cerveau IA : arrete au demarrage, /ia indisponible. Pour voir l'erreur :"
-            echo "  cd $IA_BRAIN && .venv/bin/minecraft-ia serve"
+        # Session disparue = le service a quitte (config, port deja pris...).
+        if ! session_running "$session"; then
+            echo "$label : arrete au demarrage, $missing. Pour voir l'erreur :"
+            echo "  cd $IA_BRAIN && .venv/bin/minecraft-ia $command"
             return
         fi
-        # "cerveau pr" sans l'accent de "pret" : independant de la locale de grep.
-        if "$TMUX_BIN" capture-pane -p -t "$IA_SESSION" 2>/dev/null | grep -q 'cerveau pr'; then
-            echo "Cerveau IA : pret"
+        # Motif sans l'accent de "pret" : independant de la locale de grep.
+        if "$TMUX_BIN" capture-pane -p -t "$session" 2>/dev/null | grep -q "$ready"; then
+            echo "$label : pret"
             return
         fi
         python3 -c "import time; time.sleep(1)" 2>/dev/null
     done
-    echo "Cerveau IA : pas pret apres 15 s. Regarde : $TMUX_BIN attach -t $IA_SESSION"
+    echo "$label : pas pret apres 15 s. Regarde : $TMUX_BIN attach -t $session"
+}
+
+# Cerveau de l'assistant IA (depot minecraft-ia). Lance AVANT le serveur : le mod
+# lit le jeton du cerveau au demarrage du serveur.
+start_brain() {
+    start_ia_service "$IA_SESSION" serve "Cerveau IA" 'cerveau pr' "/ia indisponible"
+}
+
+# MCP en lecture seule pour l'IA de chaque pote. Expose sur internet par Tailscale
+# Funnel, configure a part et persistant (tailscale funnel status).
+start_mcp() {
+    start_ia_service "$IA_MCP_SESSION" mcp "MCP" 'MCP pr' "l'IA des potes n'a pas acces au serveur"
 }
 
 # Docker partage les 16 Go du Mac avec le serveur. Une stack Supabase de dev
@@ -198,6 +214,7 @@ case "${1:-}" in
 start)
     prepare_docker
     start_brain
+    start_mcp
     if running; then
         echo "Le serveur tourne deja. Console : ./mc console"
         exit 0
@@ -265,6 +282,8 @@ status)
     fi
     echo -n "Cerveau IA : "
     brain_running && echo "EN MARCHE" || echo "ARRETE"
+    echo -n "MCP : "
+    mcp_running && echo "EN MARCHE" || echo "ARRETE"
     ;;
 
 console)
