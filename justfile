@@ -7,6 +7,7 @@ set shell := ["bash", "-cu"]
 live := env_var('HOME') / "minecraft-server"
 worktrees := env_var('HOME') / "minecraft-server-worktrees"
 packwiz := env_var('HOME') / "go/bin/packwiz"
+ia := env_var('HOME') / "minecraft-ia/brain/.venv/bin/minecraft-ia"
 
 # Liste toutes les recettes
 default:
@@ -17,7 +18,7 @@ default:
 # demarrerait un serveur sans monde ni mods)
 # ---------------------------------------------------------------------------
 
-# Demarre le cerveau IA puis le serveur
+# Demarre le cerveau IA, le MCP puis le serveur
 [group('serveur')]
 start:
     "{{live}}/mc" start
@@ -32,7 +33,7 @@ stop:
 restart:
     "{{live}}/mc" restart
 
-# Serveur, joueurs connectes, cerveau IA
+# Serveur, joueurs connectes, cerveau IA, MCP
 [group('serveur')]
 status:
     "{{live}}/mc" status
@@ -68,6 +69,33 @@ cmd command:
 [positional-arguments]
 mc *args:
     "{{live}}/mc" "$@"
+
+# ---------------------------------------------------------------------------
+# MCP : 1 lien secret par pote pour son IA (Claude, ChatGPT, Antigravity)
+# ---------------------------------------------------------------------------
+
+# Cree le lien d'un pote (pseudo mis en minuscules), affiche une seule fois (ex. just mcp-add larrysto)
+[group('mcp')]
+[positional-arguments]
+mcp-add pseudo:
+    @"{{ia}}" mcp-link add "$(tr 'A-Z' 'a-z' <<<"$1")"
+
+# Pseudos qui ont un lien actif
+[group('mcp')]
+mcp-list:
+    @"{{ia}}" mcp-link list
+
+# Coupe l'acces d'un pote, effet immediat (ex. just mcp-revoke larrysto)
+[group('mcp')]
+[positional-arguments]
+mcp-revoke pseudo:
+    @"{{ia}}" mcp-link revoke "$(tr 'A-Z' 'a-z' <<<"$1")"
+
+# MCP lance ? + exposition Tailscale Funnel
+[group('mcp')]
+mcp-status:
+    @"{{live}}/mc" status | grep '^MCP'
+    @tailscale funnel status
 
 # ---------------------------------------------------------------------------
 # Sauvegardes
