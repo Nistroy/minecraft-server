@@ -179,6 +179,7 @@ Légende « Côté » :
 | Sound Physics Remastered | `sound-physics-remastered` | Écho dans les grottes, sons étouffés |
 | Emotecraft | `emotecraft` | Emotes visibles par les autres (serveur optionnel → l'installer aussi sur le serveur) |
 | Do a Barrel Roll | `do-a-barrel-roll` | Élytre pilotée comme un avion (serveur optionnel) |
+| Elytra Lock | `elytralock` | Touche `J` (défaut) = verrouille/déverrouille l'élytre, état gardé via YACL. Pourquoi : Dragonfin Boots (Tide `2.1.1`) = double saut lu sur `input.jumping` (fin de tick client, aucune option de touche) et annulé si déjà en vol → élytre portée, Espace en l'air ouvre l'élytre, jamais le double saut. Verrouillé → Espace = double saut. Inject HEAD cancellable `Player.checkFallFlying` → couvre aussi l'élytre du slot Elytra Slot (`EntityElytraEvents`, appelé dans cette méthode). Bloque aussi l'équipement d'élytre au clic droit (message chat local). `0.1.2+1.21` (2024-08-16), dép. fabric-api ; YACL + Mod Menu optionnels (dans le pack). Ajouté 2026-10-13 (nistroy), pas testé en jeu |
 | Falling Leaves | `fallingleaves` | Feuilles qui tombent des arbres |
 | Continuity | `continuity` | Textures connectées (vitres sans bordures) |
 | Enchantment Descriptions | `enchantment-descriptions` | Explique chaque enchantement dans l'infobulle (traduit en français) |
