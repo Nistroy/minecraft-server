@@ -211,6 +211,11 @@ hash = "ecc30c21290ac87a732085e16add94a392d4e5dfc0bae5f353975eea51a38a84"
 metafile = true
 
 [[files]]
+file = "mods/elytralock.pw.toml"
+hash = "5790134bd3ebf929cf8837ceb247580b5826b08638f516ff0f03fbb6e82f0579"
+metafile = true
+
+[[files]]
 file = "mods/emi.pw.toml"
 hash = "a0a3d38daafb58117aaf29bb0b0520534abb7175e8d98f63cb47a65c75afac79"
 metafile = true

@@ -1,0 +1,13 @@
+name = "Elytra Lock"
+filename = "elytra-lock-0.1.2+1.21.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/TGKINn8G/versions/ejW1QH81/elytra-lock-0.1.2%2B1.21.jar"
+hash-format = "sha512"
+hash = "cde8eacc14d6f4a647fa636adab7f8573fe2f7b83c65b079790d5181c5ed75e7bb202605f3fe7022ced8fbdd69e99d4aaf80b80889e70fd2294901142dec9fde"
+
+[update]
+[update.modrinth]
+mod-id = "TGKINn8G"
+version = "ejW1QH81"
